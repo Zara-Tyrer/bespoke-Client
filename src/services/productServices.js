@@ -4,6 +4,6 @@ import api from '../config/api'
 export async function getAllProducts() {
   const response = await api.get("/products")
   return response.data
-  }
+}
   
   

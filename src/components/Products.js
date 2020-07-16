@@ -7,7 +7,7 @@ const Products = () => {
     const {products} = store
     return (
         <div>
-          {products}
+          {products.map((product) => product.nail_style )}
             {/* {products.map((product) => <Product key={product._id} product={product} />)}         */}
         </div>
     )
