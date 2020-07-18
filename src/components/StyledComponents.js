@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const titleFontFamily = 'Cabin'
 const fontFamily = 'Roboto'
@@ -23,9 +24,7 @@ export const Title = styled.h1 `
     font-family: ${titleFontFamily};
     font-size: 3em;
 `
-export const PostTitle = styled.h1 `
-    color: ${accentColor};
-`
+
 export const ErrorText = styled.p `
     color: red;
 `
@@ -62,4 +61,17 @@ export const Button = styled.button `
     border: none;
     font-size: 1.2em;
     margin: 1em;
+`
+
+// link formatting
+export const Nav = styled(Link) `
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #525252;
+    margin: 1em;
+    padding: .2em .5em;
+    font-family: ${titleFontFamily};
+`
+export const Logo = styled(Link) `
+
 `

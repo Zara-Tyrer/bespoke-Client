@@ -2,6 +2,7 @@ import React, {useReducer, useEffect, Fragment} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Products from './components/Products'
 import NewProduct from './components/NewProduct'
+import NavBar from './components/NavBar'
 import SignIn from './components/SignIn'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
@@ -61,7 +62,7 @@ const App = () => {
     <Page >
       <StateContext.Provider value={{store, dispatch}} >
         <BrowserRouter>
-            <h1>The basic empty template</h1>
+        <Route exact path="/" component={NavBar} />
             <Fragment>
               <Route exact path='/products' component={Products} />
               <Route exact path="/products/new" component={NewProduct} />
