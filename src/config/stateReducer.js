@@ -12,6 +12,12 @@ export default function (state, action) {
         products: action.data
       }
     }
+    case "setError": {
+      return {
+          ...state,
+          error: action.data
+      }
+  }
     default:
       return state
   }

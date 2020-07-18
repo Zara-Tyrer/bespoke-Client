@@ -22,8 +22,8 @@ const NavBar = () => {
           <Nav to="/giftcards">GIFT CARDS</Nav>
           <Logo to="/"><img style={imageStyles} src="logo.png" alt="logo"></img></Logo>
           <Nav to="/contact">CONTACT</Nav>
-          <Nav to="/shop">SHOP</Nav>
-          <Nav to="/shop">ORDER NOW</Nav>
+          <Nav to="/products">SHOP</Nav>
+          <Nav to="/products">ORDER NOW</Nav>
       </div>
     </Row>
   )
