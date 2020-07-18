@@ -17,6 +17,7 @@ export const Block = styled.div `
 `
 export const Row = styled.div `
     display: flex;
+
 `
 
 // text formatting
@@ -76,3 +77,33 @@ export const Logo = styled(Link) `
 
 `
 
+
+
+// Footer styles
+export const FooterContainer = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`
+
+export const FooterLink = styled(Link) `
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #525252;
+    margin: 1em;
+    padding: .2em .5em;
+    font-family: ${titleFontFamily};
+`
+export const RowFooter = styled.div `
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+`
+
+export const NavBlock = styled.div `
+  display: flex;
+  flex-direction: column;
+  margin: 0px 100px 0px 100px;
+  align-items: center
+  
+`
