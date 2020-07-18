@@ -1,20 +1,24 @@
-import React, {useReducer, useEffect} from 'react'
+import React, {useReducer, useEffect, Fragment} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Products from './components/Products'
+import NewProduct from './components/NewProduct'
+import SignIn from './components/SignIn'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
 import { getAllProducts } from './services/productServices'
+import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
+import {Page} from './components/StyledComponents'
 
 
 
 const App = () => {
   const initialState = {
     products: [],
-    // loggedInUser: null
+    loggedInUser: null
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  const {products} = store
+  //const {products} = store
 
   function fetchProducts() {
     getAllProducts().then((productData) => {
@@ -33,21 +37,39 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts()
+		userAuthenticated().then(() => {			 
+			dispatch({
+				type: "setLoggedInUser",
+				data: getLoggedInUser()
+			})
+		}).catch((error) => {
+			console.log("got an error trying to check authenticated user:", error)
+			setLoggedInUser(null) 
+			dispatch({
+				type: "setLoggedInUser",
+				data: null
+			})
+		})
+    // return a function that specifies any actions on component unmount
+    return () => {}
   },[])
-  // initial state for state reducer
   
   
   
   
   return (
-    <div >
+    <Page >
       <StateContext.Provider value={{store, dispatch}} >
         <BrowserRouter>
             <h1>The basic empty template</h1>
-            <Route exact path='/products' component={Products} />
+            <Fragment>
+              <Route exact path='/products' component={Products} />
+              <Route exact path="/products/new" component={NewProduct} />
+              <Route exact path="/admin/login" component={SignIn} />
+            </Fragment>
         </BrowserRouter>
       </StateContext.Provider>
-    </div>
+    </Page>
   )
 }
 
