@@ -2,11 +2,12 @@ import React, {useReducer, useEffect, Fragment} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Products from './components/Products'
 import NewProduct from './components/NewProduct'
+import Product from './components/Product'
 import NavBar from './components/NavBar'
 import SignIn from './components/SignIn'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
-import { getAllProducts } from './services/productServices'
+import { getAllProducts, getProductFromId } from './services/productServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 
@@ -19,7 +20,7 @@ const App = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  //const {products} = store
+  const {products} = store
 
   function fetchProducts() {
     getAllProducts().then((productData) => {
@@ -62,11 +63,12 @@ const App = () => {
     <Page >
       <StateContext.Provider value={{store, dispatch}} >
         <BrowserRouter>
-        <Route exact path="/" component={NavBar} />
+        <NavBar />
             <Fragment>
               <Route exact path='/products' component={Products} />
               <Route exact path="/products/new" component={NewProduct} />
               <Route exact path="/admin/login" component={SignIn} />
+              <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} showControls /> } />
             </Fragment>
         </BrowserRouter>
       </StateContext.Provider>
