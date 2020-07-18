@@ -6,4 +6,9 @@ export async function getAllProducts() {
   return response.data
 }
   
+// Adds a product on the server
+export async function addProduct(newProduct) {
+  const response = await api.post("/products", newProduct)
+  return response.data
+}
   
