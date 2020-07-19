@@ -29,7 +29,7 @@ const SignIn = ({history}) => {
                 type: "setLoggedInUser",
                 data: userDetails.username
             })
-            history.push("/")
+            history.push("/dashboard")
 
         }).catch((error) => {
             if (error.response && error.response.status === 401)
