@@ -93,6 +93,20 @@ export const DashboardLink = styled(Link) `
     padding: .2em .5em;
     font-family: ${titleFontFamily};
 `
+export const BackToDashboard = styled(Link) `
+    background-color: #D3A29C;
+    color: white;
+    padding: .2em;
+    border: none;
+    font-size: 1.2em;
+    width: 200px;
+    font-family: Abel;
+    letter-spacing: 3px;
+    box-shadow: 0 8px 6px -6px black;
+    border: 5px solid #FFFFFF;
+    text-decoration: none;
+    text-align: center
+`
 
 // Footer styles
 export const FooterContainer = styled.div `
