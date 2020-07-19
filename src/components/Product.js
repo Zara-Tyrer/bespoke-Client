@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {Button, ErrorText} from './StyledComponents'
 
-const Product = ({history, product, showControls}) => {
+const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
   const {products, loggedInUser} = store
   const [errorMessage, setErrorMessage] = useState(null)
@@ -43,7 +43,7 @@ const Product = ({history, product, showControls}) => {
       <p>{nail_length}</p>
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
-      {showControls && allowEditDelete && (
+      {allowEditDelete && (
           <div>
               <Button onClick={handleDelete}>Delete</Button>
               <Button onClick={handleEdit}>Edit</Button>
