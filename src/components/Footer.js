@@ -20,7 +20,7 @@ const Footer = () => {
             <p style={title}>Logo</p>
             <p style={title}>Address</p>
             <p style={title}>Number</p>
-            <FooterLink to="/admin/login">Admin Login</FooterLink>
+            <FooterLink to="/admin/login" data-cy="login">Admin Login</FooterLink>
           </NavBlock>
           <NavBlock>
             <p style={title}>COMPANY</p>
