@@ -73,6 +73,26 @@ export const Nav = styled(Link) `
 export const Logo = styled(Link) `
 
 `
+// Dashboard nav styles
+
+export const DashboardNavDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3A29C;
+  `
+export const AdminSide = styled.div `
+    display: flex;
+`
+export const DashboardLink = styled(Link) `
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #525252;
+    margin: 1em;
+    padding: .2em .5em;
+    font-family: ${titleFontFamily};
+`
 
 // Footer styles
 export const FooterContainer = styled.div `
@@ -100,7 +120,7 @@ export const NavBlock = styled.div `
   align-items: center
 `
 
-// Lookbook styles 
+// lookbook and shop styles 
 export const ShopLink = styled(Link) `
     background-color: #D3A29C;
     color: white;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
-import { Button, ErrorText} from './StyledComponents'
+import {Button, ErrorText} from './StyledComponents'
 
 const Product = ({history, product, showControls}) => {
   const {store, dispatch} = useGlobalState()
@@ -45,7 +45,7 @@ const Product = ({history, product, showControls}) => {
       <p>£{cost}.00</p>
       {showControls && allowEditDelete && (
           <div>
-              <Button data-cy="delete" onClick={handleDelete}>Delete</Button>
+              <Button onClick={handleDelete}>Delete</Button>
               <Button onClick={handleEdit}>Edit</Button>
           </div>
       )}

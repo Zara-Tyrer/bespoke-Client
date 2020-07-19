@@ -6,6 +6,7 @@ import Product from './components/Product'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SignIn from './components/SignIn'
+import DashboardNav from './components/DashboardNav'
 import Lookbook from './components/Lookbook'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
@@ -71,6 +72,7 @@ const App = () => {
               <Route exact path="/products/new" component={NewProduct} />
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/lookbook" component={Lookbook} />
+              <Route exact path="/dashboard" component={DashboardNav} />
               <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} showControls /> } />
             </Fragment>
         <Footer />

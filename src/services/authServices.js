@@ -8,7 +8,7 @@ export async function loginUser(userInfo) {
   return response.data
 }
 
-export async function logoutUser() {
+export async function logOutUser() {
   // call to server to logout user
   return api.get("/admin/logout")
 }
