@@ -1,5 +1,6 @@
 import React from 'react';
 import InstagramEmbed from 'react-instagram-embed';
+import {ShopLink} from './StyledComponents'
 
 const Lookbook = () => {
   const instagramContainer = {
@@ -7,25 +8,26 @@ const Lookbook = () => {
     flexDirection: "column",
     alignItems: "center"
   }
-
   const instaPics = {
-    display: "flex"
+    display: "flex",
   }
-
   const bespokeLink = {
     textDecoration: "none",
-    fontSize: "3.2em",
-    marginBottom: "2em",
+    fontSize: "2em",
+    marginBottom: "1.3em",
     marginTop: "1em",
     fontFamily: "Abel",
     color: "#525252"
   }
-
   const designs = {
     fontFamily: "Abel",
     color: "#525252", 
-    fontSize: "1.8em"
+    fontSize: "1.5em"
   }
+  const instaPic = {
+    marginLeft: "5vw", 
+  }
+
 
   return (
     <div style={instagramContainer}>
@@ -33,7 +35,8 @@ const Lookbook = () => {
     <p style={designs}>Checkout my designs  💅🏼 </p>
     
     <div style={instaPics}>
-      <InstagramEmbed
+      <InstagramEmbed 
+        style={instaPic}
         url='https://www.instagram.com/p/CBn7A7EDxGn/'
         maxWidth={320}
         hideCaption={true}
@@ -45,7 +48,8 @@ const Lookbook = () => {
         onAfterRender={() => {}}
         onFailure={() => {}}
         />
-        <InstagramEmbed
+      <InstagramEmbed
+        style={instaPic}
         url='https://www.instagram.com/p/CBhte3WDAyj/'
         maxWidth={320}
         hideCaption={true}
@@ -56,8 +60,23 @@ const Lookbook = () => {
         onSuccess={() => {}}
         onAfterRender={() => {}}
         onFailure={() => {}}
-        />
+      />
+      <InstagramEmbed 
+        style={instaPic}
+        url='https://www.instagram.com/p/CAdZE0lDUrM/'
+        maxWidth={320}
+        hideCaption={true}
+        containerTagName='div'
+        protocol=''
+        injectScript
+        onLoading={() => {}}
+        onSuccess={() => {}}
+        onAfterRender={() => {}}
+        onFailure={() => {}}
+      />
       </div>
+      <p style={designs}>Customise your own set of press ons</p>
+      <ShopLink to="/products">SHOP</ShopLink>
     </div>
   )
 }
