@@ -40,18 +40,18 @@ const SignIn = ({history}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form data-cy="loginForm" onSubmit={handleSubmit}>
             {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
             <Block>
                 <Label>Username</Label>
-                <Input required type="text" name="username" placeholder="Enter a username" onChange={handleChange}></Input>
+                <Input data-cy="username" required type="text" name="username" placeholder="Enter a username" onChange={handleChange}></Input>
             </Block>
             <Block>
                 <Label>Password</Label>
-                <Input required type="password" name="password" placeholder="Enter a password" onChange={handleChange}></Input>
+                <Input data-cy="password" required type="password" name="password" placeholder="Enter a password" onChange={handleChange}></Input>
             </Block>
             <Block>
-                <InputButton type="submit" value="Login"></InputButton>
+                <InputButton data-cy="loginButton" type="submit" value="Login"></InputButton>
             </Block>
             
         </form>

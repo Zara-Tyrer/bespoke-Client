@@ -45,7 +45,7 @@ const Product = ({history, product, showControls}) => {
       <p>£{cost}.00</p>
       {showControls && allowEditDelete && (
           <div>
-              <Button onClick={handleDelete}>Delete</Button>
+              <Button data-cy="delete" onClick={handleDelete}>Delete</Button>
               <Button onClick={handleEdit}>Edit</Button>
           </div>
       )}
