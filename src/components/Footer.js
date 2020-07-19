@@ -1,11 +1,32 @@
 import React from 'react'
-import {FooterLink, RowFooter, FooterContainer, NavBlock} from './StyledComponents'
+import {FooterLink, RowFooter, FooterContainer, NavBlock, AdminLoginButton} from './StyledComponents'
 
 const Footer = () => {
   const title = {
-    margin: "1em",
-    padding: ".2em .5em"
+    fontSize: "1.2em",
+    textDecoration: "none",
+    color: "#525252",
+    margin: "0.2em",
+    padding: ".2em .5em",
+    fontFamily: "Cabin"
   } 
+  const diamond = {
+    width: "2.5em"
+  }
+  const addressContainer = {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column"
+  }
+  const address = {
+    padding: "0px", 
+    color: "#525252",
+    fontFamily: "Cabin"
+  }
+  const socials = {
+    width: "1.2em",
+    padding: "0.3em"
+  } // change to link to socials
 
   return (
     <RowFooter> 
@@ -17,16 +38,24 @@ const Footer = () => {
             <FooterLink to="/giftcards">GIFT CARDS</FooterLink>
           </NavBlock>
           <NavBlock>
-            <p style={title}>Logo</p>
-            <p style={title}>Address</p>
-            <p style={title}>Number</p>
-            <FooterLink to="/admin/login" data-cy="login">Admin Login</FooterLink>
+            <p><img style={diamond} src="diamond.png" alt="diamond"></img></p>
+            <div style={addressContainer}>
+              <div style={address}>138a High Street</div>
+              <div style={address}>Sidmouth</div>
+              <div style={address}>EX10 8EE</div>
+            </div>
+            <p style={title}>+44 7837 693909</p>
+            <AdminLoginButton to="/admin/login" data-cy="login">ADMIN LOGIN</AdminLoginButton>
           </NavBlock>
           <NavBlock>
             <p style={title}>COMPANY</p>
             <FooterLink to="/contact">CONTACT</FooterLink>
             <FooterLink to="/products">SHOP</FooterLink>
-            <FooterLink to="/products">ORDER NOW</FooterLink>
+            <FooterLink>
+              <img style={socials} src="instagram.png" alt="instagram"></img>
+              <img style={socials} src="twitter.png" alt="twitter"></img>
+              <img style={socials} src="facebook.png" alt="facebook"></img>
+            </FooterLink>
           </NavBlock>
       </FooterContainer>
     </RowFooter>

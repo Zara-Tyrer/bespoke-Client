@@ -98,15 +98,17 @@ export const DashboardLink = styled(Link) `
 export const FooterContainer = styled.div `
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  width: 100vw
 `
 export const FooterLink = styled(Link) `
-    font-size: 1.2em;
+    font-size: 0.8em;
     text-decoration: none;
-    color: #525252;
-    margin: 1em;
+    color: #000000;
+    margin: 0.2em;
     padding: .2em .5em;
     font-family: ${titleFontFamily};
+    font-weight: 700;
 `
 export const RowFooter = styled.div `
   bottom: 0;
@@ -119,8 +121,15 @@ export const NavBlock = styled.div `
   margin: 0px 100px 0px 100px;
   align-items: center
 `
+export const AdminLoginButton = styled(Link) `
+    font-family: ${titleFontFamily};
+    color: #D3A29C;
+    
+    font-size: 1.2em;
+    margin-bottom: 0.7em
+`
 
-// lookbook and shop styles 
+// Lookbook and shop styles 
 export const ShopLink = styled(Link) `
     background-color: #D3A29C;
     color: white;
