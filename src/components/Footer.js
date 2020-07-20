@@ -51,11 +51,11 @@ const Footer = () => {
             <p style={title}>COMPANY</p>
             <FooterLink to="/contact">CONTACT</FooterLink>
             <FooterLink to="/products">SHOP</FooterLink>
-            <FooterLink>
+            <div>
               <img style={socials} src="instagram.png" alt="instagram"></img>
               <img style={socials} src="twitter.png" alt="twitter"></img>
               <img style={socials} src="facebook.png" alt="facebook"></img>
-            </FooterLink>
+            </div>
           </NavBlock>
       </FooterContainer>
     </RowFooter>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
+import {withRouter} from 'react-router-dom'
 import {Button, ErrorText} from './StyledComponents'
 
 const Product = ({history, product}) => {
@@ -53,4 +54,4 @@ const Product = ({history, product}) => {
   )
 }
 
-export default Product
+export default withRouter(Product)

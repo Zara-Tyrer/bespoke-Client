@@ -25,7 +25,7 @@ export async function deleteProduct(id) {
 }
 
 // edits a product on the server
-export async function updateBlogPost(product) {
+export async function updateProduct(product) {
   const response = await api.put(`/products/${product._id}`, product)
   return response.data
 }

@@ -2,6 +2,7 @@ import React, {useReducer, useEffect, Fragment} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Products from './components/Products'
 import NewProduct from './components/NewProduct'
+import EditProduct from './components/EditProduct'
 import Product from './components/Product'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -13,7 +14,6 @@ import stateReducer from './config/stateReducer'
 import { getAllProducts, getProductFromId } from './services/productServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
-
 
 
 const App = () => {
@@ -70,10 +70,11 @@ const App = () => {
             <Fragment>
               <Route exact path='/products' component={Products} />
               <Route exact path="/products/new" component={NewProduct} />
+              <Route exact path="/products/edit/:id" component={EditProduct} />
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/lookbook" component={Lookbook} />
               <Route exact path="/dashboard" component={DashboardNav} />
-              <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} showControls /> } />
+              <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} /> } />
             </Fragment>
         <Footer />
         </BrowserRouter>
