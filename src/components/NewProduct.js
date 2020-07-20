@@ -29,7 +29,7 @@ const NewProduct = ({history}) => {
         type: 'setProducts',
         data: [newProduct, ...products]
       })
-      history.push(`/products/${newProduct._id}`)
+      history.push(`/products`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
       console.log('Caught error on edit', error)

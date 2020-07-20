@@ -32,7 +32,7 @@ const DashboardNav = () => {
   return (
     <AdminSide> 
       <DashboardNavDiv>
-        <img style={profilePicStyles} src="profile-pic.png" alt="profile picture"></img>
+        <img style={profilePicStyles} src="profile-pic.png" alt="profile"></img>
         <div>{loggedInUser}</div>
         <DashboardLink onClick={handleLogout} to="/">Logout</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>

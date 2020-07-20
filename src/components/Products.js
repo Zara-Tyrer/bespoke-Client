@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product'
 import {useGlobalState} from '../config/store'
-import {BackToDashboard} from './StyledComponents'
+import {DashboardButton} from './StyledComponents'
 
 
 const Products = () => {
@@ -11,10 +11,15 @@ const Products = () => {
 
     return (
       <div>
+        {showDashboardButton && (
+          <div>
+            <DashboardButton to="/products/new">Add New Product</DashboardButton>
+          </div>
+        )}
         {products.map((product) => <Product key={product._id} product={product} />)}
         {showDashboardButton && (
           <div>
-            <BackToDashboard to="/dashboard">Back to Dashboard</BackToDashboard>
+            <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
           </div>
         )}
       </div>
