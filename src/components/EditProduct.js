@@ -35,8 +35,7 @@ const EditProduct = ({history, match}) => {
         type: "setProducts",
         data: [updatedProduct, ...otherProducts]
       })
-
-      history.push(`/products/${product._id}`)
+      history.push(`/products`)
     }).catch((error) => {
         const status = error.response ? error.response.status : 500
         console.log("caught error on edit", error)
