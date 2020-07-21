@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
-import{Button, ErrorText} from './StyledComponents'
+import{ErrorText} from './StyledComponents'
+import{QueryContainer, InnerContent, Button} from './StyledComponentC'
 
 const Query = ({history, query}) => {
   const {store, dispatch} = useGlobalState()
@@ -11,6 +12,14 @@ const Query = ({history, query}) => {
   if (!query) return null
 
   const {name, email, phone_number, date_created, message, responded} = query
+
+  //formatting date
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  ]
+  let dateFormat = new Date(date_created)
+  let formattedDate = dateFormat.getDate() + "/" + monthNames[dateFormat.getMonth()] + "/" + dateFormat.getFullYear()
+
 
   function handleDelete(event) {
     event.preventDefault()
@@ -34,22 +43,27 @@ const Query = ({history, query}) => {
 
   // function handleEdit(event) {
   //   event.preventDefault()
-
   // }
+   const queryHeader = {
+    display: "flex",
+    justifyContent: "space-between"
+   } 
 
   return (
-    <div>
+    <QueryContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
-      <p>Phone Number: {phone_number}</p>
-      <p>Date submitted: {date_created}</p>
-      <p>Query: {message}</p>
-      <p>Response has been sent: {responded}</p>
-      <div>
-        <Button onClick={handleDelete}>Delete Query</Button>
-      </div>
-    </div>
+      <InnerContent>
+        <div style={queryHeader}>
+          <h4>{name}</h4>
+          <Button onClick={handleDelete}>Delete Query</Button>
+        </div>
+        <p>Contact: {email}, {phone_number}</p>
+        <p>{message}</p>
+        <p>{formattedDate}</p>
+        <p>Response has been sent: {responded}</p>
+      </InnerContent>
+     
+    </QueryContainer>
   )
 }
 
