@@ -12,6 +12,12 @@ export default function (state, action) {
         products: action.data
       }
     }
+    case "setOrders": {
+      return {
+        ...state,
+        orders: action.data
+      }
+    }
     case "setError": {
       return {
           ...state,
