@@ -6,6 +6,7 @@ import EditProduct from './components/EditProduct'
 import Product from './components/Product'
 import Order from './components/Order'
 import Orders from './components/Orders'
+import NewOrder from './components/NewOrder'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SignIn from './components/SignIn'
@@ -110,6 +111,7 @@ const App = () => {
               <Route exact path='/products' component={Products} />
               <Route exact path='/orders' component={Orders} />
               <Route exact path="/products/new" component={NewProduct} />
+              <Route exact path="/orders/new" component={NewOrder} />
               <Route exact path="/products/edit/:id" component={EditProduct} />
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/lookbook" component={Lookbook} />
