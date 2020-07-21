@@ -43,7 +43,7 @@ const Query = ({history, query}) => {
       <p>Name: {name}</p>
       <p>Email: {email}</p>
       <p>Phone Number: {phone_number}</p>
-      <p>Date submitted: {date_created}</p>
+      <p>Date submitted: {date_created.toLocaleString()}</p>
       <p>Query: {message}</p>
       <p>Response has been sent: {responded}</p>
       <div>
