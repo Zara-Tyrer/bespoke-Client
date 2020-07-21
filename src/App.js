@@ -14,6 +14,7 @@ import DashboardNav from './components/DashboardNav'
 import Lookbook from './components/Lookbook'
 import Query from './components/Query'
 import Queries from './components/Queries'
+import NewQuery from './components/NewQuery'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
 import { getAllProducts, getProductFromId } from './services/productServices'
@@ -121,6 +122,7 @@ const App = () => {
               <Route exact path="/orders/:id" render={(props) => <Order {...props} order={getOrderFromId(orders,props.match.params.id)} /> } />
               <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
               <Route exact path="/query" component={Queries} />
+              <Route exact path="/contact" component={NewQuery} />
             </Fragment>
         <Footer />
         </BrowserRouter>

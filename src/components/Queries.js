@@ -13,7 +13,7 @@ const Queries = () => {
       <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
       </div>
       <div>
-        {queries.sort((a,b) => a.date_created - b.date_created).map((query) => <Query key={query._id} query={query} />)}
+        {queries.sort((a,b) => a.date_created.toLocaleString() - b.date_created.toLocaleString()).map((query) => <Query key={query._id} query={query} />)}
       </div>
     </div>
   )

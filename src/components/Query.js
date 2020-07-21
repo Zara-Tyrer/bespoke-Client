@@ -12,6 +12,14 @@ const Query = ({history, query}) => {
 
   const {name, email, phone_number, date_created, message, responded} = query
 
+  //formatting date
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  ]
+  let dateFormat = new Date(date_created)
+  let formattedDate = dateFormat.getDate() + "/" + monthNames[dateFormat.getMonth()] + "/" + dateFormat.getFullYear()
+
+
   function handleDelete(event) {
     event.preventDefault()
     deleteQuery(query._id).then(() => {
@@ -40,11 +48,10 @@ const Query = ({history, query}) => {
   return (
     <div>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
-      <p>Phone Number: {phone_number}</p>
-      <p>Date submitted: {date_created.toLocaleString()}</p>
-      <p>Query: {message}</p>
+      <h4>{name}</h4>
+      <span>Contact: {email}, {phone_number}</span>
+      <p>{message}</p>
+      <p>{formattedDate}</p>
       <p>Response has been sent: {responded}</p>
       <div>
         <Button onClick={handleDelete}>Delete Query</Button>
