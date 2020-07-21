@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {withRouter} from 'react-router-dom'
-import {Button, ErrorText} from './StyledComponents'
+import {Button, ErrorText, OrderLink} from './StyledComponents'
 
 const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
@@ -44,6 +44,7 @@ const Product = ({history, product}) => {
       <p>{nail_length}</p>
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
+      <OrderLink to='./orders/new'>Order</OrderLink>
       {allowEditDelete && (
           <div>
               <Button onClick={handleDelete}>Delete</Button>

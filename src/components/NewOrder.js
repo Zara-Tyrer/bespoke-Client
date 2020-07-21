@@ -91,7 +91,7 @@ const NewOrder = ({history}) => {
             <Input required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></Input>
         </Block>
         <Block>
-            <InputButton type="submit" value="Add product"></InputButton>
+            <InputButton type="submit" value="Submit order"></InputButton>
         </Block>
     </form>
   ) 

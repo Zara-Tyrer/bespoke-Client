@@ -159,3 +159,21 @@ export const ShopLink = styled(Link) `
     text-decoration: none;
     text-align: center
 `
+
+export const OrderLink = styled(Link) `
+
+` 
+export const CustomiseOrder = styled(Link) `
+    background-color: #D3A29C;
+    color: white;
+    padding: .2em;
+    border: none;
+    font-size: 1.2em;
+    width: 200px;
+    font-family: Abel;
+    letter-spacing: 3px;
+    box-shadow: 0 8px 6px -6px black;
+    border: 5px solid #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+`

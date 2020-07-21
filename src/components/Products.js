@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product'
 import {useGlobalState} from '../config/store'
-import {DashboardButton} from './StyledComponents'
+import {DashboardButton, CustomiseOrder} from './StyledComponents'
 
 
 const Products = () => {
@@ -22,6 +22,8 @@ const Products = () => {
             <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
           </div>
         )}
+        <div>Customise your own set of press ons</div>
+        <CustomiseOrder to="/orders/new">CUSTOMISE</CustomiseOrder>
       </div>
     )
 }
