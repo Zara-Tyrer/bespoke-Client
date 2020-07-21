@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
-import{Button, ErrorText} from './StyledComponents'
+import{ErrorText} from './StyledComponents'
+import{QueryContainer, InnerContent, Button} from './StyledComponentC'
 
 const Query = ({history, query}) => {
   const {store, dispatch} = useGlobalState()
@@ -42,21 +43,27 @@ const Query = ({history, query}) => {
 
   // function handleEdit(event) {
   //   event.preventDefault()
-
   // }
+   const queryHeader = {
+    display: "flex",
+    justifyContent: "space-between"
+   } 
 
   return (
-    <div>
+    <QueryContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <h4>{name}</h4>
-      <span>Contact: {email}, {phone_number}</span>
-      <p>{message}</p>
-      <p>{formattedDate}</p>
-      <p>Response has been sent: {responded}</p>
-      <div>
-        <Button onClick={handleDelete}>Delete Query</Button>
-      </div>
-    </div>
+      <InnerContent>
+        <div style={queryHeader}>
+          <h4>{name}</h4>
+          <Button onClick={handleDelete}>Delete Query</Button>
+        </div>
+        <p>Contact: {email}, {phone_number}</p>
+        <p>{message}</p>
+        <p>{formattedDate}</p>
+        <p>Response has been sent: {responded}</p>
+      </InnerContent>
+     
+    </QueryContainer>
   )
 }
 
