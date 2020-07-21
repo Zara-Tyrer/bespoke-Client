@@ -18,6 +18,12 @@ export default function (state, action) {
         orders: action.data
       }
     }
+    case "setQueries": {
+      return {
+        ...state,
+        queries: action.data
+      }
+    }
     case "setError": {
       return {
           ...state,

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
-import {editQuery, deleteQuery} from '../services/queryServices'
+import {deleteQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
 import{Button, ErrorText} from './StyledComponents'
 
 const Query = ({history, query}) => {
   const {store, dispatch} = useGlobalState()
-  const {queries, loggedInUser} = store
+  const {queries} = store
   const [errorMessage, setErrorMessage] = useState(null)
   if (!query) return null
 
@@ -32,9 +32,10 @@ const Query = ({history, query}) => {
     })
   }
 
-  function handleEdit(event) {
-    event.preventDefault()
-  }
+  // function handleEdit(event) {
+  //   event.preventDefault()
+
+  // }
 
   return (
     <div>
@@ -46,13 +47,10 @@ const Query = ({history, query}) => {
       <p>Query: {message}</p>
       <p>Response has been sent: {responded}</p>
       <div>
-        <Button onClick={handleEdit}>Mark as responded</Button>
         <Button onClick={handleDelete}>Delete Query</Button>
       </div>
     </div>
   )
 }
 
-
-
-export default withRouter(Query
+export default withRouter(Query)
