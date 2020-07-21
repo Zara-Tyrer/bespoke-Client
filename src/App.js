@@ -11,10 +11,12 @@ import Footer from './components/Footer'
 import SignIn from './components/SignIn'
 import DashboardNav from './components/DashboardNav'
 import Lookbook from './components/Lookbook'
+import Query from './components/Query'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
 import { getAllProducts, getProductFromId } from './services/productServices'
 import { getAllOrders, getOrderFromId } from './services/orderServices'
+import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 
@@ -23,11 +25,12 @@ const App = () => {
   const initialState = {
     products: [],
     orders: [],
+    queries: [],
     loggedInUser: null
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  const {products, orders} = store
+  const {products, orders, queries} = store
 
   function fetchProducts() {
     getAllProducts().then((productData) => {
@@ -40,7 +43,7 @@ const App = () => {
         type: "setError",
         data: true
       })
-      console.log("An error occurred fetching blog posts from the server: ", error)
+      console.log("An error occurred fetching products from the server: ", error)
     })
   }
 
@@ -55,13 +58,29 @@ const App = () => {
         type: "setError",
         data: true
       })
-      console.log("An error occurred fetching blog posts from the server: ", error)
+      console.log("An error occurred fetching orders from the server: ", error)
+    })
+  }
+
+  function fetchQueries() {
+    getAllQueries().then((queryData) => {
+      dispatch({
+        type: "setQueries",
+        data: queryData
+      })
+    }).catch((error) => {
+      dispatch({
+        type: "setError",
+        data: true
+      })
+      console.log("An error occurred fetching queries from the server: ", error)
     })
   }
 
   useEffect(() => {
     fetchProducts()
     fetchOrders()
+    fetchQueries()
 		userAuthenticated().then(() => {			 
 			dispatch({
 				type: "setLoggedInUser",
@@ -97,6 +116,7 @@ const App = () => {
               <Route exact path="/dashboard" component={DashboardNav} />
               <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} /> } />
               <Route exact path="/orders/:id" render={(props) => <Order {...props} order={getOrderFromId(orders,props.match.params.id)} /> } />
+              <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
             </Fragment>
         <Footer />
         </BrowserRouter>
