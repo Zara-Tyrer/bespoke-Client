@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react'
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
+import {getProductFromId} from '../services/productServices'
 import {addOrder} from '../services/orderServices'
-import { Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
+import {Block, ErrorText, Input, Label, InputButton, TextArea} from './StyledComponents'
 
+const EditOrder = ({history, match}) => {
 
-const NewOrder = ({history}) => {
-
+  const {store, dispatch} = useGlobalState()
+  const {products} = store
+  const productId = match.params.id
+  const product = getProductFromId(products, productId)
+  
   function handleChange(event) {
     const name = event.target.name
     const value = event.target.value
@@ -44,19 +49,36 @@ const NewOrder = ({history}) => {
     })
   }
   const initialFormState = {
-    // add auto-filled form if product selected from shop
-    nail_length: 0,
+    // add auto-filled data from the shop
+    name: "",
+    address: "",
+    email: "",
+    phone_number: "",
+    nail_length: "",
     nail_shape: "",
     nail_style: "",
-    cost: 0
+    cost: ""
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
-  const {store, dispatch} = useGlobalState()
   const {orders} = store
 
+  useEffect(() => {
+  
+    product && setFormState({
+      name: "",
+      address: "",
+      email: "",
+      phone_number: "",
+      nail_length: product.nail_length,
+      nail_shape: product.nail_shape,
+      nail_style: product.nail_style,
+      cost: product.cost
+    })
+  },[product])
+
   return (
-    <form id="newOrderForm" onSubmit={handleSubmit}>
+    <form id="editOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <Block>
             <Label>Name</Label>
@@ -76,26 +98,26 @@ const NewOrder = ({history}) => {
         </Block>
         <Block>
             <Label>Nail Length</Label>
-            <Input required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></Input>
+            <Input required type="text" name="nail_length" value={formState.nail_length} onChange={handleChange}></Input>
         </Block>
         <Block>
             <Label>Nail Shape</Label>
-            <Input required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></Input>
+            <Input required type="text" name="nail_shape" value={formState.nail_shape} onChange={handleChange}></Input>
         </Block>
         <Block>
             <Label>Nail Style</Label>
-            <Input required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></Input>
+            <Input required type="text" name="nail_style" value={formState.nail_style} onChange={handleChange}></Input>
         </Block>
         <Block>
             <Label>Cost</Label>
-            <Input required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></Input>
+            <Input required type="text" name="cost" value={formState.cost} onChange={handleChange}></Input>
         </Block>
         <Block>
             <InputButton type="submit" value="Submit order"></InputButton>
         </Block>
     </form>
   ) 
-
 }
 
-export default withRouter(NewOrder)
+export default withRouter(EditOrder)
+
