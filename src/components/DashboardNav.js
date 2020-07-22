@@ -36,7 +36,7 @@ const DashboardNav = () => {
         <div>{loggedInUser}</div>
         <DashboardLink onClick={handleLogout} to="/">Logout</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>
-        <DashboardLink to="/queries">QUERIES</DashboardLink>
+        <DashboardLink to="/query">QUERIES</DashboardLink>
         <DashboardLink to="/products">SHOP</DashboardLink>
       </DashboardNavDiv>
     </AdminSide>
