@@ -23,3 +23,9 @@ export const Button = styled.button `
     font-size: 0.9em;
     margin: 1em;
 `
+
+export const CentralForm = styled.div `
+  background-color: #D3A29C;
+  width: 80vw;
+  margin-left: 10%;
+`
