@@ -46,7 +46,7 @@ const EditProduct = ({history, match}) => {
       })
   }
 
-  // set the intital form state to the selected product
+  // set the intital form state 
   const initialFormState = {
     nail_length: "",
     nail_shape: "",
@@ -59,10 +59,10 @@ const EditProduct = ({history, match}) => {
 
   useEffect(() => {
     product && setFormState({
-        nail_length: product.nail_length,
-        nail_shape: product.nail_shape,
-        nail_style: product.nail_style,
-        cost: product.cost
+      nail_length: product.nail_length,
+      nail_shape: product.nail_shape,
+      nail_style: product.nail_style,
+      cost: product.cost
     })
   },[product])
 
@@ -83,7 +83,7 @@ const EditProduct = ({history, match}) => {
         </Block>
         <Block>
             <Label>Cost</Label>
-            <Input required type="text" name="cost" placeholder="Enter a price" value={formState.nail_cost} onChange={handleChange}></Input>
+            <Input required type="text" name="cost" placeholder="Enter a price" value={formState.cost} onChange={handleChange}></Input>
         </Block>
         <Block>
             <InputButton type="submit" value="Update product"></InputButton>

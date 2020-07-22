@@ -160,7 +160,7 @@ export const ShopLink = styled(Link) `
     text-align: center
 `
 
-export const OrderLink = styled(Link) `
+export const OrderLink = styled.button `
 
 ` 
 export const CustomiseOrder = styled(Link) `

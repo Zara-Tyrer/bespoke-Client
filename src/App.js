@@ -4,9 +4,9 @@ import Products from './components/Products'
 import NewProduct from './components/NewProduct'
 import EditProduct from './components/EditProduct'
 import Product from './components/Product'
-import Order from './components/Order'
 import Orders from './components/Orders'
 import NewOrder from './components/NewOrder'
+import EditOrder from './components/EditOrder'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SignIn from './components/SignIn'
@@ -16,7 +16,7 @@ import Query from './components/Query'
 import { StateContext} from './config/store'
 import stateReducer from './config/stateReducer'
 import { getAllProducts, getProductFromId } from './services/productServices'
-import { getAllOrders, getOrderFromId } from './services/orderServices'
+import { getAllOrders } from './services/orderServices'
 import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
@@ -112,12 +112,12 @@ const App = () => {
               <Route exact path='/orders' component={Orders} />
               <Route exact path="/products/new" component={NewProduct} />
               <Route exact path="/orders/new" component={NewOrder} />
+              <Route exact path="/orders/edit/:id" component={EditOrder} />
               <Route exact path="/products/edit/:id" component={EditProduct} />
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/lookbook" component={Lookbook} />
               <Route exact path="/dashboard" component={DashboardNav} />
               <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} /> } />
-              <Route exact path="/orders/:id" render={(props) => <Order {...props} order={getOrderFromId(orders,props.match.params.id)} /> } />
               <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
             </Fragment>
         <Footer />

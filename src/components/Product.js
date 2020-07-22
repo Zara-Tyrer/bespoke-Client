@@ -37,6 +37,11 @@ const Product = ({history, product}) => {
     history.push(`/products/edit/${product._id}`)
   }
 
+  function handleOrder(event) {
+    event.preventDefault()
+    history.push(`/orders/edit/${product._id}`)
+  }
+
   return (
     <div>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -44,7 +49,7 @@ const Product = ({history, product}) => {
       <p>{nail_length}</p>
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
-      <OrderLink to='./orders/new'>Order</OrderLink>
+      <OrderLink onClick={handleOrder}>Order</OrderLink>
       {allowEditDelete && (
           <div>
               <Button onClick={handleDelete}>Delete</Button>
