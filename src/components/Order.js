@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
-import {deleteOrder} from '../services/orderServices'
+import {deleteOrder, updateOrder} from '../services/orderServices'
 import {withRouter} from 'react-router-dom'
-import {ErrorText, Button} from './StyledComponents'
+import {ErrorText, Button, InputButton} from './StyledComponents'
 
 const Order = ({history, order}) => {
   const {store, dispatch} = useGlobalState()
@@ -38,15 +38,32 @@ const Order = ({history, order}) => {
   let dateFormat = new Date(date_created)
   let formattedDate = dateFormat.getDate() + "/" + monthNames[dateFormat.getMonth()] + "/" + dateFormat.getFullYear()
 
+  
   function handleCompleted(event) {
     event.preventDefault()
-    order.completed = true
-    history.push(`/dashboard`)
-  }
+    const updatedOrder = {
+      ...order, 
+      completed: true
+    }
 
+    updateOrder(updatedOrder).then(() => {
+        const otherOrders = orders.filter((order) => order._id !== updatedOrder._id)
+        dispatch({
+            type: "setOrders",
+            data: [updatedOrder, ...otherOrders]
+        })
+        history.push(`/dashboard`)
+    }).catch((error) => {
+        const status = error.response ? error.response.status : 500
+        console.log("caught error on changing complete", error)
+        if(status === 403)
+            setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+        else
+            setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+    })
+}
   const completedIcon = {
     width: "1em",
-
   }
 
   return (
