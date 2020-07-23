@@ -13,8 +13,6 @@ const Dashboard = () => {
   const ordersToDisplay = orders.slice(0, 2)
   const queriesToDisplay = queries.slice(0, 2)
 
-  console.log(orders)
-
   return (
     <DashboardContainer>
     <DashboardNav></DashboardNav>
