@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import background from '../img/backgroundWater.png'
 
 
 
@@ -26,11 +27,46 @@ export const Button = styled.button `
 `
 
 export const CentralForm = styled.div `
-  background-image: url('backgroundWater.png');
-  width: 80vw;
-  margin-left: 10%;
+  background-image: url(${background});
+  width: 60vw;
+  margin: auto;
+  border-radius: 30px;
 `
 
 export const FormBlock = styled.div `
-  
-` 
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+`
+
+export const InputQ = styled.input `
+    width: 50%;
+    margin: .5em;
+`
+export const LabelQ = styled.label `
+    font-size: 1.2em;
+`
+
+export const TextAreaQ = styled.textarea `
+    height: 200px;
+    margin: .5em;
+    width: 50%;
+`
+
+export const ConfirmationBox = styled.div `
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  background-image: url(${background});
+  padding: 5em;
+  border-radius: 30px;
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6em;
+  margin-bottom: 6em;
+`
