@@ -10,15 +10,14 @@ const Dashboard = () => {
   const {store} = useGlobalState()
   const {orders, queries} = store
 
-  console.log(orders)
+  const ordersToDisplay = orders.slice(0, 2)
+  const queriesToDisplay = queries.slice(0, 2)
 
   return (
     <DashboardContainer>
     <DashboardNav></DashboardNav>
-      {orders.map((order) => <Order key={order._id} order={order} />)}
-      {queries.map((query) => <Query key={query._id} query={query} />)}
-    
-       
+      {ordersToDisplay.map((order) => <Order key={order._id} order={order} />)}
+      {queriesToDisplay.map((query) => <Query key={query._id} query={query} />)}
     </DashboardContainer>
   )
 }
