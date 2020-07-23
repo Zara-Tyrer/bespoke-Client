@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
 import {Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
-import {CentralForm} from './StyledComponentC'
+import {CentralForm, FormBlock} from './StyledComponentC'
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -58,25 +58,25 @@ const NewQuery = ({history}) => {
     <CentralForm>
     <form id="newQueryForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Block>
-            <Label>Name</Label>
+        <FormBlock>
+            <Label>Full Name*</Label>
             <Input required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Email</Label>
+        </FormBlock>
+        <FormBlock>
+            <Label>Email Address*</Label>
             <Input required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></Input>
-        </Block>
-        <Block>
+        </FormBlock>
+        <FormBlock>
             <Label>Phone Number</Label>
             <Input required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Message</Label>
+        </FormBlock>
+        <FormBlock>
+            <Label>Message*</Label>
             <TextArea required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextArea>
-        </Block>
-        <Block>
+        </FormBlock>
+        <FormBlock>
             <InputButton type="submit" value="Submit your Query"></InputButton>
-        </Block>
+        </FormBlock>
       </form>
       </CentralForm>
   )
