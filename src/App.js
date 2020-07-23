@@ -24,6 +24,7 @@ import { getAllOrders } from './services/orderServices'
 import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
+import About from './components/About'
 
 
 
@@ -127,6 +128,7 @@ const App = () => {
               <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
               <Route exact path="/query" component={Queries} />
               <Route exact path="/contact" component={NewQuery} />
+              <Route exact path="/about" component={About} />
               <Route exact path="/contact/confirm/:id" component={QueryConfirm} />
             </Fragment>
         <Footer />
