@@ -2,6 +2,7 @@ import React from 'react';
 import {useGlobalState} from '../config/store'
 import {getQueryFromId} from '../services/queryServices'
 import {Link} from 'react-router-dom'
+import {Wrapper, ConfirmationBox} from './StyledComponentC'
 
 // import {ErrorText} from './StyledComponents'
 
@@ -19,7 +20,7 @@ const queryConfirmation = {
   display: "flex",
   flexDirection: "column",
   margin: "1em",
-  backgroundImage: `url(${'/backgroundWater.png'})`,
+  // backgroundImage: `url(${'/backgroundWater.png'})`,
   padding: "5em",
   borderRadius: "30px"
 }
@@ -38,18 +39,20 @@ const wrapper = {
 
 
   return (
-    <div style={wrapper}>
-      <div style={queryConfirmation}>
-        <div style={{margin:"auto"}}>
-          <img style={bigCheck} src={'/tick.png'} alt="tick"></img>
-        </div>
-        <h3>Your query has been successfully submitted.</h3>
-        <p>Thanks for contacting us, {name}, we'll be in touch soon.</p>
-        <p>Your query confirmation number is #{query._id}</p>
-        <div>
-          <Link to="/">Back to the homepage</Link>
-        </div>
-      </div>  
+    <div>
+      <Wrapper>
+        <ConfirmationBox>
+          <div style={{margin:"auto"}}>
+            <img style={bigCheck} src={'/tick.png'} alt="tick"></img>
+          </div>
+          <h3>Your query has been successfully submitted.</h3>
+          <p>Thanks for contacting us, {name}, we'll be in touch soon.</p>
+          <p>Your query confirmation number is #{query._id}</p>
+          <div>
+            <Link to="/">Back to the homepage</Link>
+          </div>
+        </ConfirmationBox>  
+      </Wrapper>
     </div>
   )
 }
