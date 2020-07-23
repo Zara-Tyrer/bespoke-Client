@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
 import {Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ} from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ } from './StyledComponentC'
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -60,22 +60,22 @@ const NewQuery = ({history}) => {
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <FormBlock>
             <LabelQ>Full Name*</LabelQ>
-            <Input required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></Input>
+            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Email Address*</LabelQ>
-            <Input required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></Input>
+            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Phone Number</LabelQ>
-            <Input required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></Input>
+            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Message*</LabelQ>
-            <TextArea required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextArea>
+            <TextAreaQ required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
         </FormBlock>
         <FormBlock>
-            <InputButton type="submit" value="Submit your Query"></InputButton>
+            <InputButton type="submit" value="Submit Query"></InputButton>
         </FormBlock>
       </form>
       </CentralForm>
