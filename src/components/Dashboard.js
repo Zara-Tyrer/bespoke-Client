@@ -15,8 +15,8 @@ const Dashboard = () => {
   return (
     <DashboardContainer>
     <DashboardNav></DashboardNav>
-      {/* {orders.map((order) => <Order key={order._id} order={order} />)}
-      {queries.map((query) => <Query key={query._id} query={query} />)} */}
+      {orders.map((order) => <Order key={order._id} order={order} />)}
+      {queries.map((query) => <Query key={query._id} query={query} />)}
     
        
     </DashboardContainer>
