@@ -26,7 +26,7 @@ const Queries = () => {
       <div style={dashStyles}>
         <DashboardNav />
         <div style={queriesStyles}>
-          {queries.reverse().map((query) => <Query key={query._id} query={query} />)}
+          {queries.map((query) => <Query key={query._id} query={query} />).reverse()}
         </div>
       </div>
       <div><DashboardButton to="/dashboard">Back to Dashboard</DashboardButton></div>
