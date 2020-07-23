@@ -22,8 +22,12 @@ const Products = () => {
             <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
           </div>
         )}
-        <div>Customise your own set of press ons</div>
-        <CustomiseOrder to="/orders/new">CUSTOMISE</CustomiseOrder>
+        {!loggedInUser && (
+          <div> 
+            <div>Customise your own set of press ons</div>
+            <CustomiseOrder to="/orders/new">CUSTOMISE</CustomiseOrder>
+          </div>
+        )}
       </div>
     )
 }

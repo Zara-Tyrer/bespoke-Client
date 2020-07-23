@@ -1,7 +1,11 @@
 import React from 'react'
 import {FooterLink, RowFooter, FooterContainer, NavBlock, AdminLoginButton} from './StyledComponents'
+import {useGlobalState} from '../config/store'
 
 const Footer = () => {
+  const {store} = useGlobalState()
+  const {loggedInUser} = store
+
   const title = {
     fontSize: "1.2em",
     textDecoration: "none",
@@ -45,7 +49,7 @@ const Footer = () => {
               <div style={address}>EX10 8EE</div>
             </div>
             <p style={title}>+44 7837 693909</p>
-            <AdminLoginButton to="/admin/login" data-cy="login">ADMIN LOGIN</AdminLoginButton>
+            {!loggedInUser ? <AdminLoginButton to="/admin/login" data-cy="login">ADMIN LOGIN</AdminLoginButton> : <AdminLoginButton to="/dashboard">DASHBOARD</AdminLoginButton>}
           </NavBlock>
           <NavBlock>
             <p style={title}>COMPANY</p>

@@ -183,3 +183,8 @@ export const CustomiseOrder = styled(Link) `
 export const DashboardContainer = styled.div `
     display: flex;
 `
+
+//Orders Style
+export const OrdersContainer = styled.div `
+    display: flex
+`

@@ -35,6 +35,7 @@ const DashboardNav = () => {
         <img style={profilePicStyles} src="profile-pic.png" alt="profile"></img>
         <div>{loggedInUser}</div>
         <DashboardLink onClick={handleLogout} to="/">Logout</DashboardLink>
+        <DashboardLink to="/dashboard">DASHBOARD</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>
         <DashboardLink to="/query">QUERIES</DashboardLink>
         <DashboardLink to="/products">SHOP</DashboardLink>

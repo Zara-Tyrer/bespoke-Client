@@ -52,9 +52,9 @@ const Query = ({history, query}) => {
       const otherQueries = queries.filter((query) => query._id !== updatedQuery._id)
       dispatch({
         type: "setQueries",
-        data: [updatedQuery, otherQueries]
+        data: [updatedQuery, ...otherQueries]
       })
-      history.push('/query')
+      history.push(`/dashboard`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
         console.log("caught error marking as responded", error)
