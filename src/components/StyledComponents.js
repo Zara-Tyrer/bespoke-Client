@@ -6,9 +6,10 @@ const fontFamily = 'Roboto'
 
 
 // Container formatting
+//cass edit width to 100vw from 90vw
 export const Page = styled.div `
     font-family: 'Cabin';
-    width: 90vw;
+    width: 100vw;
 `
 export const Block = styled.div `
     display: grid;
