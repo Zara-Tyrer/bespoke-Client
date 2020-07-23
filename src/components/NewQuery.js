@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
 import {Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
-import {CentralForm, FormBlock} from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ } from './StyledComponentC'
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -59,23 +59,23 @@ const NewQuery = ({history}) => {
     <form id="newQueryForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <FormBlock>
-            <Label>Full Name*</Label>
-            <Input required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></Input>
+            <LabelQ>Full Name*</LabelQ>
+            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
-            <Label>Email Address*</Label>
-            <Input required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></Input>
+            <LabelQ>Email Address*</LabelQ>
+            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
-            <Label>Phone Number</Label>
-            <Input required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></Input>
+            <LabelQ>Phone Number</LabelQ>
+            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
-            <Label>Message*</Label>
-            <TextArea required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextArea>
+            <LabelQ>Message*</LabelQ>
+            <TextAreaQ required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
         </FormBlock>
         <FormBlock>
-            <InputButton type="submit" value="Submit your Query"></InputButton>
+            <InputButton type="submit" value="Submit Query"></InputButton>
         </FormBlock>
       </form>
       </CentralForm>
