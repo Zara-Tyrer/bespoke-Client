@@ -27,10 +27,21 @@ export const Button = styled.button `
 
 export const CentralForm = styled.div `
   background-image: url('backgroundWater.png');
-  width: 80vw;
-  margin-left: 10%;
+  width: 70vw;
+  margin: auto;
+  border-radius: 30px
+
 `
 
 export const FormBlock = styled.div `
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+  
   
 ` 
+
+export const LabelQ = styled.label `
+    font-size: 1em;
+`
