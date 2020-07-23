@@ -26,6 +26,6 @@ export async function deleteOrder(id) {
 
 // edits an order on the server
 export async function updateOrder(order) {
-  const response = await api.put(`/porders/${order._id}`, order)
+  const response = await api.put(`/orders/${order._id}`, order)
   return response.data
 }

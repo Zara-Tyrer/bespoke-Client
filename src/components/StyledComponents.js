@@ -7,7 +7,7 @@ const fontFamily = 'Roboto'
 
 // Container formatting
 export const Page = styled.div `
-    font-family: ${fontFamily};
+    font-family: 'Cabin';
     width: 90vw;
 `
 export const Block = styled.div `
@@ -176,4 +176,9 @@ export const CustomiseOrder = styled(Link) `
     border: 5px solid #FFFFFF;
     text-decoration: none;
     text-align: center;
+`
+// Dashboard styles
+
+export const DashboardContainer = styled.div `
+    display: flex;
 `

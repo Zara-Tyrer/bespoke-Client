@@ -10,7 +10,7 @@ const Order = ({history, order}) => {
   const [errorMessage, setErrorMessage] = useState(null)
   if (!order) return null
 
-  const {name, address, email, phone_number, nail_length, nail_shape, nail_style, cost} = order 
+  const {name, address, email, phone_number, nail_length, nail_shape, nail_style, cost, date_created, completed} = order 
   function handleDelete(event) {
     event.preventDefault()
     deleteOrder(order._id).then(() => {
@@ -31,25 +31,41 @@ const Order = ({history, order}) => {
     })
   }
 
-  function handleEdit(event) {
+  //formatting date
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  ]
+  let dateFormat = new Date(date_created)
+  let formattedDate = dateFormat.getDate() + "/" + monthNames[dateFormat.getMonth()] + "/" + dateFormat.getFullYear()
+
+  function handleCompleted(event) {
     event.preventDefault()
-    history.push(`/orders/edit/${order._id}`)
+    order.completed = true
+    history.push(`/dashboard`)
+  }
+
+  const completedIcon = {
+    width: "1em",
+
   }
 
   return (
     <div>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <p>{name}</p>
-      <p>{address}</p>
-      <p>{email}</p>
-      <p>{phone_number}</p>
-      <p>{nail_style}</p>
-      <p>{nail_length}</p>
-      <p>{nail_shape}</p>
-      <p>£{cost}.00</p>
+      <p>Name: {name}</p>
+      <p>Address: {address}</p>
+      <p>Email: {email}</p>
+      <p>Number: {phone_number}</p>
+      <p>Nail style: {nail_style}</p>
+      <p>Nail length: {nail_length}</p>
+      <p>Nail shape: {nail_shape}</p>
+      <p>Price: £{cost}.00</p>
+      <p>Order date: {formattedDate}</p>
+      <div>Completed:{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</div>
+      
       <div>
             <Button onClick={handleDelete}>Delete</Button>
-            <Button onClick={handleEdit}>Edit</Button>
+            <Button onClick={handleCompleted}>Completed</Button>
       </div>
     </div>
   )
