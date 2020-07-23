@@ -11,7 +11,7 @@ import OrderConfirm from './components/OrderConfirm'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SignIn from './components/SignIn'
-import DashboardNav from './components/DashboardNav'
+import Dashboard from './components/Dashboard'
 import Lookbook from './components/Lookbook'
 import Query from './components/Query'
 import Queries from './components/Queries'
@@ -122,7 +122,7 @@ const App = () => {
               <Route exact path="/products/edit/:id" component={EditProduct} />
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/lookbook" component={Lookbook} />
-              <Route exact path="/dashboard" component={DashboardNav} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} /> } />
               <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
               <Route exact path="/query" component={Queries} />
