@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
 import {Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
-
+import {CentralForm} from './StyledComponentC'
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -30,7 +30,8 @@ const NewQuery = ({history}) => {
         data: [newQuery, ...queries]
       })
       //change to confirmation message
-      history.push('/')
+      console.log("created new query", newQuery._id)
+      history.push(`/contact/confirm/${newQuery._id}`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
       console.log('Caught error creating new query', error)
@@ -54,6 +55,7 @@ const NewQuery = ({history}) => {
   const {queries} = store
 
   return (
+    <CentralForm>
     <form id="newQueryForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <Block>
@@ -76,6 +78,7 @@ const NewQuery = ({history}) => {
             <InputButton type="submit" value="Submit your Query"></InputButton>
         </Block>
       </form>
+      </CentralForm>
   )
 
 }
