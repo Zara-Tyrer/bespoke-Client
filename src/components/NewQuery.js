@@ -30,7 +30,8 @@ const NewQuery = ({history}) => {
         data: [newQuery, ...queries]
       })
       //change to confirmation message
-      history.push('/')
+      console.log("created new query", newQuery._id)
+      history.push(`/contact/confirm/${newQuery._id}`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
       console.log('Caught error creating new query', error)

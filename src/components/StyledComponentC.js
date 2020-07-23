@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 
-const titleFontFamily = 'Cabin'
-const fontFamily = 'Roboto'
+// const titleFontFamily = 'Cabin'
+// const fontFamily = 'Roboto'
 
 export const QueryContainer = styled.div `
   background-color: #FFF3F1;
