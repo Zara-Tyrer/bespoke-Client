@@ -56,7 +56,7 @@ const NewOrder = ({history}) => {
   const {orders} = store
 
   return (
-    <form id="newOrderForm" onSubmit={handleSubmit}>
+    <form enctype="multipart/form-data" id="newOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <Block>
             <Label>Name</Label>
@@ -90,9 +90,12 @@ const NewOrder = ({history}) => {
             <Label>Cost</Label>
             <Input required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></Input>
         </Block>
+        {/* change so unique? */}
+        <input type="file" name="nails" />
         <Block>
             <InputButton type="submit" value="Submit order"></InputButton>
         </Block>
+        
     </form>
   ) 
 
