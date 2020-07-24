@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import background from '../img/backgroundWater.png'
 import nailSpill from '../img/nailSpill.jpg'
+import giftcard from '../img/giftcard.png'
 import {Link} from 'react-router-dom'
 
 
@@ -151,6 +152,9 @@ export const MidLeft = styled.div `
 export const MidRight = styled.div`
   display: flex;
   width: 50%;
+  background-image: url(${background});
+  align-items: center;
+  justify-content: center;
 `
 
 export const Lookbook = styled.div `
@@ -170,5 +174,17 @@ export const LookWrite = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+`
+export const Circle = styled.div `
+  width: 400px;
+  height: 400px;
+  background: #B4D3ED;
+  border-radius: 50%;
+`
+
+export const Giftcard = styled.img `
+  width: 250px;
+  transform: rotate(-30deg);
+  padding-top: 140px;
+  padding-left: 40px;
 `

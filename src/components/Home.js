@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {getOrderFromId} from '../services/orderServices'
 import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
-  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite } from './StyledComponentC'
+  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard } from './StyledComponentC'
 
 
 
@@ -46,7 +46,16 @@ const Home = () => {
             </LookWrite>
           </MidLeft>
           <MidRight>
-
+            <Circle>
+              {/* <Giftcard></Giftcard> */}
+              <Giftcard src="/giftcard.png"></Giftcard>
+          
+            </Circle>
+            <div>
+              <div>Treat</div>
+              <div>your</div>
+              <div>Squad.</div>
+            </div>
           </MidRight>
 
         </HomeMidRow>
