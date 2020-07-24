@@ -15,7 +15,7 @@ const OrderConfirm = ({history, match}) => {
   const {name, nail_length, nail_shape, nail_style} = order
 
   const bigCheck = {
-    width: "4em"
+    width: "7em"
   }
   
   return (
@@ -23,7 +23,7 @@ const OrderConfirm = ({history, match}) => {
       <Wrapper>
         <ConfirmationBox>
           <div style={{margin:"auto"}}>
-              <img style={bigCheck} src={'/tick.png'} alt="tick"></img>
+              <img style={bigCheck} src={'/check.png'} alt="tick"></img>
             </div>
           <h3>Thanks for placing an order for {nail_length}mm, {nail_shape} {nail_style} press-ons, {name}!</h3>
           <p>Your order confirmation number is #{order._id}</p>
