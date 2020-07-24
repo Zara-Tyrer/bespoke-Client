@@ -47,9 +47,7 @@ const Home = () => {
           </MidLeft>
           <MidRight>
             <Circle>
-              {/* <Giftcard></Giftcard> */}
               <Giftcard src="/giftcard.png"></Giftcard>
-          
             </Circle>
             <div>
               <div>Treat</div>
