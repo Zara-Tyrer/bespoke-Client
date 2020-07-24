@@ -105,9 +105,6 @@ const App = () => {
     return () => {}
   },[])
   
-  
-  
-  
   return (
     <Page >
       <StateContext.Provider value={{store, dispatch}} >
