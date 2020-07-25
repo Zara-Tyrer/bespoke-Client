@@ -26,7 +26,7 @@ const NewOrder = ({history}) => {
       nail_length: formState.nail_length,
       nail_shape: formState.nail_shape,
       nail_style: formState.nail_style,
-      cost: formState.cost
+      cost: 30
     }
     addOrder(newOrder).then((newOrder) => {
       dispatch({
@@ -49,7 +49,6 @@ const NewOrder = ({history}) => {
     nail_length: 0,
     nail_shape: "",
     nail_style: "",
-    cost: 0
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -88,11 +87,8 @@ const NewOrder = ({history}) => {
             <Input required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></Input>
         </Block>
         <Block>
-            <Label>Cost</Label>
-            <Input required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></Input>
+            <p>Total £30</p>
         </Block>
-        {/* change so unique? */}
-        <input type="file" name="nails" />
         <Block>
             <InputButton type="submit" value="Submit order"></InputButton>
         </Block>
