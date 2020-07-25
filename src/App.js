@@ -132,11 +132,8 @@ const App = () => {
               <Route exact path="/contact" component={NewQuery} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact/confirm/:id" component={QueryConfirm} />
-<<<<<<< HEAD
               <Route exact path='/' component={Home} />
-=======
               <Route exact path="/uploads" component={NewFileUpload} />
->>>>>>> 2293d48628dffa8bcabb7f43cf83db6fd4d107e7
             </Fragment>
         <Footer />
         </BrowserRouter>
