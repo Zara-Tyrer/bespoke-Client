@@ -25,12 +25,8 @@ import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 import About from './components/About'
-<<<<<<< HEAD
 import Home from './components/Home'
-
-=======
 import NewFileUpload from './components/NewFileUpload'
->>>>>>> 2293d48628dffa8bcabb7f43cf83db6fd4d107e7
 
 
 const App = () => {
