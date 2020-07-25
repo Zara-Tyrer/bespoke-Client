@@ -29,3 +29,6 @@ export async function updateOrder(order) {
   const response = await api.put(`/orders/${order._id}`, order)
   return response.data
 }
+
+//add photo
+// get signed url
