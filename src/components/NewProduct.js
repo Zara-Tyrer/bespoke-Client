@@ -3,7 +3,8 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addProduct} from '../services/productServices'
 import { Block, Input, Label, InputButton, ErrorText} from './StyledComponents'
-
+import NewFileUpload from './NewFileUpload'
+import api from '../config/api'
 
 const NewProduct = ({history}) => {
 
@@ -15,6 +16,30 @@ const NewProduct = ({history}) => {
       [name]: value
     })
   }
+  
+  
+  async function uploadImage(newProduct) {
+    try{
+      if (imageData) {
+        const response = await api.post("/uploads", imageData)
+        const imageURL = response.data
+        const updatedProduct = {
+          ...newProduct,
+          image: {
+            description: imageData.description,
+            fileLink: imageURL
+          }
+        }
+        return updatedProduct
+      }
+      return newProduct
+    }
+    catch(error) {
+      console.log(error)
+      alert("Oops an error occurred uploading image, please try again");
+      
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -24,7 +49,8 @@ const NewProduct = ({history}) => {
       nail_style: formState.nail_style,
       cost: formState.cost
     }
-    addProduct(newProduct).then((newProduct) => {
+    uploadImage(newProduct).then((product) => {
+      addProduct(product).then((newProduct) => {
       dispatch({
         type: 'setProducts',
         data: [newProduct, ...products]
@@ -32,26 +58,32 @@ const NewProduct = ({history}) => {
       history.push(`/products`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
-      console.log('Caught error on edit', error)
+      console.log('Caught error creating product', error)
       if(status === 403)
                 setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
             else
                 setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
     })
+  })   
   }
   const initialFormState = {
     // add auto-filled form if product selected from shop
     nail_length: 0,
     nail_shape: "",
     nail_style: "",
-    cost: 0
+    cost: 0,
+    // aws_key: ""
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [imageData, setImageData] = useState(null)
   const {store, dispatch} = useGlobalState()
   const {products} = store
 
+  console.log(imageData)
   return (
+    <div>
+    <NewFileUpload setImageData={setImageData} ></NewFileUpload>
     <form id="newProductForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <Block>
@@ -74,6 +106,7 @@ const NewProduct = ({history}) => {
             <InputButton type="submit" value="Add product"></InputButton>
         </Block>
     </form>
+    </div>
   ) 
 
 }

@@ -1,58 +1,67 @@
-import React, { Component } from "react";
-import {withRouter} from "react-router-dom"
-import axios from "axios";
+import React, { useState } from "react";
 
-const endpoint = "http://localhost:3001/uploads";
 
-class NewFileUpload extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      description: "",
-      selectedFile: null
-    };
+
+const NewFileUpload = ({setImageData}) => {
+  const initialFormState = {
+    description: "",
+    selectedFile: null
   }
 
-  handleSelectedFile = e => {
+  const [formState, setFormState] = useState(initialFormState)
+
+  
+  const handleSelectedFile = e => {
     e.preventDefault();
-    this.setState({
-      description: e.target.value,
+    setFormState({
+      ...formState,
       selectedFile: e.target.files[0]
+    });
+    console.log(e.target.files[0], e.target)
+  };
+
+  const onChange = e => {
+    e.preventDefault()
+    setFormState({
+      [e.target.name]: e.target.value 
     });
   };
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleUpload = event => {
+  const handleUpload = event => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    data.append("file", this.state.selectedFile, this.state.description);
+    console.log(formState.selectedFile)
+    let data = new FormData();
+    data.append("file", formState.selectedFile)
+    // data = ({ 
+    //   selectedFile: formState.selectedFile, 
+    //   description: formState.description
+    // })
+    setImageData(data)
+    console.log(Object.entries(data))
+  }
 
-    axios
-      .post(endpoint, data)
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch(error => {
-        alert("Oops some error happened, please try again");
-      });
-  };
+  //   axios
+  //     .post(endpoint, data)
+  //     .then(() => {
+  //       this.props.history.push("/");
+  //     })
+  //     .catch(error => {
+  //       alert("Oops some error happened, please try again");
+  //     });
+  
 
-  render() {
-    const { description, selectedFile } = this.state;
+  
+
 
     return (
-      <div>
-      <form onSubmit={this.handleUpload}>
+      
+      <form onSubmit={handleUpload} >
       <div className="form-group">
         <label htmlFor="description">Description:</label>
         <input
           type="text"
-          //class="form-control"
           name="description"
-          onChange={this.onChange}
+          onChange={onChange}
           placeholder="Description"
         ></input>
       </div>
@@ -60,19 +69,19 @@ class NewFileUpload extends Component {
       <div className="form-group">
         <input
           type="file"
-          name=""
+          name="file"
           id=""
-          onChange={this.handleSelectedFile}
+          onChange={handleSelectedFile}
         ></input>
       </div>
-      <button type="submit"> 
+      <button type="submit" > 
         Upload
       </button>
     </form>
-    </div>
-  )}
-
+    
+  )
 }
 
-export default withRouter(NewFileUpload);
+
+export default NewFileUpload;
 
