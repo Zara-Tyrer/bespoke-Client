@@ -25,6 +25,7 @@ import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 import About from './components/About'
+import Home from './components/Home'
 import NewFileUpload from './components/NewFileUpload'
 
 
@@ -127,6 +128,7 @@ const App = () => {
               <Route exact path="/contact" component={NewQuery} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact/confirm/:id" component={QueryConfirm} />
+              <Route exact path='/' component={Home} />
               <Route exact path="/uploads" component={NewFileUpload} />
             </Fragment>
         <Footer />
