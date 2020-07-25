@@ -25,8 +25,12 @@ import { getAllQueries, getQueryFromId} from './services/queryServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 import About from './components/About'
+<<<<<<< HEAD
 import Home from './components/Home'
 
+=======
+import NewFileUpload from './components/NewFileUpload'
+>>>>>>> 2293d48628dffa8bcabb7f43cf83db6fd4d107e7
 
 
 const App = () => {
@@ -106,9 +110,6 @@ const App = () => {
     return () => {}
   },[])
   
-  
-  
-  
   return (
     <Page >
       <StateContext.Provider value={{store, dispatch}} >
@@ -131,7 +132,11 @@ const App = () => {
               <Route exact path="/contact" component={NewQuery} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact/confirm/:id" component={QueryConfirm} />
+<<<<<<< HEAD
               <Route exact path='/' component={Home} />
+=======
+              <Route exact path="/uploads" component={NewFileUpload} />
+>>>>>>> 2293d48628dffa8bcabb7f43cf83db6fd4d107e7
             </Fragment>
         <Footer />
         </BrowserRouter>
