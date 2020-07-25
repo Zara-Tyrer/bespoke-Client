@@ -20,7 +20,7 @@ const Order = ({history, order}) => {
           type: "setOrders",
           data: updatedOrders
       })
-      history.push("/dashboard")
+      history.push("/orders")
     }).catch((error) => {
         const status = error.response ? error.response.status : 500
         console.log("caught error on edit", error)
@@ -73,7 +73,7 @@ const Order = ({history, order}) => {
       <p>Address: {address}</p>
       <p>Email: {email}</p>
       <p>Number: {phone_number}</p>
-      <img src={image.fileLink} alt="nails"§></img>
+      <img src={image.fileLink} alt="nails"></img>
       <p>Nail style: {nail_style}</p>
       <p>Nail length: {nail_length}</p>
       <p>Nail shape: {nail_shape}</p>

@@ -42,6 +42,7 @@ const Product = ({history, product}) => {
     history.push(`/orders/edit/${product._id}`)
   }
 
+
   return (
     <div>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -49,7 +50,7 @@ const Product = ({history, product}) => {
       <p>{nail_length}</p>
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
-      <img src={image.fileLink}></img>
+      <img src={image.fileLink} alt="image"></img>
       {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
       {allowEditDelete && (
           <div>

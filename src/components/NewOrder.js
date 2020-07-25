@@ -3,7 +3,8 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addOrder} from '../services/orderServices'
 import { Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
-
+import NewFileUpload from './NewFileUpload'
+import api from '../config/api'
 
 const NewOrder = ({history}) => {
 
@@ -14,6 +15,29 @@ const NewOrder = ({history}) => {
       ...formState,
       [name]: value
     })
+  }
+
+  async function uploadImage(newOrder) {
+    try{
+      if (imageData) {
+        const response = await api.post("/uploads", imageData)
+        const imageURL = response.data
+        const updatedOrder = {
+          ...newOrder,
+          image: {
+            description: imageData.description,
+            fileLink: imageURL
+          }
+        }
+        return updatedOrder
+      }
+      return newOrder
+    }
+    catch(error) {
+      console.log(error)
+      alert("Oops an error occurred uploading image, please try again");
+      
+    }
   }
 
   function handleSubmit(event) {
@@ -28,21 +52,39 @@ const NewOrder = ({history}) => {
       nail_style: formState.nail_style,
       cost: 30
     }
-    addOrder(newOrder).then((newOrder) => {
+
+    uploadImage(newOrder).then((order) => {
+      addOrder(order).then((newOrder) => {
       dispatch({
         type: 'setOrders',
         data: [newOrder, ...orders]
       })
-      
       history.push(`/order/confirm/${newOrder._id}`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
-      console.log('Caught error on edit', error)
+      console.log('Caught error creating order', error)
       if(status === 403)
                 setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
             else
                 setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
     })
+    })
+
+    // addOrder(newOrder).then((newOrder) => {
+    //   dispatch({
+    //     type: 'setOrders',
+    //     data: [newOrder, ...orders]
+    //   })
+      
+    //   history.push(`/order/confirm/${newOrder._id}`)
+    // }).catch((error) => {
+    //   const status = error.response ? error.response.status : 500
+    //   console.log('Caught error on edit', error)
+    //   if(status === 403)
+    //             setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+    //         else
+    //             setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+    // })
   }
   const initialFormState = {
     // add auto-filled form if product selected from shop
@@ -54,9 +96,12 @@ const NewOrder = ({history}) => {
   const [errorMessage, setErrorMessage] = useState(null)
   const {store, dispatch} = useGlobalState()
   const {orders} = store
+  const [imageData, setImageData] = useState(null)
 
   return (
-    <form enctype="multipart/form-data" id="newOrderForm" onSubmit={handleSubmit}>
+    <div>
+    <NewFileUpload setImageData={setImageData} ></NewFileUpload>
+    <form id="newOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <Block>
             <Label>Name</Label>
@@ -94,6 +139,7 @@ const NewOrder = ({history}) => {
         </Block>
         
     </form>
+    </div>
   ) 
 
 }
