@@ -10,7 +10,7 @@ const Order = ({history, order}) => {
   const [errorMessage, setErrorMessage] = useState(null)
   if (!order) return null
 
-  const {name, address, email, phone_number, nail_length, nail_shape, nail_style, cost, date_created, completed} = order 
+  const {name, address, email, phone_number, nail_length, nail_shape, nail_style, cost, date_created, completed, image} = order 
   function handleDelete(event) {
     event.preventDefault()
     deleteOrder(order._id).then(() => {
@@ -20,7 +20,7 @@ const Order = ({history, order}) => {
           type: "setOrders",
           data: updatedOrders
       })
-      history.push("/dashboard")
+      history.push("/orders")
     }).catch((error) => {
         const status = error.response ? error.response.status : 500
         console.log("caught error on edit", error)
@@ -73,6 +73,7 @@ const Order = ({history, order}) => {
       <p>Address: {address}</p>
       <p>Email: {email}</p>
       <p>Number: {phone_number}</p>
+      <img src={image.fileLink} alt="nails"></img>
       <p>Nail style: {nail_style}</p>
       <p>Nail length: {nail_length}</p>
       <p>Nail shape: {nail_shape}</p>

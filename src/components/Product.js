@@ -51,7 +51,7 @@ const Product = ({history, product}) => {
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
       <img src={image.fileLink} alt="image"></img>
-      <OrderLink onClick={handleOrder}>Order</OrderLink>
+      {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
       {allowEditDelete && (
           <div>
               <Button onClick={handleDelete}>Delete</Button>
