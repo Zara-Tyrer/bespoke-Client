@@ -109,8 +109,7 @@ const EditOrder = ({history, match}) => {
             <Input required type="text" name="nail_style" value={formState.nail_style} onChange={handleChange}></Input>
         </Block>
         <Block>
-            <Label>Cost</Label>
-            <Input required type="text" name="cost" value={formState.cost} onChange={handleChange}></Input>
+            <p>Total: £{product.cost}</p>
         </Block>
         <Block>
             <InputButton type="submit" value="Submit order"></InputButton>
