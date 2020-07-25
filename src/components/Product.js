@@ -10,7 +10,7 @@ const Product = ({history, product}) => {
   const [errorMessage, setErrorMessage] = useState(null)
   if (!product) return null
 
-  const {nail_length, nail_shape, nail_style, cost} = product 
+  const {nail_length, nail_shape, nail_style, cost, image} = product 
   const allowEditDelete = loggedInUser 
   function handleDelete(event) {
     event.preventDefault()
@@ -42,6 +42,7 @@ const Product = ({history, product}) => {
     history.push(`/orders/edit/${product._id}`)
   }
 
+
   return (
     <div>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -49,6 +50,7 @@ const Product = ({history, product}) => {
       <p>{nail_length}</p>
       <p>{nail_shape}</p>
       <p>£{cost}.00</p>
+      <img src={image.fileLink} alt="image"></img>
       <OrderLink onClick={handleOrder}>Order</OrderLink>
       {allowEditDelete && (
           <div>
