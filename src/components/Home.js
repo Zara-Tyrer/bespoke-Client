@@ -3,11 +3,13 @@ import {useGlobalState} from '../config/store'
 import {getOrderFromId} from '../services/orderServices'
 import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
-  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard } from './StyledComponentC'
+  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, Pic} from './StyledComponentC'
 
 
 
 const Home = () => {
+
+
 
 
   return (
@@ -46,17 +48,35 @@ const Home = () => {
             </LookWrite>
           </MidLeft>
           <MidRight>
-            <Circle>
-              <Giftcard src="/giftcard.png"></Giftcard>
-            </Circle>
-            <div>
-              <div>Treat</div>
-              <div>your</div>
-              <div>Squad.</div>
+            <div style={{display:"flex", margin:"4em"}}>
+              <Circle>
+                <Giftcard src="/giftcard.png">
+                </Giftcard>
+              </Circle>
+              <Squad>
+                  <div>Treat</div>
+                  <div>Your</div>
+                  <div>Squad.</div> 
+              </Squad>
+              </div>
+            <div style={{fontSize:"50px", display: "flex", justifyContent:"center", paddingBottom:"2%"}}>
+                <Link to="/lookbook">GRAB A GIFT CARD</Link>
             </div>
           </MidRight>
-
+          
         </HomeMidRow>
+        <ThirdRow>
+          <InstaLink>
+            <a href="https://www.instagram.com/bespoke_nails_/">@bespoke_nails_</a>
+          </InstaLink>
+          <InstaPics>
+            <Pic src="/nails1.png"></Pic>
+            <Pic src="/nails2.png"></Pic>
+            <Pic src="/nails3.png"></Pic>
+            <Pic src="/nails4.png"></Pic>
+            <Pic src="/nails5.png"></Pic>
+          </InstaPics>
+        </ThirdRow>
 
       </HomeWrapper>
     </div>

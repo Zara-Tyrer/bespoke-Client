@@ -151,10 +151,11 @@ export const MidLeft = styled.div `
 
 export const MidRight = styled.div`
   display: flex;
+  font-family: Abel;
   width: 50%;
   background-image: url(${background});
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  ${'' /* justify-content: space-around; */}
 `
 
 export const Lookbook = styled.div `
@@ -179,12 +180,54 @@ export const Circle = styled.div `
   width: 400px;
   height: 400px;
   background: #B4D3ED;
+  border: none;
   border-radius: 50%;
 `
 
 export const Giftcard = styled.img `
-  width: 250px;
   transform: rotate(-30deg);
-  padding-top: 140px;
-  padding-left: 40px;
+  ${'' /* background-image: url(${giftcard}); */}
+  max-width: 70%;
+  height: auto;
+  margin-top: 28%;
+  margin-left: 15%;
+
+
+`
+export const Squad = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 72px;
+  font-family: Abel;
+  justify-content: center;
+  ${'' /* align-items: center; */}
+  margin-bottom: 5%;
+`
+
+export const ThirdRow = styled.div `
+  display: flex;
+  flex-direction: column;
+  background: white;
+`
+export const InstaLink = styled.div `
+  height: 30vh;
+  background: white;
+  font-size: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #C05277;
+  font-family: Abel;
+`
+export const InstaPics = styled.div `
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin: auto;
+  column-gap: 45px;
+  background: white;
+`
+
+export const Pic = styled.img `
+  width: 200px;
+
 `
