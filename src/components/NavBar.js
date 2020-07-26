@@ -20,7 +20,7 @@ const NavBar = () => {
           <Nav to="/lookbook">LOOKBOOK</Nav>
           <Nav to="/about">ABOUT</Nav>
           <Nav to="/giftcards">GIFT CARDS</Nav>
-          <Logo to="/"><img style={imageStyles} src="logo.png" alt="logo"></img></Logo>
+          <Logo to="/"><img style={imageStyles} src="/logo.png" alt="logo"></img></Logo>
           <Nav to="/contact">CONTACT</Nav>
           <Nav to="/products">SHOP</Nav>
           <Nav to="/products">ORDER NOW</Nav>
