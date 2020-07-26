@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import background from '../img/backgroundWater.png'
 import nailSpill from '../img/nailSpill.jpg'
-import giftcard from '../img/giftcard.png'
 import {Link} from 'react-router-dom'
 
 
@@ -26,7 +25,7 @@ export const Button = styled.button `
   padding: .2em;
   border: none;
   font-size: 0.9em;
-  margin: 1em;
+  margin: 0 0 0 33%;
 `
 
 export const CentralForm = styled.div `
@@ -34,27 +33,41 @@ export const CentralForm = styled.div `
   width: 60vw;
   margin: auto;
   border-radius: 30px;
+  background-size: cover;
 `
 
 export const FormBlock = styled.div `
   margin: 1em;
   padding: 1em;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-content: center;
 `
 
 export const InputQ = styled.input `
     width: 50%;
-    margin: .5em;
+    margin: .2em;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 `
 export const LabelQ = styled.label `
-    font-size: 1.2em;
+    font-size: 1em;
+    width: 120px;
+    padding-top: 5px;
 `
 
 export const TextAreaQ = styled.textarea `
-    height: 200px;
+    height: 150px;
     margin: .5em;
     width: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+`
+export const FormInfo = styled.div `
+  width: 70%;
+  margin: auto;
 `
 
 export const ConfirmationBox = styled.div `
@@ -74,7 +87,10 @@ export const Wrapper = styled.div`
   margin-bottom: 6em;
 `
 
-//home
+
+
+
+//homepage components
 export const HomeWrapper = styled.div `
   display: flex;
   flex-direction: column;
@@ -126,6 +142,7 @@ export const HomeHeading = styled.div `
   display: flex;
   justify-content: flex-end;
   font-size: 50px;
+  color: #525252;
 `
 
 export const HomeSubHead = styled.div`
@@ -146,16 +163,6 @@ export const HomeMidRow = styled.div`
 export const MidLeft = styled.div `
   display: flex;
   width: 50%;
-
-`
-
-export const MidRight = styled.div`
-  display: flex;
-  font-family: Abel;
-  width: 50%;
-  background-image: url(${background});
-  flex-direction: column;
-  ${'' /* justify-content: space-around; */}
 `
 
 export const Lookbook = styled.div `
@@ -175,24 +182,45 @@ export const LookWrite = styled.div `
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-content: center;
 `
+export const MidRight = styled.div`
+  display: flex;
+  font-family: Abel;
+  width: 50%;
+  background-image: url(${background});
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+`
+
+export const MidRightTop = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export const Circle = styled.div `
   width: 400px;
   height: 400px;
   background: #B4D3ED;
   border: none;
   border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
 `
 
 export const Giftcard = styled.img `
   transform: rotate(-30deg);
-  ${'' /* background-image: url(${giftcard}); */}
   max-width: 70%;
   height: auto;
-  margin-top: 28%;
-  margin-left: 15%;
-
-
+  position: relative;
+  z-index: 3;
+  margin-left: 50px;
+  ${'' /* margin-right: 50%;
+  margin-bottom: 50%; */}
 `
 export const Squad = styled.div`
   display: flex;
@@ -201,7 +229,8 @@ export const Squad = styled.div`
   font-family: Abel;
   justify-content: center;
   ${'' /* align-items: center; */}
-  margin-bottom: 5%;
+  position: relative;
+  z-index: 4;
 `
 
 export const ThirdRow = styled.div `

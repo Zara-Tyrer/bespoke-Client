@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addOrder} from '../services/orderServices'
-import { Block, Input, Label, InputButton, ErrorText, TextArea} from './StyledComponents'
+import {InputButton, ErrorText} from './StyledComponents'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
@@ -84,45 +85,59 @@ const NewOrder = ({history}) => {
 
   return (
     <div>
-    <NewFileUpload setImageData={setImageData} ></NewFileUpload>
-    <form id="newOrderForm" onSubmit={handleSubmit}>
+    <CentralForm>
+      <div style={{paddingTop:"1em"}}>
+        <FormInfo>
+        <h3>Image Details</h3>
+        <p>To include an example image, please choose a file and click 'Upload'. Your image will be submitted with your order.</p>
+        </FormInfo>
+        <NewFileUpload setImageData={setImageData} ></NewFileUpload>
+      </div>
+      <form id="newOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Block>
-            <Label>Name</Label>
-            <Input required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Address</Label>
-            <TextArea required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextArea>
-        </Block>
-        <Block>
-            <Label>Email</Label>
-            <Input required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Phone Number</Label>
-            <Input required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Length</Label>
-            <Input required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Shape</Label>
-            <Input required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Style</Label>
-            <Input required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></Input>
-        </Block>
-        <Block>
+        <FormInfo>
+        <h3>Contact Details</h3>
+        </FormInfo>
+        <FormBlock>
+            <LabelQ>Name*</LabelQ>
+            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Address</LabelQ>
+            <TextAreaQ required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Email*</LabelQ>
+            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Phone Number</LabelQ>
+            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormInfo>
+        <h3>Order Details</h3>
+        </FormInfo>
+        <FormBlock>
+            <LabelQ>Nail Length*</LabelQ>
+            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Nail Shape*</LabelQ>
+            <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Nail Style*</LabelQ>
+            <InputQ required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
             <p>Total £30</p>
-        </Block>
-        <Block>
+        </FormBlock>
+        <FormBlock>
             <InputButton type="submit" value="Submit order"></InputButton>
-        </Block>
+        </FormBlock>
         
-    </form>
+      </form>
+    </CentralForm>
     </div>
   ) 
 

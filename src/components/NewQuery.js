@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
-import {InputButton, ErrorText, TextArea} from './StyledComponents'
+import {InputButton, ErrorText} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ } from './StyledComponentC'
 const NewQuery = ({history}) => {
   
