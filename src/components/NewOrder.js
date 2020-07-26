@@ -69,22 +69,6 @@ const NewOrder = ({history}) => {
                 setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
     })
     })
-
-    // addOrder(newOrder).then((newOrder) => {
-    //   dispatch({
-    //     type: 'setOrders',
-    //     data: [newOrder, ...orders]
-    //   })
-      
-    //   history.push(`/order/confirm/${newOrder._id}`)
-    // }).catch((error) => {
-    //   const status = error.response ? error.response.status : 500
-    //   console.log('Caught error on edit', error)
-    //   if(status === 403)
-    //             setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
-    //         else
-    //             setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
-    // })
   }
   const initialFormState = {
     // add auto-filled form if product selected from shop
