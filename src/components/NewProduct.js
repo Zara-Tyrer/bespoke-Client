@@ -71,8 +71,7 @@ const NewProduct = ({history}) => {
     nail_length: 0,
     nail_shape: "",
     nail_style: "",
-    cost: 0,
-    // aws_key: ""
+    cost: 0
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
