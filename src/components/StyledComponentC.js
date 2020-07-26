@@ -37,7 +37,7 @@ export const CentralForm = styled.div `
 `
 
 export const FormBlock = styled.div `
-  margin: 1em;
+  margin: 0.5em;
   padding: 1em;
   display: flex;
   flex-direction: row;
@@ -46,24 +46,24 @@ export const FormBlock = styled.div `
 `
 
 export const InputQ = styled.input `
-    width: 50%;
-    margin: .2em;
-    border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+  width: 50%;
+  margin: .2em;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 `
 export const LabelQ = styled.label `
-    font-size: 1em;
-    width: 120px;
-    padding-top: 5px;
+  font-size: 1em;
+  width: 120px;
+  padding-top: 5px;
 `
 
 export const TextAreaQ = styled.textarea `
-    height: 150px;
-    margin: .5em;
-    width: 50%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+  height: 150px;
+  margin: .5em;
+  width: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 `
 export const FormInfo = styled.div `
   width: 70%;

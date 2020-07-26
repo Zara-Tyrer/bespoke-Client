@@ -96,7 +96,7 @@ const NewOrder = ({history}) => {
       <form id="newOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <FormInfo>
-        <h3>Contact Details</h3>
+          <h3>Contact Details</h3>
         </FormInfo>
         <FormBlock>
             <LabelQ>Name*</LabelQ>
@@ -115,7 +115,7 @@ const NewOrder = ({history}) => {
             <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormInfo>
-        <h3>Order Details</h3>
+          <h3>Order Details</h3>
         </FormInfo>
         <FormBlock>
             <LabelQ>Nail Length*</LabelQ>
