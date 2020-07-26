@@ -1,16 +1,11 @@
 import React from 'react';
-import {useGlobalState} from '../config/store'
-import {getOrderFromId} from '../services/orderServices'
+// import {useGlobalState} from '../config/store'
+// import {getOrderFromId} from '../services/orderServices'
 import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
   HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, Pic} from './StyledComponentC'
 
-
-
 const Home = () => {
-
-
-
 
   return (
     <div>
@@ -31,11 +26,10 @@ const Home = () => {
           </TopLeft>
           <TopRight>
             <div>
-              <OrderNowHome>MAKE AN ORDER</OrderNowHome>
+              <OrderNowHome to="/products">MAKE AN ORDER</OrderNowHome>
             </div>
           </TopRight>
         </HomeTopRow>
-
         <HomeMidRow>
           <MidLeft>
             <Lookbook>
