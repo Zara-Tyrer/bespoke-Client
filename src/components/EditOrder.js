@@ -31,7 +31,11 @@ const EditOrder = ({history, match}) => {
       nail_length: formState.nail_length,
       nail_shape: formState.nail_shape,
       nail_style: formState.nail_style,
-      cost: formState.cost
+      cost: formState.cost,
+      image: {
+        description: formState.image.description,
+        fileLink: formState.image.fileLink
+      }
     }
     addOrder(newOrder).then((newOrder) => {
       dispatch({
@@ -57,7 +61,11 @@ const EditOrder = ({history, match}) => {
     nail_length: "",
     nail_shape: "",
     nail_style: "",
-    cost: ""
+    cost: "",
+    image: {
+      description: product.image.description,
+      fileLink: product.image.fileLink
+    }
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -73,7 +81,11 @@ const EditOrder = ({history, match}) => {
       nail_length: product.nail_length,
       nail_shape: product.nail_shape,
       nail_style: product.nail_style,
-      cost: product.cost
+      cost: product.cost,
+      image: {
+        description: product.image.description,
+        fileLink: product.image.fileLink
+      }
     })
   },[product])
 
