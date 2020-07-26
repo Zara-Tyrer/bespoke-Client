@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {withRouter} from 'react-router-dom'
-import {Button, ErrorText, OrderLink} from './StyledComponents'
+import {Button, ErrorText, OrderLink, ProductContainer, ProductCard} from './StyledComponents'
 
 const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
@@ -42,23 +42,39 @@ const Product = ({history, product}) => {
     history.push(`/orders/edit/${product._id}`)
   }
 
+  const productImage = {
+    width: "15vw",
+    height: "15vw",
+  }
+
+  const productDetails = {
+    display: "flex",
+    justifyContent: "space-between",
+    margin: ".5em"
+  }
 
   return (
-    <div>
+    <ProductContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <p>{nail_style}</p>
-      <p>{nail_length}</p>
-      <p>{nail_shape}</p>
-      <p>£{cost}.00</p>
-      <img src={image.fileLink} alt="image"></img>
-      {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
+      <ProductCard>
+      <img style={productImage} src={image.fileLink} alt="image"></img>
+      <div style={productDetails}>
+        £{cost}.00
+        {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
+      </div>
       {allowEditDelete && (
+        <div>
+          <div>{nail_length}</div>
+          <div>{nail_shape}</div>
+          <div>{nail_style}</div>
           <div>
               <Button onClick={handleDelete}>Delete</Button>
               <Button onClick={handleEdit}>Edit</Button>
           </div>
+        </div>
       )}
-    </div>
+      </ProductCard>
+    </ProductContainer>
   )
 }
 

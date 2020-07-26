@@ -1,7 +1,8 @@
 import React from 'react'
 import Product from './Product'
 import {useGlobalState} from '../config/store'
-import {DashboardButton, CustomiseOrder} from './StyledComponents'
+import {DashboardButton, CustomiseOrder, ProductsContainer, ProductsDiv, ProductsGrid} from './StyledComponents'
+import { findByLabelText } from '@testing-library/react'
 
 
 const Products = () => {
@@ -9,26 +10,41 @@ const Products = () => {
     const {products, loggedInUser} = store
     const showDashboardButton = loggedInUser
 
+    const customiseOrder = {
+      padding: "3em",
+    }
+    const customiseCard = {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
+
     return (
-      <div>
+      <ProductsContainer>
         {showDashboardButton && (
           <div>
             <DashboardButton to="/products/new">Add New Product</DashboardButton>
           </div>
         )}
-        {products.map((product) => <Product key={product._id} product={product} />)}
-        {showDashboardButton && (
-          <div>
-            <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
-          </div>
-        )}
         {!loggedInUser && (
-          <div> 
-            <div>Customise your own set of press ons</div>
+          <div style={customiseCard}> 
+            <div style={customiseOrder}>Customise your own set of press ons</div>
             <CustomiseOrder to="/orders/new">CUSTOMISE</CustomiseOrder>
           </div>
         )}
-      </div>
+        <ProductsGrid>
+        <div>
+          <ProductsDiv>
+            {products.map((product) => <Product key={product._id} product={product} />)}
+          </ProductsDiv>
+          {showDashboardButton && (
+            <div>
+              <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
+            </div>
+          )}
+        </div>
+        </ProductsGrid>
+      </ProductsContainer>
     )
 }
 

@@ -3,7 +3,7 @@ import Order from './Order'
 import {useGlobalState} from '../config/store'
 import {OrdersContainer} from './StyledComponents'
 import DashboardNav from './DashboardNav'
-import Dashboard from './Dashboard'
+
 
 const Orders = () => {
   const {store} = useGlobalState()
