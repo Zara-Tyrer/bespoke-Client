@@ -3,7 +3,8 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {getProductFromId} from '../services/productServices'
 import {addOrder} from '../services/orderServices'
-import {Block, ErrorText, Input, Label, InputButton, TextArea} from './StyledComponents'
+import {ErrorText, InputButton} from './StyledComponents'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo} from './StyledComponentC'
 
 const EditOrder = ({history, match}) => {
 
@@ -62,10 +63,8 @@ const EditOrder = ({history, match}) => {
     nail_shape: "",
     nail_style: "",
     cost: "",
-    image: {
-      description: product.image.description,
-      fileLink: product.image.fileLink
-    }
+    // set inital form state back to blank
+    image: ""
   } 
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -90,43 +89,52 @@ const EditOrder = ({history, match}) => {
   },[product])
 
   return (
-    <form id="editOrderForm" onSubmit={handleSubmit}>
+    <CentralForm>
+      <form id="editOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Block>
-            <Label>Name</Label>
-            <Input required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Address</Label>
-            <TextArea required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextArea>
-        </Block>
-        <Block>
-            <Label>Email</Label>
-            <Input required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Phone Number</Label>
-            <Input required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Length</Label>
-            <Input required type="text" name="nail_length" value={formState.nail_length} onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Shape</Label>
-            <Input required type="text" name="nail_shape" value={formState.nail_shape} onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Style</Label>
-            <Input required type="text" name="nail_style" value={formState.nail_style} onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <p>Total: £{product.cost}</p>
-        </Block>
-        <Block>
+        <FormInfo style={{paddingTop:"1em"}}>
+          <h3>Contact Details</h3>
+        </FormInfo>
+        <FormBlock>
+            <LabelQ>Name*</LabelQ>
+            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Address</LabelQ>
+            <TextAreaQ required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Email*</LabelQ>
+            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Phone Number</LabelQ>
+            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormInfo>
+          <h3>Order Details</h3>
+        </FormInfo>
+        <FormBlock>
+            <LabelQ>Nail Length</LabelQ>
+            <InputQ required type="text" name="nail_length" value={formState.nail_length} onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Nail Shape</LabelQ>
+            <InputQ required type="text" name="nail_shape" value={formState.nail_shape} onChange={handleChange}></InputQ>
+        </FormBlock>
+        <FormBlock>
+            <LabelQ>Nail Style</LabelQ>
+            <InputQ required type="text" name="nail_style" value={formState.nail_style} onChange={handleChange}></InputQ>
+        </FormBlock>
+        {/* edited from product.cost to formState.cost due to error */}
+        <FormBlock>
+            <p>Total: £{formState.cost}</p>
+        </FormBlock>
+        <FormBlock>
             <InputButton type="submit" value="Submit order"></InputButton>
-        </Block>
-    </form>
+        </FormBlock>
+      </form>
+    </CentralForm>
   ) 
 }
 

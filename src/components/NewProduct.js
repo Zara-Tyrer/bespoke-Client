@@ -3,6 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addProduct} from '../services/productServices'
 import { Block, Input, Label, InputButton, ErrorText} from './StyledComponents'
+import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
@@ -81,31 +82,31 @@ const NewProduct = ({history}) => {
 
   console.log(imageData)
   return (
-    <div>
-    <NewFileUpload setImageData={setImageData} ></NewFileUpload>
-    <form id="newProductForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Block>
-            <Label>Nail Length</Label>
-            <Input required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Shape</Label>
-            <Input required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Nail Style</Label>
-            <Input required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <Label>Cost</Label>
-            <Input required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></Input>
-        </Block>
-        <Block>
-            <InputButton type="submit" value="Add product"></InputButton>
-        </Block>
-    </form>
-    </div>
+    <CentralForm>
+      <NewFileUpload setImageData={setImageData} ></NewFileUpload>
+      <form id="newProductForm" onSubmit={handleSubmit}>
+          {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+          <FormBlock>
+              <LabelQ>Nail Length</LabelQ>
+              <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Nail Shape</LabelQ>
+              <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Nail Style</LabelQ>
+              <InputQ required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Cost</LabelQ>
+              <InputQ required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <InputButton type="submit" value="Add product"></InputButton>
+          </FormBlock>
+      </form>
+    </CentralForm>
   ) 
 
 }

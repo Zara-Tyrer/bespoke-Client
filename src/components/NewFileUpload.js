@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {FormBlock, LabelQ, InputQ, Button} from './StyledComponentC'
 
 
 const NewFileUpload = ({setImageData}) => {
@@ -56,27 +56,24 @@ const NewFileUpload = ({setImageData}) => {
     return (
       
       <form onSubmit={handleUpload} >
-      <div className="form-group">
-        <label htmlFor="description">Description:</label>
-        <input
+      <FormBlock >
+        <LabelQ htmlFor="description">Description:</LabelQ>
+        <InputQ style={{width:"25%"}}
           type="text"
           name="description"
           onChange={onChange}
           placeholder="Description"
-        ></input>
-      </div>
-
-      <div className="form-group">
-        <input
+        ></InputQ>
+        <InputQ style={{width:"25%"}}
           type="file"
           name="file"
           id=""
           onChange={handleSelectedFile}
-        ></input>
-      </div>
-      <button type="submit" > 
+        ></InputQ>
+      </FormBlock>
+      <Button type="submit" > 
         Upload
-      </button>
+      </Button>
     </form>
     
   )

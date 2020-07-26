@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
 import {loginUser, setLoggedInUser} from '../services/authServices'
-import {InputButton, Input, Label, Block, ErrorText} from './StyledComponents'
+import {InputButton, ErrorText} from './StyledComponents'
+import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo} from './StyledComponentC'
 
 const SignIn = ({history}) => {
     const initialFormState = {
@@ -40,21 +41,25 @@ const SignIn = ({history}) => {
     }
 
     return (
-        <form data-cy="loginForm" onSubmit={handleSubmit}>
-            {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-            <Block>
-                <Label>Username</Label>
-                <Input data-cy="username" required type="text" name="username" placeholder="Enter a username" onChange={handleChange}></Input>
-            </Block>
-            <Block>
-                <Label>Password</Label>
-                <Input data-cy="password" required type="password" name="password" placeholder="Enter a password" onChange={handleChange}></Input>
-            </Block>
-            <Block>
-                <InputButton data-cy="loginButton" type="submit" value="Login"></InputButton>
-            </Block>
-            
-        </form>
+        <CentralForm>
+            <form data-cy="loginForm" onSubmit={handleSubmit}>
+                {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+                <FormInfo style={{paddingTop:"2em"}}>
+                    <h3>Admin Login</h3>
+                </FormInfo>
+                <FormBlock>
+                    <LabelQ>Username</LabelQ>
+                    <InputQ data-cy="username" required type="text" name="username" placeholder="Enter a username" onChange={handleChange}></InputQ>
+                </FormBlock>
+                <FormBlock>
+                    <LabelQ>Password</LabelQ>
+                    <InputQ data-cy="password" required type="password" name="password" placeholder="Enter a password" onChange={handleChange}></InputQ>
+                </FormBlock>
+                <FormBlock>
+                    <InputButton data-cy="loginButton" type="submit" value="Login"></InputButton>
+                </FormBlock>  
+            </form>
+        </CentralForm>
     )
 }
 export default SignIn

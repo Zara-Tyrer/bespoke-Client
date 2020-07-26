@@ -3,7 +3,9 @@ import React from 'react';
 // import {getOrderFromId} from '../services/orderServices'
 import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
-  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, Pic} from './StyledComponentC'
+  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, 
+  LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, 
+  Pic, MidRightTop} from './StyledComponentC'
 
 const Home = () => {
 
@@ -33,7 +35,7 @@ const Home = () => {
         <HomeMidRow>
           <MidLeft>
             <Lookbook>
-              <img style={{width:"250px"}}src="/lookbookIcon.jpg" ></img>
+              <img style={{width:"250px"}}src="/lookbookIcon.jpg" alt="lookbook" ></img>
             </Lookbook>
             <LookWrite>
               <div>THE</div>
@@ -42,33 +44,31 @@ const Home = () => {
             </LookWrite>
           </MidLeft>
           <MidRight>
-            <div style={{display:"flex", margin:"4em"}}>
+            <MidRightTop>
               <Circle>
-                <Giftcard src="/giftcard.png">
-                </Giftcard>
-              </Circle>
-              <Squad>
+              <Giftcard src="/giftcard.png" alt="giftcard"></Giftcard>
+                <Squad>
                   <div>Treat</div>
                   <div>Your</div>
                   <div>Squad.</div> 
-              </Squad>
-              </div>
-            <div style={{fontSize:"50px", display: "flex", justifyContent:"center", paddingBottom:"2%"}}>
+                </Squad>
+              </Circle>
+            </MidRightTop>
+            <div style={{fontSize:"50px", display: "flex", justifyContent:"center", padding:"2%", margin:"2%"}}>
                 <Link to="/lookbook">GRAB A GIFT CARD</Link>
             </div>
           </MidRight>
-          
         </HomeMidRow>
         <ThirdRow>
           <InstaLink>
             <a href="https://www.instagram.com/bespoke_nails_/">@bespoke_nails_</a>
           </InstaLink>
           <InstaPics>
-            <Pic src="/nails1.png"></Pic>
-            <Pic src="/nails2.png"></Pic>
-            <Pic src="/nails3.png"></Pic>
-            <Pic src="/nails4.png"></Pic>
-            <Pic src="/nails5.png"></Pic>
+            <Pic src="/nails1.png" alt="nails"></Pic>
+            <Pic src="/nails2.png" alt="nails"></Pic>
+            <Pic src="/nails3.png" alt="nails"></Pic>
+            <Pic src="/nails4.png" alt="nails"></Pic>
+            <Pic src="/nails5.png" alt="nails"></Pic>
           </InstaPics>
         </ThirdRow>
 
