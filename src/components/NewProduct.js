@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addProduct} from '../services/productServices'
 import { Block, Input, Label, InputButton, ErrorText} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo} from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo, SelectQ} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
@@ -91,8 +91,16 @@ const NewProduct = ({history}) => {
               <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
           </FormBlock>
           <FormBlock>
-              <LabelQ>Nail Shape</LabelQ>
-              <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ>
+              <LabelQ for="nail_shape">Nail Shape</LabelQ>
+              <SelectQ required name="nail_shape" id="cars" onChange={handleChange}>
+                <option value="Oval">Oval</option>
+                <option value="Round">Round</option>
+                <option value="Square">Square</option>
+                <option value="Squoval">Squoval</option>
+                <option value="Stiletto">Stiletto</option>
+                <option value="Coffin">Coffin/Ballerina</option>
+                <option value="Almond">Almond</option>
+              </SelectQ>
           </FormBlock>
           <FormBlock>
               <LabelQ>Nail Style</LabelQ>

@@ -52,6 +52,14 @@ export const InputQ = styled.input `
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 `
+export const SelectQ = styled.select `
+  width: 50%;
+  margin: .2em;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+`
+
 export const LabelQ = styled.label `
   font-size: 1em;
   width: 120px;
