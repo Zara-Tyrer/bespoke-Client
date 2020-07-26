@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 const titleFontFamily = 'Cabin'
-const fontFamily = 'Roboto'
+
 
 
 // Container formatting
@@ -187,4 +187,41 @@ export const DashboardContainer = styled.div `
 //Orders Style
 export const OrdersContainer = styled.div `
     display: flex
+`
+
+// Product styling
+export const ProductContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+
+`
+export const ProductsContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+`
+export const ProductCard = styled.div `
+    padding: 2em;
+`
+export const ProductsDiv = styled.div `
+    display: flex;
+`
+export const ProductsGrid = styled.div `
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
+    grid-auto-flow: row; 
+`
+
+// 404 not found styles
+export const NotFoundContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFD4D7;
+`
+export const BackLink = styled(Link) `
+    padding: 3em 2em 0em 2em;
+    font-family: 'Cabin';
+    text-decoration: none;
+    color: #D3A29C;
 `

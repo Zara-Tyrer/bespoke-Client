@@ -1,5 +1,5 @@
 import React, {useReducer, useEffect, Fragment} from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Products from './components/Products'
 import NewProduct from './components/NewProduct'
 import EditProduct from './components/EditProduct'
@@ -27,6 +27,7 @@ import {Page} from './components/StyledComponents'
 import About from './components/About'
 import Home from './components/Home'
 import NewFileUpload from './components/NewFileUpload'
+import NotFound from './components/NotFound'
 
 
 const App = () => {
@@ -38,7 +39,7 @@ const App = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  const {products, orders, queries} = store
+  const {products, error, queries} = store
 
   function fetchProducts() {
     getAllProducts().then((productData) => {
@@ -111,7 +112,8 @@ const App = () => {
       <StateContext.Provider value={{store, dispatch}} >
         <BrowserRouter>
         <NavBar />
-            <Fragment>
+          <Fragment>
+            <Switch>
               <Route exact path='/products' component={Products} />
               <Route exact path='/orders' component={Orders} />
               <Route exact path="/products/new" component={NewProduct} />
@@ -130,7 +132,9 @@ const App = () => {
               <Route exact path="/contact/confirm/:id" component={QueryConfirm} />
               <Route exact path='/' component={Home} />
               <Route exact path="/uploads" component={NewFileUpload} />
-            </Fragment>
+              <Route component={NotFound} />
+            </Switch>
+          </Fragment>
         <Footer />
         </BrowserRouter>
       </StateContext.Provider>
