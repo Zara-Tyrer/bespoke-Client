@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addOrder} from '../services/orderServices'
 import {InputButton, ErrorText} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo} from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
@@ -83,6 +83,14 @@ const NewOrder = ({history}) => {
   const {orders} = store
   const [imageData, setImageData] = useState(null)
 
+  const nL17 = 17
+  const nL18 = 18
+  const nL19 = 19
+  const nL20 = 20
+  const nL21 = 21
+  const nL22 = 22
+  const nL23 = 23
+
   return (
     <div>
     <CentralForm>
@@ -118,12 +126,32 @@ const NewOrder = ({history}) => {
           <h3>Order Details</h3>
         </FormInfo>
         <FormBlock>
-            <LabelQ>Nail Length*</LabelQ>
-            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
+            <LabelQ for="nail_length">Nail Length</LabelQ>
+            <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
+              <option value={nL17} >17mm</option>
+              <option value={nL18} >18mm</option>
+              <option value={nL19} >19mm</option>
+              <option value={nL20} >20mm</option>
+              <option value={nL21} >21mm</option>
+              <option value={nL22} >22mm</option>
+              <option value={nL23} >23mm</option>
+            </SelectQ>
+            {/* <LabelQ>Nail Length*</LabelQ>
+            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
         </FormBlock>
         <FormBlock>
-            <LabelQ>Nail Shape*</LabelQ>
-            <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ>
+            <LabelQ for="nail_shape">Nail Shape*</LabelQ>
+            <SelectQ required name="nail_shape" id="cars" onChange={handleChange}>
+              <option value="Oval">Oval</option>
+              <option value="Round">Round</option>
+              <option value="Square">Square</option>
+              <option value="Squoval">Squoval</option>
+              <option value="Stiletto">Stiletto</option>
+              <option value="Coffin">Coffin/Ballerina</option>
+              <option value="Almond">Almond</option>
+            </SelectQ>
+            {/* <LabelQ>Nail Shape*</LabelQ>
+            <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ> */}
         </FormBlock>
         <FormBlock>
             <LabelQ>Nail Style*</LabelQ>
