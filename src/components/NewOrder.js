@@ -126,7 +126,7 @@ const NewOrder = ({history}) => {
           <h3>Order Details</h3>
         </FormInfo>
         <FormBlock>
-            {/* <LabelQ for="nail_length">Nail Length</LabelQ>
+            <LabelQ for="nail_length">Nail Length</LabelQ>
             <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
               <option value={nL17} >17mm</option>
               <option value={nL18} >18mm</option>
@@ -135,9 +135,9 @@ const NewOrder = ({history}) => {
               <option value={nL21} >21mm</option>
               <option value={nL22} >22mm</option>
               <option value={nL23} >23mm</option>
-            </SelectQ> */}
-            <LabelQ>Nail Length*</LabelQ>
-            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
+            </SelectQ>
+            {/* <LabelQ>Nail Length*</LabelQ>
+            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
         </FormBlock>
         <FormBlock>
             <LabelQ for="nail_shape">Nail Shape*</LabelQ>
