@@ -80,19 +80,32 @@ const NewProduct = ({history}) => {
   const {store, dispatch} = useGlobalState()
   const {products} = store
 
-  console.log(imageData)
+  const nL17 = 17
+  const nL18 = 18
+  const nL19 = 19
+  const nL20 = 20
+  const nL21 = 21
+  const nL22 = 22
+  const nL23 = 23
+
+
   return (
     <CentralForm>
       <NewFileUpload setImageData={setImageData} ></NewFileUpload>
       <form id="newProductForm" onSubmit={handleSubmit}>
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
           <FormBlock>
+            {/* <LabelQ>Nail Length</LabelQ>
+            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
               <LabelQ for="nail_length">Nail Length</LabelQ>
               <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
-                <option value="20">20mm</option>
-                <option value="25">25mm</option>
-                <option value="30">30mm</option>
-                <option value="35">35mm</option>
+                <option value={nL17} >17mm</option>
+                <option value={nL18} >18mm</option>
+                <option value={nL19} >19mm</option>
+                <option value={nL20} >20mm</option>
+                <option value={nL21} >21mm</option>
+                <option value={nL22} >22mm</option>
+                <option value={nL23} >23mm</option>
               </SelectQ>
           </FormBlock>
           <FormBlock>
