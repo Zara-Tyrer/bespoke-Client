@@ -4,7 +4,7 @@ import {Nav, Row, Logo} from './StyledComponents'
 
 const NavBar = () => {
   const imageStyles = {
-    height: "20vh"
+    height: "10vh"
   } 
   const navContainer = {
     display: "flex",
@@ -23,7 +23,7 @@ const NavBar = () => {
           <Logo to="/"><img style={imageStyles} src="/logo.png" alt="logo"></img></Logo>
           <Nav to="/contact">CONTACT</Nav>
           <Nav to="/products">SHOP</Nav>
-          <Nav to="/products">ORDER NOW</Nav>
+          <Nav to="/orders/new">ORDER NOW</Nav>
       </div>
     </Row>
   )
