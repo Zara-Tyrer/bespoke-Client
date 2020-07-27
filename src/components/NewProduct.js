@@ -88,10 +88,23 @@ const NewProduct = ({history}) => {
   const nL22 = 22
   const nL23 = 23
 
+  const confirmTick = {
+    width: "2em",
+    padding: "1em",
+    marginTop: "-2.6em",
+    marginLeft: "3em"
+  }
+  const confirmedDiv = {
+    display: "flex",
+    justifyContent: "center"
+  }
 
   return (
     <CentralForm>
       <NewFileUpload setImageData={setImageData} ></NewFileUpload>
+      <div style={confirmedDiv}> 
+        {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
+      </div>
       <form id="newProductForm" onSubmit={handleSubmit}>
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
           <FormBlock>

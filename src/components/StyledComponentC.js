@@ -150,7 +150,7 @@ export const HomeHeading = styled.div `
   display: flex;
   justify-content: flex-end;
   font-size: 50px;
-  color: #525252;
+  color: #FFFFFF;
 `
 
 export const HomeSubHead = styled.div`
