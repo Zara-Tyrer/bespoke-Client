@@ -91,6 +91,18 @@ const NewOrder = ({history}) => {
   const nL22 = 22
   const nL23 = 23
 
+  const confirmTick = {
+    width: "2em",
+    padding: "1em",
+    marginTop: "-2.6em",
+    marginLeft: "3em"
+  }
+  const confirmedDiv = {
+    display: "flex",
+    justifyContent: "center"
+  }
+
+
   return (
     <div>
     <CentralForm>
@@ -99,7 +111,10 @@ const NewOrder = ({history}) => {
         <h3>Image Details</h3>
         <p>To include an example image, please choose a file and click 'Upload'. Your image will be submitted with your order.</p>
         </FormInfo>
-        <NewFileUpload setImageData={setImageData} ></NewFileUpload>
+        <NewFileUpload data-cy="fileUpload" setImageData={setImageData}></NewFileUpload>
+        <div style={confirmedDiv}>
+          {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
+        </div>
       </div>
       <form id="newOrderForm" onSubmit={handleSubmit}>
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -108,26 +123,26 @@ const NewOrder = ({history}) => {
         </FormInfo>
         <FormBlock>
             <LabelQ>Name*</LabelQ>
-            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+            <InputQ data-cy="nameOrder" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Address</LabelQ>
-            <TextAreaQ required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
+            <TextAreaQ data-cy="addressOrder" required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Email*</LabelQ>
-            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+            <InputQ data-cy="emailOrder" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Phone Number</LabelQ>
-            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+            <InputQ data-cy="numberOrder" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormInfo>
           <h3>Order Details</h3>
         </FormInfo>
         <FormBlock>
             <LabelQ for="nail_length">Nail Length</LabelQ>
-            <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
+            <SelectQ data-cy="lengthOrder" required name="nail_length" id="nail_length" onChange={handleChange}>
               <option value={nL17} >17mm</option>
               <option value={nL18} >18mm</option>
               <option value={nL19} >19mm</option>
@@ -141,7 +156,7 @@ const NewOrder = ({history}) => {
         </FormBlock>
         <FormBlock>
             <LabelQ for="nail_shape">Nail Shape*</LabelQ>
-            <SelectQ required name="nail_shape" id="cars" onChange={handleChange}>
+            <SelectQ data-cy="shapeOrder" required name="nail_shape" id="cars" onChange={handleChange}>
               <option value="Oval">Oval</option>
               <option value="Round">Round</option>
               <option value="Square">Square</option>
@@ -155,13 +170,13 @@ const NewOrder = ({history}) => {
         </FormBlock>
         <FormBlock>
             <LabelQ>Nail Style*</LabelQ>
-            <InputQ required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
+            <InputQ data-cy="styleOrder" required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <p>Total £30</p>
         </FormBlock>
         <FormBlock>
-            <InputButton type="submit" value="Submit order"></InputButton>
+            <InputButton data-cy="submitOrder" type="submit" value="Submit order"></InputButton>
         </FormBlock>
         
       </form>

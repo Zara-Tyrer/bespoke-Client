@@ -15,7 +15,6 @@ describe("test submit query", () => {
   })
   it('can enter query', () => {
     cy.get('[data-cy=contactLink]').click()
-    cy.url().should('include', '/contact')
     cy.get("[data-cy=nameQuery]").type(fixture.query.name)
     cy.get("[data-cy=emailQuery]").type(fixture.query.email)
     cy.get("[data-cy=numberQuery]").type(fixture.query.phone_number)

@@ -23,7 +23,7 @@ const NavBar = () => {
           <Logo to="/"><img style={imageStyles} src="/logo.png" alt="logo"></img></Logo>
           <Nav data-cy="contactLink" to="/contact">CONTACT</Nav>
           <Nav to="/products">SHOP</Nav>
-          <Nav to="/orders/new">ORDER NOW</Nav>
+          <Nav data-cy="orderLink" to="/orders/new">ORDER NOW</Nav>
       </div>
     </Row>
   )
