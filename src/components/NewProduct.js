@@ -87,12 +87,17 @@ const NewProduct = ({history}) => {
       <form id="newProductForm" onSubmit={handleSubmit}>
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
           <FormBlock>
-              <LabelQ>Nail Length</LabelQ>
-              <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ>
+              <LabelQ for="nail_length">Nail Length</LabelQ>
+              <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
+                <option value="20">20mm</option>
+                <option value="25">25mm</option>
+                <option value="30">30mm</option>
+                <option value="35">35mm</option>
+              </SelectQ>
           </FormBlock>
           <FormBlock>
               <LabelQ for="nail_shape">Nail Shape</LabelQ>
-              <SelectQ required name="nail_shape" id="cars" onChange={handleChange}>
+              <SelectQ required name="nail_shape" id="nail_shape" onChange={handleChange}>
                 <option value="Oval">Oval</option>
                 <option value="Round">Round</option>
                 <option value="Square">Square</option>
