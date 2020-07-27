@@ -60,22 +60,22 @@ const NewQuery = ({history}) => {
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
         <FormBlock>
             <LabelQ>Full Name*</LabelQ>
-            <InputQ required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+            <InputQ data-cy="nameQuery" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Email Address*</LabelQ>
-            <InputQ required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+            <InputQ data-cy="emailQuery" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Phone Number</LabelQ>
-            <InputQ required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+            <InputQ data-cy="numberQuery" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
         </FormBlock>
         <FormBlock>
             <LabelQ>Message*</LabelQ>
-            <TextAreaQ required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
+            <TextAreaQ data-cy="messageQuery" required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
         </FormBlock>
         <FormBlock>
-            <InputButton type="submit" value="Submit Query"></InputButton>
+            <InputButton data-cy="submitQuery" type="submit" value="Submit Query"></InputButton>
         </FormBlock>
       </form>
       </CentralForm>

@@ -24,8 +24,15 @@ describe('Test login', () => {
     cy.get("[data-cy=loginButton]").click()
     cy.url().should('include', '/dashboard')
   })
+  it('should logout admin', () => {
+    cy.get("[data-cy=login]").click()
+    cy.get("[data-cy=username]").type(fixture.registeredUser.username)
+    cy.get("[data-cy=password]").type(fixture.registeredUser.password)
+    cy.get("[data-cy=loginButton]").click()
+    cy.get("[data-cy=logout").click()
+    cy.get('[data-cy=login]').should('be.visible')
+  })
 })
-
 
 
 
