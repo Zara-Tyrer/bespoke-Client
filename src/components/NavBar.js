@@ -21,7 +21,7 @@ const NavBar = () => {
           <Nav to="/about">ABOUT</Nav>
           <Nav to="/giftcards">GIFT CARDS</Nav>
           <Logo to="/"><img style={imageStyles} src="/logo.png" alt="logo"></img></Logo>
-          <Nav to="/contact">CONTACT</Nav>
+          <Nav data-cy="contactLink" to="/contact">CONTACT</Nav>
           <Nav to="/products">SHOP</Nav>
           <Nav to="/orders/new">ORDER NOW</Nav>
       </div>
