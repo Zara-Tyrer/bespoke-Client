@@ -50,7 +50,7 @@ const Product = ({history, product}) => {
   const productDetails = {
     display: "flex",
     justifyContent: "space-between",
-    margin: ".5em"
+    // margin: ".5em"
   }
 
   return (

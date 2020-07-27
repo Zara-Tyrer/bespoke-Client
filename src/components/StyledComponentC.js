@@ -268,3 +268,5 @@ export const Pic = styled.img `
   width: 200px;
 
 `
+
+
