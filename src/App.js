@@ -39,7 +39,7 @@ const App = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  const {products, error, queries} = store
+  const {products, queries} = store
 
   function fetchProducts() {
     getAllProducts().then((productData) => {

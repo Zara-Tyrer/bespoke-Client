@@ -1,8 +1,8 @@
 import React from 'react'
 import Product from './Product'
 import {useGlobalState} from '../config/store'
-import {DashboardButton, CustomiseOrder, ProductsContainer, ProductsDiv, ProductsGrid} from './StyledComponents'
-import { findByLabelText } from '@testing-library/react'
+import {DashboardButton, CustomiseOrder, ProductsContainer, ProductsGrid} from './StyledComponents'
+
 
 
 const Products = () => {

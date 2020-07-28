@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
 import {deleteOrder, updateOrder} from '../services/orderServices'
 import {withRouter} from 'react-router-dom'
-import {ErrorText, OrderButton, InputButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
+import {ErrorText, OrderButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
 
 const Order = ({history, order}) => {
   const {store, dispatch} = useGlobalState()

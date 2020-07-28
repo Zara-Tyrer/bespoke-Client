@@ -56,9 +56,9 @@ const Footer = () => {
             <FooterLink to="/contact">CONTACT</FooterLink>
             <FooterLink to="/products">SHOP</FooterLink>
             <div>
-              <a target="_blank" href="https://www.instagram.com/bespoke_nails_/"><img style={socials} src="/instagram.png" alt="instagram"></img></a>
-              <a target="_blank" href="https://twitter.com/home"><img style={socials} src="/twitter.png" alt="twitter"></img></a>
-              <a target="_blank" href="https://www.facebook.com/BespokeNails.x/"><img style={socials} src="/facebook.png" alt="facebook"></img></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/bespoke_nails_/"><img style={socials} src="/instagram.png" alt="instagram"></img></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/home"><img style={socials} src="/twitter.png" alt="twitter"></img></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/BespokeNails.x/"><img style={socials} src="/facebook.png" alt="facebook"></img></a>
             </div>
           </NavBlock>
       </FooterContainer>

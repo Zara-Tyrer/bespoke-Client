@@ -57,7 +57,7 @@ const Product = ({history, product}) => {
     <ProductContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
       <ProductCard>
-      <img style={productImage} src={image.fileLink} alt="image"></img>
+      <img style={productImage} src={image.fileLink} alt="product"></img>
       <div style={productDetails}>
         £{cost}.00
         {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
