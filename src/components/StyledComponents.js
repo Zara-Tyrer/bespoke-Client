@@ -80,21 +80,22 @@ export const Logo = styled(Link) `
 export const DashboardNavDiv = styled.div `
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: #D3A29C;
+    color: white;
   `
 export const AdminSide = styled.div `
     display: flex;
-    align-items: flex-start;
 `
 export const DashboardLink = styled(Link) `
     font-size: 1.2em;
     text-decoration: none;
-    color: #525252;
+    ${'' /* color: #525252; */}
     margin: 1em;
     padding: .2em .5em;
     font-family: ${titleFontFamily};
+    color: white;
 `
 export const DashboardButton = styled(Link) `
     background-color: #D3A29C;
@@ -189,7 +190,8 @@ export const DashboardContainer = styled.div `
 
 //Orders Style
 export const OrdersContainer = styled.div `
-    display: flex
+    display: flex;
+    flex-wrap: wrap;
 `
 
 // Product styling
@@ -241,6 +243,7 @@ export const OrderContainer = styled.div `
     padding-bottom: none;
     background-color: #FFF3F1;
     box-shadow: 6px 5px 19px -3px rgba(0,0,0,0.5);
+    width: 12em;
 `
 export const OrderInfoDiv = styled.div `
     font-size: 10px;
