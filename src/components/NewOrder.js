@@ -54,6 +54,7 @@ const NewOrder = ({history}) => {
       nail_style: formState.nail_style,
       cost: 30
     }
+    console.log(newOrder)
 
     uploadImage(newOrder).then((order) => {
       addOrder(order).then((newOrder) => {
@@ -142,8 +143,9 @@ const NewOrder = ({history}) => {
           <h3>Order Details</h3>
         </FormInfo>
         <FormBlock>
-            <LabelQ for="nail_length">Nail Length</LabelQ>
+            <LabelQ htmlFor="nail_length">Nail Length</LabelQ>
             <SelectQ data-cy="lengthOrder" required name="nail_length" id="nail_length" onChange={handleChange}>
+              <option>Choose a length</option>
               <option value={nL17} >17mm</option>
               <option value={nL18} >18mm</option>
               <option value={nL19} >19mm</option>
@@ -156,8 +158,9 @@ const NewOrder = ({history}) => {
             <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
         </FormBlock>
         <FormBlock>
-            <LabelQ for="nail_shape">Nail Shape*</LabelQ>
-            <SelectQ data-cy="shapeOrder" required name="nail_shape" id="cars" onChange={handleChange}>
+            <LabelQ htmlFor="nail_shape">Nail Shape*</LabelQ>
+            <SelectQ data-cy="shapeOrder" required name="nail_shape" id="nail_shape" onChange={handleChange}>
+              <option>Choose a shape</option>
               <option value="Oval">Oval</option>
               <option value="Round">Round</option>
               <option value="Square">Square</option>
