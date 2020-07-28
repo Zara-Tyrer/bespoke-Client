@@ -4,7 +4,7 @@ import {Nav, Row, Logo} from './StyledComponents'
 
 const NavBar = () => {
   const imageStyles = {
-    height: "10vh"
+    height: "15vh"
   } 
   const navContainer = {
     display: "flex",

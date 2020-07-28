@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addProduct} from '../services/productServices'
-import { Block, Input, Label, InputButton, ErrorText} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo, SelectQ} from './StyledComponentC'
+import {InputButton, ErrorText} from './StyledComponents'
+import {CentralForm, FormBlock, LabelQ, InputQ, SelectQ} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 

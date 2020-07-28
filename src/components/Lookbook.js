@@ -32,7 +32,7 @@ const Lookbook = () => {
   return (
     <div style={instagramContainer}>
     <a style={bespokeLink} href="https://www.instagram.com/bespoke_nails_/">@bespoke_nails_</a>
-    <p style={designs}>Checkout my designs  💅🏼 </p>
+    <p style={designs}>Checkout my designs <span role="img" aria-label="nails"> 💅🏼 </span></p>
     <div>
       <div style={instaPics}>
         <InstagramEmbed 

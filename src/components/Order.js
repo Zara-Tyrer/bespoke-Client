@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
 import {deleteOrder, updateOrder} from '../services/orderServices'
 import {withRouter} from 'react-router-dom'
-import {ErrorText, OrderButton, InputButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
+import {ErrorText, OrderButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
 
 const Order = ({history, order}) => {
   const {store, dispatch} = useGlobalState()
@@ -92,8 +92,8 @@ const Order = ({history, order}) => {
       <OrderInfoDiv><b>Completed  </b>{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</OrderInfoDiv>
       
       <OrderButtons>
-            <OrderButton onClick={handleDelete}>Delete</OrderButton>
             <OrderButton onClick={handleCompleted}>Completed</OrderButton>
+            <OrderButton onClick={handleDelete}>Delete</OrderButton>
       </OrderButtons>
     </OrderContainer>
   )
