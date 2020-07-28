@@ -217,34 +217,30 @@ export const MidLeft = styled.div `
 `
 
 export const Lookbook = styled.div `
-  width: 300px;
-  padding: 8% 0% 8% 20%;
+  margin: 5% 0% 5% 15%;
 `
 
 export const Peek = styled(Link) `
   color: #FFFFFF;
   font-family: Abel;
   font-size: 24px;
-
+  padding-top: 2em;
   &:hover {
     color: #525252;
   }
-
 `
-
 export const LookWrite = styled.div `
   font-family: Abel;
   font-style: normal;
   font-weight: normal;
   font-size: 48px;
-  line-height: 61px;
-  text-align: center;
   letter-spacing: 0.1em;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  margin-left: 8%;
 `
 export const MidRight = styled.div`
   display: flex;
@@ -290,7 +286,7 @@ export const Squad = styled.div`
   font-size: 72px;
   font-family: Abel;
   justify-content: center;
-  ${'' /* align-items: center; */}
+  align-items: center;
   position: relative;
   z-index: 4;
 `

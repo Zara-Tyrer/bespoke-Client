@@ -34,7 +34,7 @@ const Home = () => {
         <HomeMidRow>
           <MidLeft>
             <Lookbook>
-              <img style={{width:"250px"}}src="/lookbookIcon.jpg" alt="lookbook" ></img>
+              <img style={{width:"18em"}}src="/lookbookIcon.jpg" alt="lookbook" ></img>
             </Lookbook>
             <LookWrite>
               <div>THE</div>
@@ -48,7 +48,7 @@ const Home = () => {
               <Giftcard src="/giftcard.png" alt="giftcard"></Giftcard>
                 <Squad>
                   <div>Treat</div>
-                  <div>Your</div>
+                  <div>your</div>
                   <div>Squad.</div> 
                 </Squad>
               </Circle>
