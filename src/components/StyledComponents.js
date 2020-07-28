@@ -201,9 +201,12 @@ export const ProductContainer = styled.div `
 export const ProductsContainer = styled.div `
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: auto;
 `
 export const ProductCard = styled.div `
     padding: 2em;
+    width: 15vw;
 `
 export const ProductsDiv = styled.div `
     display: flex;

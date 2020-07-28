@@ -11,7 +11,8 @@ const Products = () => {
     const showDashboardButton = loggedInUser
 
     const customiseOrder = {
-      padding: "3em",
+      paddingTop: "3em",
+      paddingBottom: ".git5em"
     }
     const customiseCard = {
       display: "flex",
@@ -32,18 +33,17 @@ const Products = () => {
             <CustomiseOrder to="/orders/new">CUSTOMISE</CustomiseOrder>
           </div>
         )}
-        <ProductsGrid>
+        
         <div>
-          <ProductsDiv>
+          <ProductsGrid>
             {products.map((product) => <Product key={product._id} product={product} />)}
-          </ProductsDiv>
+          </ProductsGrid>
           {showDashboardButton && (
             <div>
               <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
             </div>
           )}
         </div>
-        </ProductsGrid>
       </ProductsContainer>
     )
 }
