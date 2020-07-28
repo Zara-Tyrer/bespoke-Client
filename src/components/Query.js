@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteQuery, updateQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
-import{ErrorText} from './StyledComponents'
-import{QueryContainer, InnerContent, Button, RButton, LeftContent, QueryName} from './StyledComponentC'
+import{ErrorText, OrderButton} from './StyledComponents'
+import{QueryContainer, InnerContent, RButton, LeftContent, QueryName} from './StyledComponentC'
 
 const Query = ({history, query}) => {
   const {store, dispatch} = useGlobalState()
@@ -91,7 +91,7 @@ const Query = ({history, query}) => {
         <div style={{paddingLeft: "1em"}}>
           <div style={queryHeader}>
             <QueryName>{name}</QueryName>
-            <Button onClick={handleDelete}>Delete Query</Button>
+            <OrderButton onClick={handleDelete}>Delete Query</OrderButton>
           </div>
           <div>{email} / {phone_number}</div>
           <div>{message}</div>

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
   HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, 
   LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, 
-  Pic, MidRightTop} from './StyledComponentC'
+  Pic, MidRightTop, LinkText} from './StyledComponentC'
 
 const Home = () => {
 
@@ -55,7 +55,9 @@ const Home = () => {
               </Circle>
             </MidRightTop>
             <div style={{fontSize:"50px", display: "flex", justifyContent:"center", padding:"2%", margin:"2%"}}>
-                <Link to="/lookbook">GRAB A GIFT CARD</Link>
+                <Link to="/lookbook">
+                  <LinkText>GRAB A GIFT CARD</LinkText>
+                </Link>
             </div>
           </MidRight>
         </HomeMidRow>

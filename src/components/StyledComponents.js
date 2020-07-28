@@ -83,6 +83,7 @@ export const DashboardNavDiv = styled.div `
     justify-content: flex-start;
     align-items: center;
     background-color: #D3A29C;
+    color: white;
   `
 export const AdminSide = styled.div `
     display: flex;
@@ -90,10 +91,11 @@ export const AdminSide = styled.div `
 export const DashboardLink = styled(Link) `
     font-size: 1.2em;
     text-decoration: none;
-    color: #525252;
+    ${'' /* color: #525252; */}
     margin: 1em;
     padding: .2em .5em;
     font-family: ${titleFontFamily};
+    color: white;
 `
 export const DashboardButton = styled(Link) `
     background-color: #D3A29C;

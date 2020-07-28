@@ -298,6 +298,15 @@ export const InstaLink = styled.div `
   align-items: center;
   color: #C05277;
   font-family: Abel;
+
+`
+export const LinkText = styled.div `
+   ${InstaLink}:hover & {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+
+  }
 `
 export const InstaPics = styled.div `
   display: grid;

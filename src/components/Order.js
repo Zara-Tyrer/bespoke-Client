@@ -70,7 +70,9 @@ const Order = ({history, order}) => {
     width: "10em",
     height: "10em",
     borderRadius: "50px 0px",
-    marginBottom: "2em"
+    marginBottom: "2em",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
   const floatRight = {
     float: "right"

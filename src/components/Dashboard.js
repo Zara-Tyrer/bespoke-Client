@@ -25,7 +25,7 @@ const Dashboard = () => {
       </DashCol>
     </div>
     <div>
-      <h2>RECENT QUERIES</h2>
+      <h2 style={{ marginBottom: "1.5em"}}>RECENT QUERIES</h2>
       {queriesToDisplay.map((query) => <Query key={query._id} query={query} />)}
     </div>
     </DashGrid>
