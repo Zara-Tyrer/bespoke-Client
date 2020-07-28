@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteQuery, updateQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
-import{ErrorText} from './StyledComponents'
-import{QueryContainer, InnerContent, Button} from './StyledComponentC'
+import{ErrorText, OrderButton} from './StyledComponents'
+import{QueryContainer, InnerContent, RButton, LeftContent, QueryName} from './StyledComponentC'
 
 const Query = ({history, query}) => {
   const {store, dispatch} = useGlobalState()
@@ -67,11 +67,12 @@ const Query = ({history, query}) => {
    
   const queryHeader = {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignItems: "flex-start"
    } 
 
-  const completedIcon = {
-    width: "1em",
+  const largeIcon = {
+    width: "3.5em"
   }
 
   const queryFooter = {
@@ -83,17 +84,21 @@ const Query = ({history, query}) => {
   return (
     <QueryContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+      <LeftContent>
+      <div>{responded ? (<img style={largeIcon} src="/check.png" alt="tick"></img>) : (<img style={largeIcon} src="/question.png" alt="question"></img>)}</div>
+      </LeftContent>
       <InnerContent>
-        <div style={queryHeader}>
-          <h4>{name}</h4>
-          <Button onClick={handleDelete}>Delete Query</Button>
-        </div>
-        <p>Contact: {email}, {phone_number}</p>
-        <p>{message}</p>
-        <p>{formattedDate}</p>
-        <div style={queryFooter}>
-          <div>Responded:{responded ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</div>
-          <div><Button onClick={handleResponded}>Mark as Responded</Button></div>
+        <div style={{paddingLeft: "1em"}}>
+          <div style={queryHeader}>
+            <QueryName>{name}</QueryName>
+            <OrderButton onClick={handleDelete}>Delete Query</OrderButton>
+          </div>
+          <div>{email} / {phone_number}</div>
+          <div>{message}</div>
+          <div style={queryFooter}>
+            <div><RButton onClick={handleResponded}>Mark as Responded</RButton></div>
+            <p>{formattedDate}</p>
+          </div>
         </div>
       </InnerContent>
      

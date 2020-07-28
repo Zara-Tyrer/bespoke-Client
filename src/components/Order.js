@@ -70,7 +70,9 @@ const Order = ({history, order}) => {
     width: "10em",
     height: "10em",
     borderRadius: "50px 0px",
-    marginBottom: "2em"
+    marginBottom: "2em",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
   const floatRight = {
     float: "right"
@@ -85,7 +87,7 @@ const Order = ({history, order}) => {
       <OrderInfoDiv><b>Email</b><span style={floatRight}>{email}</span></OrderInfoDiv>
       <OrderInfoDiv><b>Number</b><span style={floatRight}>{phone_number}</span></OrderInfoDiv>
       <OrderInfoDiv><b>Nail style</b><span style={floatRight}>{nail_style}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Nail length</b><span style={floatRight}>{nail_length}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Nail length</b><span style={floatRight}>{nail_length}mm</span></OrderInfoDiv>
       <OrderInfoDiv><b>Nail shape</b><span style={floatRight}>{nail_shape}</span></OrderInfoDiv>
       <OrderInfoDiv><b>Price</b><span style={floatRight}>£{cost}.00</span></OrderInfoDiv>
       <OrderInfoDiv><b>Order date</b><span style={floatRight}>{formattedDate}</span></OrderInfoDiv>

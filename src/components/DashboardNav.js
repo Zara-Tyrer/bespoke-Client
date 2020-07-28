@@ -25,17 +25,15 @@ const DashboardNav = () => {
     width: "7em",
     padding: "2em",
     borderRadius: "50%"
-
   }
-  
 
   return (
     <AdminSide> 
       <DashboardNavDiv>
         <img style={profilePicStyles} src="profile-pic.png" alt="profile"></img>
-        <div>{loggedInUser}</div>
-        <DashboardLink data-cy="logout" onClick={handleLogout} to="/">Logout</DashboardLink>
-        <DashboardLink to="/dashboard">DASHBOARD</DashboardLink>
+        <div style={{fontSize:"20px"}}>{loggedInUser}</div>
+        <DashboardLink style={{fontSize:"15px"}} data-cy="logout" onClick={handleLogout} to="/">Logout</DashboardLink>
+        <DashboardLink style={{borderTop: "2px solid white"}} to="/dashboard">DASHBOARD</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>
         <DashboardLink to="/query">QUERIES</DashboardLink>
         <DashboardLink to="/products">SHOP</DashboardLink>
