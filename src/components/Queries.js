@@ -1,7 +1,6 @@
 import React from 'react'
 import Query from './Query'
 import {useGlobalState} from '../config/store'
-import {DashboardButton} from './StyledComponents'
 import DashboardNav from './DashboardNav'
 // import { findByLabelText } from '@testing-library/react'
 
@@ -29,7 +28,6 @@ const Queries = () => {
           {queries.map((query) => <Query key={query._id} query={query} />)}
         </div>
       </div>
-      <div><DashboardButton to="/dashboard">Back to Dashboard</DashboardButton></div>
     </div>
   )
 }

@@ -8,16 +8,32 @@ import {Link} from 'react-router-dom'
 // const titleFontFamily = 'Cabin'
 // const fontFamily = 'Roboto'
 
+//queries
 export const QueryContainer = styled.div `
   background-color: #FFF3F1;
   margin: 1em;
   width: 38vw;
+  box-shadow: 6px 5px 19px -3px rgba(0,0,0,0.5);
+  display: flex;
+  padding: 1em;
 `
 
 export const InnerContent = styled.div `
   padding: 1em;
+  width: 90%;
+  border-left: 2px #D3A29C solid;
+  font-family: Abel;
+  font-size: 12px;
+`
+export const QueryName = styled.div `
+  font-family: Abel;
+  letter-spacing: 1px;
+  font-size: 24px;
 `
 
+export const LeftContent = styled.div `
+  width: 10%;
+`
 export const Button = styled.button `
   background-color: #D3A29C;
   color: white;
@@ -26,8 +42,35 @@ export const Button = styled.button `
   border: none;
   font-size: 0.9em;
   margin: 0 0 0 33%;
+  box-shadow: 0 8px 6px -6px black;
 `
 
+export const RButton = styled.button `
+  background-color: #D3A29C;
+  color: white;
+  width: 150px;
+  padding: .2em;
+  font-size: 0.9em;
+  font-family: Abel;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 6px -6px black;
+  border: 5px solid #FFFFFF;
+`
+
+//dash
+export const DashGrid = styled.div `
+  display: grid;
+  grid-template-columns: 50% 40%;
+  margin: auto;
+  column-gap: 45px;
+`
+export const DashCol = styled.div `
+  display: flex;
+  flex-wrap: wrap;
+`
+
+
+//forms styling
 export const CentralForm = styled.div `
   background-image: url(${background});
   width: 60vw;

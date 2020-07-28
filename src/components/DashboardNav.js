@@ -33,8 +33,8 @@ const DashboardNav = () => {
     <AdminSide> 
       <DashboardNavDiv>
         <img style={profilePicStyles} src="profile-pic.png" alt="profile"></img>
-        <div>{loggedInUser}</div>
-        <DashboardLink data-cy="logout" onClick={handleLogout} to="/">Logout</DashboardLink>
+        <div style={{fontSize:"30px"}}>{loggedInUser}</div>
+        <DashboardLink style={{fontSize:"15px"}} data-cy="logout" onClick={handleLogout} to="/">Logout</DashboardLink>
         <DashboardLink to="/dashboard">DASHBOARD</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>
         <DashboardLink to="/query">QUERIES</DashboardLink>
