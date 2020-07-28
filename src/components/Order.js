@@ -94,7 +94,7 @@ const Order = ({history, order}) => {
       <OrderInfoDiv><b>Completed  </b>{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</OrderInfoDiv>
       
       <OrderButtons>
-            <OrderButton onClick={handleCompleted}>Completed</OrderButton>
+            <OrderButton data-cy="completedOrder" onClick={handleCompleted}>Completed</OrderButton>
             <OrderButton onClick={handleDelete}>Delete</OrderButton>
       </OrderButtons>
     </OrderContainer>

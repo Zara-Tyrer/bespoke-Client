@@ -111,7 +111,7 @@ const NewProduct = ({history}) => {
             {/* <LabelQ>Nail Length</LabelQ>
             <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
               <LabelQ for="nail_length">Nail Length</LabelQ>
-              <SelectQ required name="nail_length" id="nail_length" onChange={handleChange}>
+              <SelectQ data-cy="productLength" required name="nail_length" id="nail_length" onChange={handleChange}>
                 <option value={nL17} >17mm</option>
                 <option value={nL18} >18mm</option>
                 <option value={nL19} >19mm</option>
@@ -123,7 +123,7 @@ const NewProduct = ({history}) => {
           </FormBlock>
           <FormBlock>
               <LabelQ for="nail_shape">Nail Shape</LabelQ>
-              <SelectQ required name="nail_shape" id="nail_shape" onChange={handleChange}>
+              <SelectQ data-cy="productShape" required name="nail_shape" id="nail_shape" onChange={handleChange}>
                 <option value="Oval">Oval</option>
                 <option value="Round">Round</option>
                 <option value="Square">Square</option>
@@ -135,14 +135,14 @@ const NewProduct = ({history}) => {
           </FormBlock>
           <FormBlock>
               <LabelQ>Nail Style</LabelQ>
-              <InputQ required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
+              <InputQ data-cy="productStyle" required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
           </FormBlock>
           <FormBlock>
               <LabelQ>Cost</LabelQ>
-              <InputQ required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></InputQ>
+              <InputQ data-cy="productCost" required type="text" name="cost" placeholder="Enter a price" onChange={handleChange}></InputQ>
           </FormBlock>
           <FormBlock>
-              <InputButton type="submit" value="Add product"></InputButton>
+              <InputButton data-cy="productSubmit" type="submit" value="Add product"></InputButton>
           </FormBlock>
       </form>
     </CentralForm>

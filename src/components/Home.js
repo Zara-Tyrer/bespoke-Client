@@ -5,6 +5,24 @@ import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight,
   HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, 
   LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, 
   Pic, MidRightTop, InstagramHome, Peek, GrabGC} from './StyledComponentC'
+import {Star1, Star2, Star3} from './StyledComponents'
+
+  const starTwo = {
+    zIndex: "4",
+    margin: "-30px 30px 25px -20px",
+  }
+  const starOne = {
+    marginLeft: "-10px"
+  }
+  const starThree = {
+    marginLeft: "-50px"
+  }
+  const starContainer = {
+    display: "flex",
+    marginRight: "-180px",
+    marginTop: "60px",
+    zIndex: "10"
+  }
 
 const Home = () => {
 
@@ -44,6 +62,11 @@ const Home = () => {
           </MidLeft>
           <MidRight>
             <MidRightTop>
+            <div style={starContainer}>
+              <Star1 style={starOne}></Star1>
+              <Star2 style={starTwo}></Star2>
+              <Star3 style={starThree}></Star3>
+            </div>
               <Circle>
               <Giftcard src="/giftcard.png" alt="giftcard"></Giftcard>
                 <Squad>
@@ -70,14 +93,11 @@ const Home = () => {
             <Pic src="/nails5.png" alt="nails"></Pic>
           </InstaPics>
         </ThirdRow>
-
       </HomeWrapper>
     </div>
   )
 
 
 }
-
-
 
 export default Home
