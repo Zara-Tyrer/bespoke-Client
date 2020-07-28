@@ -1,11 +1,10 @@
 import React from 'react';
 // import {useGlobalState} from '../config/store'
 // import {getOrderFromId} from '../services/orderServices'
-import {Link} from 'react-router-dom'
 import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
   HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, 
   LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, 
-  Pic, MidRightTop, LinkText} from './StyledComponentC'
+  Pic, MidRightTop, InstagramHome, Peek, GrabGC} from './StyledComponentC'
 
 const Home = () => {
 
@@ -40,7 +39,7 @@ const Home = () => {
             <LookWrite>
               <div>THE</div>
               <div>LOOKBOOK</div>
-              <Link to="/lookbook" >TAKE A PEEK</Link>
+              <Peek to="/lookbook">TAKE A PEEK</Peek>
             </LookWrite>
           </MidLeft>
           <MidRight>
@@ -54,16 +53,14 @@ const Home = () => {
                 </Squad>
               </Circle>
             </MidRightTop>
-            <div style={{fontSize:"50px", display: "flex", justifyContent:"center", padding:"2%", margin:"2%"}}>
-                <Link to="/lookbook">
-                  <LinkText>GRAB A GIFT CARD</LinkText>
-                </Link>
+            <div style={{display: "flex", justifyContent:"center", padding:"2%", margin:"2%"}}>
+                <GrabGC to="/lookbook">GRAB A GIFT CARD</GrabGC>
             </div>
           </MidRight>
         </HomeMidRow>
         <ThirdRow>
           <InstaLink>
-            <a href="https://www.instagram.com/bespoke_nails_/">@bespoke_nails_</a>
+            <InstagramHome href="https://www.instagram.com/bespoke_nails_/">@bespoke_nails_</InstagramHome>
           </InstaLink>
           <InstaPics>
             <Pic src="/nails1.png" alt="nails"></Pic>

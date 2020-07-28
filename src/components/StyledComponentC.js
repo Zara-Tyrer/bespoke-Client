@@ -221,6 +221,17 @@ export const Lookbook = styled.div `
   padding: 8% 0% 8% 20%;
 `
 
+export const Peek = styled(Link) `
+  color: #FFFFFF;
+  font-family: Abel;
+  font-size: 24px;
+
+  &:hover {
+    color: #525252;
+  }
+
+`
+
 export const LookWrite = styled.div `
   font-family: Abel;
   font-style: normal;
@@ -283,6 +294,21 @@ export const Squad = styled.div`
   position: relative;
   z-index: 4;
 `
+export const GrabGC = styled(Link)`
+  font-family: Abel;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 46px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-decoration-line: underline;
+  color: #525252;
+
+  &:hover {
+    color: white;
+  }
+`
 
 export const ThirdRow = styled.div `
   display: flex;
@@ -296,12 +322,27 @@ export const InstaLink = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #C05277;
   font-family: Abel;
 
 `
+export const InstagramHome = styled.a `
+   color: black;
+
+  &:visited {
+   color: black
+  }
+`
+
 export const LinkText = styled.div `
-   ${InstaLink}:hover & {
+   color: black;
+   text-decoration: none;
+
+   &:visited {
+     color: black;
+     text-decoration: none;
+   }
+   
+   &:hover {
     text-decoration: underline;
     cursor: pointer;
     color: black;
