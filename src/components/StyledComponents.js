@@ -10,6 +10,7 @@ const titleFontFamily = 'Cabin'
 export const Page = styled.div `
     font-family: 'Cabin';
     width: 100vw;
+    color: #525252;
 `
 export const Block = styled.div `
     display: grid;
@@ -85,6 +86,7 @@ export const DashboardNavDiv = styled.div `
   `
 export const AdminSide = styled.div `
     display: flex;
+    align-items: flex-start;
 `
 export const DashboardLink = styled(Link) `
     font-size: 1.2em;
@@ -106,7 +108,7 @@ export const DashboardButton = styled(Link) `
     box-shadow: 0 8px 6px -6px black;
     border: 5px solid #FFFFFF;
     text-decoration: none;
-    text-align: center
+    text-align: center;
 `
 
 // Footer styles
@@ -164,6 +166,7 @@ export const ShopLink = styled(Link) `
 export const OrderLink = styled.button `
 
 ` 
+
 export const CustomiseOrder = styled(Link) `
     background-color: #D3A29C;
     color: white;
@@ -227,4 +230,35 @@ export const BackLink = styled(Link) `
     font-family: 'Cabin';
     text-decoration: none;
     color: #D3A29C;
+`
+
+//orders styling 
+export const OrderContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 1.5em;
+    padding-bottom: none;
+    background-color: #FFF3F1;
+    box-shadow: 6px 5px 19px -3px rgba(0,0,0,0.5);
+`
+export const OrderInfoDiv = styled.div `
+    font-size: 10px;
+    padding-top: 7px;
+`
+export const OrderNameDiv = styled.div `
+    border-top: 1px solid #D3A29C;
+    padding-top: 1em;
+    font-size: 10px;
+`
+export const OrderButton = styled.button `
+    margin-top: 10px;
+    background-color: #FFF3F1;
+    border: 3px solid white;
+    color: #525252
+`
+
+export const OrderButtons = styled.div `
+    display: flex;
+    justify-content: space-between;
 `

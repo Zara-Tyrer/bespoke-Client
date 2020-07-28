@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
 import {deleteOrder, updateOrder} from '../services/orderServices'
 import {withRouter} from 'react-router-dom'
-import {ErrorText, Button, InputButton} from './StyledComponents'
+import {ErrorText, OrderButton, InputButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
 
 const Order = ({history, order}) => {
   const {store, dispatch} = useGlobalState()
@@ -66,26 +66,36 @@ const Order = ({history, order}) => {
     width: "1em",
   }
 
+  const imageStyle = {
+    width: "10em",
+    height: "10em",
+    borderRadius: "50px 0px",
+    marginBottom: "2em"
+  }
+  const floatRight = {
+    float: "right"
+  }
+
   return (
-    <div>
+    <OrderContainer>
       {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-      <p>Name: {name}</p>
-      <p>Address: {address}</p>
-      <p>Email: {email}</p>
-      <p>Number: {phone_number}</p>
-      <img src={image.fileLink} alt="nails"></img>
-      <p>Nail style: {nail_style}</p>
-      <p>Nail length: {nail_length}</p>
-      <p>Nail shape: {nail_shape}</p>
-      <p>Price: £{cost}.00</p>
-      <p>Order date: {formattedDate}</p>
-      <div>Completed:{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</div>
+      <img style={imageStyle} src={image.fileLink} alt="nails"></img>
+      <OrderNameDiv><b>Name</b> <span style={floatRight}>{name}</span></OrderNameDiv>
+      <OrderInfoDiv><b>Address</b> <span style={floatRight}>{address}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Email</b><span style={floatRight}>{email}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Number</b><span style={floatRight}>{phone_number}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Nail style</b><span style={floatRight}>{nail_style}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Nail length</b><span style={floatRight}>{nail_length}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Nail shape</b><span style={floatRight}>{nail_shape}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Price</b><span style={floatRight}>£{cost}.00</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Order date</b><span style={floatRight}>{formattedDate}</span></OrderInfoDiv>
+      <OrderInfoDiv><b>Completed  </b>{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</OrderInfoDiv>
       
-      <div>
-            <Button onClick={handleDelete}>Delete</Button>
-            <Button onClick={handleCompleted}>Completed</Button>
-      </div>
-    </div>
+      <OrderButtons>
+            <OrderButton onClick={handleDelete}>Delete</OrderButton>
+            <OrderButton onClick={handleCompleted}>Completed</OrderButton>
+      </OrderButtons>
+    </OrderContainer>
   )
 }
 
