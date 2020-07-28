@@ -24,7 +24,7 @@ const Products = () => {
       <ProductsContainer>
         {showDashboardButton && (
           <div>
-            <DashboardButton to="/products/new">Add New Product</DashboardButton>
+            <DashboardButton data-cy="newProductButton" to="/products/new">Add New Product</DashboardButton>
           </div>
         )}
         {!loggedInUser && (

@@ -38,7 +38,7 @@ const DashboardNav = () => {
         <DashboardLink to="/dashboard">DASHBOARD</DashboardLink>
         <DashboardLink to="orders">ORDERS</DashboardLink>
         <DashboardLink to="/query">QUERIES</DashboardLink>
-        <DashboardLink to="/products">SHOP</DashboardLink>
+        <DashboardLink data-cy="productLink" to="/products">SHOP</DashboardLink>
       </DashboardNavDiv>
     </AdminSide>
   )
