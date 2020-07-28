@@ -64,14 +64,14 @@ const NewFileUpload = ({setImageData}) => {
           onChange={onChange}
           placeholder="Description"
         ></InputQ>
-        <InputQ style={{width:"25%"}}
+        <InputQ data-cy="fileUpload" style={{width:"25%"}}
           type="file"
           name="file"
           id=""
           onChange={handleSelectedFile}
         ></InputQ>
       </FormBlock>
-      <Button type="submit" > 
+      <Button data-cy="picSubmit" type="submit" > 
         Upload
       </Button>
     </form>

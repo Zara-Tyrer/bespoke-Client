@@ -13,8 +13,16 @@ describe("test submit order", () => {
     cy.get('[data-cy=orderLink]').click()
     cy.url().should('include', '/orders/new')
   })
-  it('can enter query', () => {
+  it('can enter order and go to confirm page', () => {
     cy.get('[data-cy=orderLink]').click()
+    cy.fixture('nails.png').then(fileContent => {
+        cy.get("[data-cy=fileUpload]").attachFile({
+            fileContent: fileContent.toString(),
+            fileName: 'nails.png',
+            mimeType: 'image/png'
+        });
+    });
+    cy.get("[data-cy=picSubmit]").click()
     cy.get("[data-cy=nameOrder]").type(fixture.order.name)
     cy.get("[data-cy=addressOrder]").type(fixture.order.address)
     cy.get("[data-cy=numberOrder]").type(fixture.order.phone_number)

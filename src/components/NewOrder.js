@@ -7,6 +7,7 @@ import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ} fr
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
+
 const NewOrder = ({history}) => {
 
   function handleChange(event) {
@@ -111,7 +112,7 @@ const NewOrder = ({history}) => {
         <h3>Image Details</h3>
         <p>To include an example image, please choose a file and click 'Upload'. Your image will be submitted with your order.</p>
         </FormInfo>
-        <NewFileUpload data-cy="fileUpload" setImageData={setImageData}></NewFileUpload>
+        <NewFileUpload setImageData={setImageData}></NewFileUpload>
         <div style={confirmedDiv}>
           {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
         </div>
