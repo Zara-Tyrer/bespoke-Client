@@ -217,7 +217,8 @@ export const MidLeft = styled.div `
 `
 
 export const Lookbook = styled.div `
-  margin: 5% 0% 5% 15%;
+  width: 300px;
+  padding: 8% 0% 8% 20%;
 `
 
 export const Peek = styled(Link) `
@@ -234,13 +235,14 @@ export const LookWrite = styled.div `
   font-style: normal;
   font-weight: normal;
   font-size: 48px;
+  line-height: 61px;
+  text-align: center;
   letter-spacing: 0.1em;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-left: 8%;
+  align-content: center;
 `
 export const MidRight = styled.div`
   display: flex;
@@ -286,7 +288,7 @@ export const Squad = styled.div`
   font-size: 72px;
   font-family: Abel;
   justify-content: center;
-  align-items: center;
+  ${'' /* align-items: center; */}
   position: relative;
   z-index: 4;
 `
@@ -318,6 +320,7 @@ export const InstaLink = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #C05277;
   font-family: Abel;
 
 `
@@ -326,7 +329,7 @@ export const InstagramHome = styled.a `
    text-decoration: none;
 
   &:visited {
-   color: #A88F90;
+   color: #5B5758;
   }
 `
 
