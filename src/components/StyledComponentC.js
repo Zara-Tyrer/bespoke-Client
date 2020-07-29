@@ -322,10 +322,11 @@ export const InstaLink = styled.div `
 
 `
 export const InstagramHome = styled.a `
-   color: black;
+   color: #C05277;
+   text-decoration: none;
 
   &:visited {
-   color: black
+   color: #A88F90;
   }
 `
 

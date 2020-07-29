@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {withRouter} from 'react-router-dom'
 import {useGlobalState} from '../config/store'
 import {loginUser, setLoggedInUser} from '../services/authServices'
 import {InputButton, ErrorText} from './StyledComponents'
@@ -62,4 +63,4 @@ const SignIn = ({history}) => {
         </CentralForm>
     )
 }
-export default SignIn
+export default withRouter(SignIn)
