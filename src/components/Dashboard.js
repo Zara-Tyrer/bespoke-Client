@@ -11,8 +11,8 @@ const Dashboard = () => {
   const {store} = useGlobalState()
   const {orders, queries} = store
 
-  const ordersToDisplay = orders.slice(0, 3)
-  const queriesToDisplay = queries.slice(0, 3)
+  const ordersToDisplay = orders.slice(0, 4)
+  const queriesToDisplay = queries.slice(0, 4)
 
   return (
     <DashboardContainer>

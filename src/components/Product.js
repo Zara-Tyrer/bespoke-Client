@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {withRouter} from 'react-router-dom'
-import {Button, ErrorText, OrderLink, ProductContainer, ProductCard} from './StyledComponents'
+import {ButtonProduct, ErrorText, OrderLink, ProductContainer, ProductCard, ProductButtons} from './StyledComponents'
 
 const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
@@ -36,7 +36,6 @@ const Product = ({history, product}) => {
     event.preventDefault()
     history.push(`/products/edit/${product._id}`)
   }
-
   function handleOrder(event) {
     event.preventDefault()
     history.push(`/orders/edit/${product._id}`)
@@ -46,11 +45,13 @@ const Product = ({history, product}) => {
     width: "15vw",
     height: "15vw",
   }
-
   const productDetails = {
     display: "flex",
     justifyContent: "space-between",
     // margin: ".5em"
+  }
+  const floatRight = {
+    float: "right"
   }
 
   return (
@@ -59,18 +60,18 @@ const Product = ({history, product}) => {
       <ProductCard>
       <img style={productImage} src={image.fileLink} alt="product"></img>
       <div style={productDetails}>
-        £{cost}.00
+        <span style = {floatRight}>£{cost}.00</span>
         {!loggedInUser && (<OrderLink onClick={handleOrder}>Order</OrderLink>)}
       </div>
       {allowEditDelete && (
         <div>
-          <div>{nail_length}</div>
-          <div>{nail_shape}</div>
-          <div>{nail_style}</div>
-          <div>
-              <Button onClick={handleDelete}>Delete</Button>
-              <Button onClick={handleEdit}>Edit</Button>
-          </div>
+          <div>Nail Length <span style={floatRight}>{nail_length}</span></div>
+          <div>Nail Shape <span style={floatRight}>{nail_shape}</span></div>
+          <div>Nail Style <span style={floatRight}>{nail_style}</span></div>
+          <ProductButtons>
+              <ButtonProduct onClick={handleDelete}>Delete</ButtonProduct>
+              <ButtonProduct onClick={handleEdit}>Edit</ButtonProduct>
+          </ProductButtons>
         </div>
       )}
       </ProductCard>

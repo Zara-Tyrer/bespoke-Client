@@ -3,9 +3,5 @@
   "address": "Tester St",
   "phone_number": "00000000000",
   "email": "tester@test.com",
-  "nail_style": "daises",
-  "image": {
-    "description": "white and blue nails",
-    "fileLink": "https://bespoke-nails.s3-ap-southeast-2.amazonaws.com/Screen Shot 2020-07-25 at 21.12.40.png1595748353777"
-  }
+  "nail_style": "daises"
 }

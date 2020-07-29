@@ -219,6 +219,18 @@ export const ProductsGrid = styled.div `
     grid-template-rows: auto;
     grid-auto-flow: row; 
 `
+export const ButtonProduct = styled.button `
+    background-color: #D3A29C;
+    color: white;
+    width: 100px;
+    padding: .2em;
+    border: none;
+    font-size: 1.2em;
+    margin: 1em;
+`
+export const ProductButtons = styled.div `
+    display: flex;
+`
 
 // 404 not found styles
 export const NotFoundContainer = styled.div `
