@@ -71,8 +71,9 @@ const Order = ({history, order}) => {
     height: "10em",
     borderRadius: "50px 0px",
     marginBottom: "2em",
-    marginLeft: "auto",
-    marginRight: "auto"
+    marginLeft: "5%",
+    marginRight: "5%"
+
   }
   const floatRight = {
     float: "right"
@@ -80,23 +81,26 @@ const Order = ({history, order}) => {
 
   return (
     <OrderContainer>
-      {errorMessage && alert(errorMessage)}
-      <img style={imageStyle} src={image.fileLink} alt="nails"></img>
-      <OrderNameDiv><b>Name</b> <span style={floatRight}>{name}</span></OrderNameDiv>
-      <OrderInfoDiv><b>Address</b> <span style={floatRight}>{address}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Email</b><span style={floatRight}>{email}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Number</b><span style={floatRight}>{phone_number}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Nail style</b><span style={floatRight}>{nail_style}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Nail length</b><span style={floatRight}>{nail_length}mm</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Nail shape</b><span style={floatRight}>{nail_shape}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Price</b><span style={floatRight}>£{cost}.00</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Order date</b><span style={floatRight}>{formattedDate}</span></OrderInfoDiv>
-      <OrderInfoDiv><b>Completed  </b>{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</OrderInfoDiv>
-      
-      <OrderButtons>
-            <OrderButton data-cy="completedOrder" onClick={handleCompleted}>Completed</OrderButton>
-            <OrderButton onClick={handleDelete}>Delete</OrderButton>
-      </OrderButtons>
+      <div>
+        {errorMessage && alert(errorMessage)}
+        <img style={imageStyle} src={image.fileLink} alt="nails"></img>
+        <OrderNameDiv><b>Name</b> <span style={floatRight}>{name}</span></OrderNameDiv>
+        <OrderInfoDiv><b>Address</b> <span style={floatRight}>{address}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Email</b><span style={floatRight}>{email}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Number</b><span style={floatRight}>{phone_number}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Nail style</b><span style={floatRight}>{nail_style}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Nail length</b><span style={floatRight}>{nail_length}mm</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Nail shape</b><span style={floatRight}>{nail_shape}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Price</b><span style={floatRight}>£{cost}.00</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Order date</b><span style={floatRight}>{formattedDate}</span></OrderInfoDiv>
+        <OrderInfoDiv><b>Completed  </b>{completed ? (<img style={completedIcon} src="tick.png" alt="tick"></img>) : (<img style={completedIcon} src="close.png" alt="cross"></img>)}</OrderInfoDiv>
+      </div>
+      <div>
+        <OrderButtons>
+              <OrderButton data-cy="completedOrder" onClick={handleCompleted}>Completed</OrderButton>
+              <OrderButton onClick={handleDelete}>Delete</OrderButton>
+        </OrderButtons>
+      </div>
     </OrderContainer>
   )
 }

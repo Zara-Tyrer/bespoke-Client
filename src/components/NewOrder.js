@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addOrder} from '../services/orderServices'
 import {InputButton} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ} from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ, SubmitButton} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
@@ -73,8 +73,9 @@ const NewOrder = ({history}) => {
     })
     })
   }
+
+  //set initial form state to empty
   const initialFormState = {
-    // add auto-filled form if product selected from shop
     nail_length: 0,
     nail_shape: "",
     nail_style: "",
@@ -85,6 +86,7 @@ const NewOrder = ({history}) => {
   const {orders} = store
   const [imageData, setImageData] = useState(null)
 
+  // variables for the nail_length dropdown
   const nL17 = 17
   const nL18 = 18
   const nL19 = 19
@@ -107,84 +109,81 @@ const NewOrder = ({history}) => {
 
   return (
     <div>
-    <CentralForm>
-      <div style={{paddingTop:"1em"}}>
-        <FormInfo>
-        <h3>Image Details</h3>
-        <p>To include an example image, please choose a file and click 'Upload'. Your image will be submitted with your order.</p>
-        </FormInfo>
-        <NewFileUpload setImageData={setImageData}></NewFileUpload>
-        <div style={confirmedDiv}>
-          {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
+      <CentralForm>
+        <div style={{paddingTop:"1.5em", paddingBottom:"1.5em"}}>
+          <div>
+            <FormInfo>
+              <h3>Image Details</h3>
+              <p>To include an image, please choose a file and click 'Upload'. Your image will be submitted with your order.</p>
+            </FormInfo>
+            <NewFileUpload setImageData={setImageData}></NewFileUpload>
+            <div style={confirmedDiv}>
+              {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
+            </div>
+          </div>
+          <form id="newOrderForm" onSubmit={handleSubmit}>
+            {errorMessage && alert(errorMessage)}
+            <FormInfo>
+              <h3>Contact Details</h3>
+            </FormInfo>
+            <FormBlock>
+              <LabelQ>Name*</LabelQ>
+              <InputQ data-cy="nameOrder" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+            </FormBlock>
+            <FormBlock>
+              <LabelQ>Address</LabelQ>
+              <TextAreaQ data-cy="addressOrder" required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
+            </FormBlock>
+            <FormBlock>
+              <LabelQ>Email*</LabelQ>
+              <InputQ data-cy="emailOrder" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+            </FormBlock>
+            <FormBlock>
+              <LabelQ>Phone Number</LabelQ>
+              <InputQ data-cy="numberOrder" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+            </FormBlock>
+            <FormInfo>
+              <h3>Order Details</h3>
+            </FormInfo>
+            <FormBlock>
+              <LabelQ htmlFor="nail_length">Nail Length*</LabelQ>
+              <SelectQ data-cy="lengthOrder" required name="nail_length" id="nail_length" onChange={handleChange}>
+                <option>Choose a length</option>
+                <option value={nL17} >17mm</option>
+                <option value={nL18} >18mm</option>
+                <option value={nL19} >19mm</option>
+                <option value={nL20} >20mm</option>
+                <option value={nL21} >21mm</option>
+                <option value={nL22} >22mm</option>
+                <option value={nL23} >23mm</option>
+              </SelectQ>
+            </FormBlock>
+            <FormBlock>
+              <LabelQ htmlFor="nail_shape">Nail Shape*</LabelQ>
+              <SelectQ data-cy="shapeOrder" required name="nail_shape" id="nail_shape" onChange={handleChange}>
+                <option>Choose a shape</option>
+                <option value="Oval">Oval</option>
+                <option value="Round">Round</option>
+                <option value="Square">Square</option>
+                <option value="Squoval">Squoval</option>
+                <option value="Stiletto">Stiletto</option>
+                <option value="Coffin">Coffin/Ballerina</option>
+                <option value="Almond">Almond</option>
+              </SelectQ>
+            </FormBlock>
+            <FormBlock>
+              <LabelQ>Nail Style*</LabelQ>
+              <InputQ data-cy="styleOrder" required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
+            </FormBlock>
+            <FormBlock>
+              <p>Total £30</p>
+            </FormBlock>
+            <FormBlock>
+              <SubmitButton data-cy="submitOrder" type="submit" value="SUBMIT ORDER"></SubmitButton>
+            </FormBlock>
+          </form>
         </div>
-      </div>
-      <form id="newOrderForm" onSubmit={handleSubmit}>
-        {errorMessage && alert(errorMessage)}
-        <FormInfo>
-          <h3>Contact Details</h3>
-        </FormInfo>
-        <FormBlock>
-            <LabelQ>Name*</LabelQ>
-            <InputQ data-cy="nameOrder" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Address</LabelQ>
-            <TextAreaQ data-cy="addressOrder" required type="text" name="address" placeholder="Enter your address" onChange={handleChange}></TextAreaQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Email*</LabelQ>
-            <InputQ data-cy="emailOrder" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Phone Number</LabelQ>
-            <InputQ data-cy="numberOrder" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormInfo>
-          <h3>Order Details</h3>
-        </FormInfo>
-        <FormBlock>
-            <LabelQ htmlFor="nail_length">Nail Length</LabelQ>
-            <SelectQ data-cy="lengthOrder" required name="nail_length" id="nail_length" onChange={handleChange}>
-              <option>Choose a length</option>
-              <option value={nL17} >17mm</option>
-              <option value={nL18} >18mm</option>
-              <option value={nL19} >19mm</option>
-              <option value={nL20} >20mm</option>
-              <option value={nL21} >21mm</option>
-              <option value={nL22} >22mm</option>
-              <option value={nL23} >23mm</option>
-            </SelectQ>
-            {/* <LabelQ>Nail Length*</LabelQ>
-            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
-        </FormBlock>
-        <FormBlock>
-            <LabelQ htmlFor="nail_shape">Nail Shape*</LabelQ>
-            <SelectQ data-cy="shapeOrder" required name="nail_shape" id="nail_shape" onChange={handleChange}>
-              <option>Choose a shape</option>
-              <option value="Oval">Oval</option>
-              <option value="Round">Round</option>
-              <option value="Square">Square</option>
-              <option value="Squoval">Squoval</option>
-              <option value="Stiletto">Stiletto</option>
-              <option value="Coffin">Coffin/Ballerina</option>
-              <option value="Almond">Almond</option>
-            </SelectQ>
-            {/* <LabelQ>Nail Shape*</LabelQ>
-            <InputQ required type="text" name="nail_shape" placeholder="Enter a nail shape" onChange={handleChange}></InputQ> */}
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Nail Style*</LabelQ>
-            <InputQ data-cy="styleOrder" required type="text" name="nail_style" placeholder="Enter a nail style" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <p>Total £30</p>
-        </FormBlock>
-        <FormBlock>
-            <InputButton data-cy="submitOrder" type="submit" value="Submit order"></InputButton>
-        </FormBlock>
-        
-      </form>
-    </CentralForm>
+      </CentralForm>
     </div>
   ) 
 

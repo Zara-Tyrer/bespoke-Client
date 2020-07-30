@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
 import {InputButton} from './StyledComponents'
-import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ } from './StyledComponentC'
+import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, SubmitButton } from './StyledComponentC'
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -56,28 +56,28 @@ const NewQuery = ({history}) => {
 
   return (
     <CentralForm>
-    <form id="newQueryForm" onSubmit={handleSubmit}>
-        {errorMessage && alert(errorMessage)}
-        <FormBlock>
-            <LabelQ>Full Name*</LabelQ>
-            <InputQ data-cy="nameQuery" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Email Address*</LabelQ>
-            <InputQ data-cy="emailQuery" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Phone Number</LabelQ>
-            <InputQ data-cy="numberQuery" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
-        </FormBlock>
-        <FormBlock>
-            <LabelQ>Message*</LabelQ>
-            <TextAreaQ data-cy="messageQuery" required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
-        </FormBlock>
-        <FormBlock>
-            <InputButton data-cy="submitQuery" type="submit" value="Submit Query"></InputButton>
-        </FormBlock>
-      </form>
+      <form style={{paddingTop:"1.5em", paddingBottom:"1.5em"}} id="newQueryForm" onSubmit={handleSubmit}>
+          {errorMessage && alert(errorMessage)}
+          <FormBlock>
+              <LabelQ>Full Name*</LabelQ>
+              <InputQ data-cy="nameQuery" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Email Address*</LabelQ>
+              <InputQ data-cy="emailQuery" required type="text" name="email" placeholder="Enter your email" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Phone Number</LabelQ>
+              <InputQ data-cy="numberQuery" required type="text" name="phone_number" placeholder="Enter your phone number" onChange={handleChange}></InputQ>
+          </FormBlock>
+          <FormBlock>
+              <LabelQ>Message*</LabelQ>
+              <TextAreaQ data-cy="messageQuery" required type="text" name="message" placeholder="What would you like to ask?" onChange={handleChange}></TextAreaQ>
+          </FormBlock>
+          <FormBlock>
+              <SubmitButton data-cy="submitQuery" type="submit" value="SUBMIT QUERY"></SubmitButton>
+          </FormBlock>
+        </form>
       </CentralForm>
   )
 

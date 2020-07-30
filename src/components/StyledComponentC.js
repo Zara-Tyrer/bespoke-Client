@@ -74,14 +74,14 @@ export const DashCol = styled.div `
 //forms styling
 export const CentralForm = styled.div `
   background-image: url(${background});
-  width: 60vw;
+  width: 50vw;
   margin: auto;
   border-radius: 30px;
   background-size: cover;
 `
 
 export const FormBlock = styled.div `
-  margin: 0.5em;
+  ${'' /* margin: 0.2em; */}
   padding: 1em;
   display: flex;
   flex-direction: row;
@@ -90,14 +90,14 @@ export const FormBlock = styled.div `
 `
 
 export const InputQ = styled.input `
-  width: 50%;
+  width: 45%;
   margin: .2em;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 `
 export const SelectQ = styled.select `
-  width: 50%;
+  width: 45%;
   margin: .2em;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -111,17 +111,51 @@ export const LabelQ = styled.label `
 `
 
 export const TextAreaQ = styled.textarea `
-  height: 150px;
-  margin: .5em;
-  width: 50%;
+  height: 100px;
+  margin: .2em;
+  width: 45%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 `
 export const FormInfo = styled.div `
   width: 70%;
   margin: auto;
+  font-family: Cabin;
+  text-align: center;
 `
 
+export const SubmitButton = styled.input `
+    ${'' /* background-color: #D3A29C;
+    color: white;
+    padding: .2em;
+    border: none;
+    font-size: 1.2em;
+    width: 200px;
+    font-family: Abel;
+    letter-spacing: 3px;
+    box-shadow: 0 8px 6px -6px black;
+    border: 5px solid #FFFFFF; */}
+
+    ${'' /* background: #F2F2F2; */}
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    font-family: Cabin;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D3A29C;
+    padding: 2%;
+    width: 200px;
+`
+
+
+//confirmation message
 export const ConfirmationBox = styled.div `
   display: flex;
   flex-direction: column;
