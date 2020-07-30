@@ -88,7 +88,7 @@ const Query = ({history, query}) => {
       <div>{responded ? (<img style={largeIcon} src="/check.png" alt="tick"></img>) : (<img style={largeIcon} src="/question.png" alt="question"></img>)}</div>
       </LeftContent>
       <InnerContent>
-        <div style={{paddingLeft: "1em"}}>
+        <div style={{paddingLeft: "0.5em"}}>
           <div style={queryHeader}>
             <QueryName>{name}</QueryName>
             <OrderButton onClick={handleDelete}>Delete Query</OrderButton>

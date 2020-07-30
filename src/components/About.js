@@ -1,5 +1,8 @@
 import React from 'react';
 
+//About page renders the images of the information catalogue
+
+
 const About = () => {
   const about = {
     width: "100vw"

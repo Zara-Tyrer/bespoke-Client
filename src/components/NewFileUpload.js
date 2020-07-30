@@ -40,7 +40,7 @@ const NewFileUpload = ({setImageData}) => {
       <form onSubmit={handleUpload} >
       <FormBlock >
         <LabelQ htmlFor="description">Description:</LabelQ>
-        <InputQ style={{width:"25%"}}
+        <InputQ style={{width:"20%"}}
           type="text"
           name="description"
           onChange={onChange}
@@ -53,7 +53,7 @@ const NewFileUpload = ({setImageData}) => {
           onChange={handleSelectedFile}
         ></InputQ>
       </FormBlock>
-      <Button data-cy="picSubmit" type="submit" > 
+      <Button style={{marginLeft:"40%"}} data-cy="picSubmit" type="submit" > 
         Upload
       </Button>
     </form>

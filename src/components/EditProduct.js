@@ -4,13 +4,17 @@ import {withRouter} from 'react-router-dom'
 import {getProductFromId, updateProduct} from '../services/productServices'
 import {Block, Input, Label, InputButton} from './StyledComponents'
 
-const EditProduct = ({history, match}) => {
+//Admin use to edit products in shop
 
+
+const EditProduct = ({history, match}) => {
+  //get products from store (global state)
   const {store, dispatch} = useGlobalState()
   const {products} = store
   const productId = match.params.id
   const product = getProductFromId(products, productId)
 
+  //handle change in form and setFormstate
   function handleChange(event) {
     const name = event.target.name
     const value = event.target.value
@@ -22,6 +26,7 @@ const EditProduct = ({history, match}) => {
 
   function handleSubmit(event) {
     event.preventDefault()
+    //update product upon submit
     const updatedProduct = {
       _id: product._id,
       nail_shape: formState.nail_shape,
@@ -29,14 +34,19 @@ const EditProduct = ({history, match}) => {
       nail_length: formState.nail_length,
       cost: formState.cost
     }
+    //calls async function update product (put request to server)
     updateProduct(updatedProduct).then(() => {
+      // filter creates an array of all products besides the one just updated 
       const otherProducts = products.filter((product) => product._id !== updatedProduct._id)
+      //set products in store with updated product and the array of all other non-updated products
       dispatch({
         type: "setProducts",
         data: [updatedProduct, ...otherProducts]
       })
+      //send back to products once submitted
       history.push(`/products`)
     }).catch((error) => {
+      //catch any errors, set error message in local state and raise an alert (see form) if error
         const status = error.response ? error.response.status : 500
         console.log("caught error on edit", error)
         if(status === 403)
@@ -54,9 +64,11 @@ const EditProduct = ({history, match}) => {
     cost: null
   }
 
+  //local state
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
 
+  //hook to set formState after render with 
   useEffect(() => {
     product && setFormState({
       nail_length: product.nail_length,

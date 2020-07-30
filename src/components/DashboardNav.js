@@ -3,9 +3,12 @@ import {useGlobalState} from '../config/store'
 import {DashboardNavDiv, AdminSide, DashboardLink} from './StyledComponents'
 import {logOutUser} from '../services/authServices'
 
+//The Navigation pane for Admin that appears on the left side when logged in. 
+//Contains links to admin actions to see all queries, all orders and link to the shop to add/edit/delete products (admin view only)
 
 const DashboardNav = () => {
 
+  //handle logout of admin and set logged in user (global state) to null 
   function handleLogout() {
     logOutUser().then((response) => {
         console.log("Got back response on logout", response.status)
@@ -16,8 +19,10 @@ const DashboardNav = () => {
         type: "setLoggedInUser",
         data: null
     })
-}
+  } 
 
+
+// call in global state for user
   const {store, dispatch} = useGlobalState()
   const {loggedInUser} = store
 
@@ -27,6 +32,7 @@ const DashboardNav = () => {
     borderRadius: "50%"
   }
 
+  //admin dash links, using Link, see styled components for css (flex)
   return (
     <AdminSide> 
       <DashboardNavDiv>

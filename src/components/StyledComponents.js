@@ -270,6 +270,7 @@ export const OrderContainer = styled.div `
     background-color: #FFF3F1;
     box-shadow: 6px 5px 19px -3px rgba(0,0,0,0.5);
     width: 12em;
+    justify-content: space-between;
 `
 export const OrderInfoDiv = styled.div `
     font-size: 10px;
