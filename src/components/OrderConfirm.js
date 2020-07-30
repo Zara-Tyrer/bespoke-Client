@@ -4,12 +4,12 @@ import {getOrderFromId} from '../services/orderServices'
 import {Link} from 'react-router-dom'
 import {Wrapper, ConfirmationBox} from './StyledComponentC'
 
-const OrderConfirm = ({history, match}) => {
+const OrderConfirm = ({match}) => {
   const {store} = useGlobalState()
   const {orders} = store
   const orderId = match.params.id
   const order = getOrderFromId(orders, orderId)
-  // const [errorMessage, setErrorMessage] = useState(null)
+
   if (!order) return null
 
   const {name, nail_length, nail_shape, nail_style} = order

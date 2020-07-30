@@ -27,6 +27,7 @@ const SignIn = ({history}) => {
         // Attempt login on server
         loginUser(userDetails).then(() => {
             setLoggedInUser(userDetails.username)
+            // set logged in admin in global state and redirect to dashboard
             dispatch({
                 type: "setLoggedInUser",
                 data: userDetails.username

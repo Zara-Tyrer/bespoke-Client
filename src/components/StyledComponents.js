@@ -105,6 +105,11 @@ export const DashboardButton = styled(Link) `
     border: 5px solid #FFFFFF;
     text-decoration: none;
     text-align: center;
+    margin-top: 1em;
+`
+export const BackDashContainer = styled.div `
+    display: flex;
+    justify-content: center;
 `
 
 // Footer styles
@@ -160,7 +165,16 @@ export const ShopLink = styled(Link) `
 `
 
 export const OrderLink = styled.button `
-
+    background-color: white;
+    border: 0px solid white;
+    color: #525252;
+    font-size: 16px;
+    text-decoration: underline;
+    &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: black;
+    }
 ` 
 
 export const CustomiseOrder = styled(Link) `
@@ -215,16 +229,21 @@ export const ProductsGrid = styled.div `
     grid-auto-flow: row; 
 `
 export const ButtonProduct = styled.button `
-    background-color: #D3A29C;
-    color: white;
-    width: 100px;
-    padding: .2em;
-    border: none;
-    font-size: 1.2em;
-    margin: 1em;
+    background-color: white;
+    border: 0px solid white;
+    color: #D3A29C;
+    font-size: 16px;
+    text-decoration: underline;
+    &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #966A65;
+    }
 `
 export const ProductButtons = styled.div `
     display: flex;
+    justify-content: space-between;
+    margin-top: 0.8em;
 `
 
 // 404 not found styles

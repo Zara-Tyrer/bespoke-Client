@@ -17,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     setOrdersToDisplay(orders.slice(0, 4))
     setQueriesToDisplay(queries.slice(0, 4))
-  }, [orders, queries])
+  }, [orders], [queries])
   
   return (
     <DashboardContainer>
