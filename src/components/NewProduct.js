@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addProduct} from '../services/productServices'
-import {InputButton, ErrorText} from './StyledComponents'
+import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, SelectQ} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
@@ -63,7 +63,7 @@ const NewProduct = ({history}) => {
       if(status === 403)
                 setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
             else
-                setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+                setErrorMessage("Oops there was an error, please make sure you uploaded an image for the product")
     })
   })   
   }
@@ -106,12 +106,11 @@ const NewProduct = ({history}) => {
         {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
       </div>
       <form id="newProductForm" onSubmit={handleSubmit}>
-          {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+          {errorMessage && alert(errorMessage)}
           <FormBlock>
-            {/* <LabelQ>Nail Length</LabelQ>
-            <InputQ required type="text" name="nail_length" placeholder="Enter a nail length" onChange={handleChange}></InputQ> */}
               <LabelQ for="nail_length">Nail Length</LabelQ>
               <SelectQ data-cy="productLength" required name="nail_length" id="nail_length" onChange={handleChange}>
+                <option>Choose a length</option>
                 <option value={nL17} >17mm</option>
                 <option value={nL18} >18mm</option>
                 <option value={nL19} >19mm</option>
@@ -124,6 +123,7 @@ const NewProduct = ({history}) => {
           <FormBlock>
               <LabelQ for="nail_shape">Nail Shape</LabelQ>
               <SelectQ data-cy="productShape" required name="nail_shape" id="nail_shape" onChange={handleChange}>
+                <option>Choose a shape</option>
                 <option value="Oval">Oval</option>
                 <option value="Round">Round</option>
                 <option value="Square">Square</option>

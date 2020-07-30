@@ -32,29 +32,11 @@ const NewFileUpload = ({setImageData}) => {
     console.log(formState.selectedFile)
     let data = new FormData();
     data.append("file", formState.selectedFile)
-    // data = ({ 
-    //   selectedFile: formState.selectedFile, 
-    //   description: formState.description
-    // })
     setImageData(data)
     console.log(Object.entries(data))
   }
 
-  //   axios
-  //     .post(endpoint, data)
-  //     .then(() => {
-  //       this.props.history.push("/");
-  //     })
-  //     .catch(error => {
-  //       alert("Oops some error happened, please try again");
-  //     });
-  
-
-  
-
-
     return (
-      
       <form onSubmit={handleUpload} >
       <FormBlock >
         <LabelQ htmlFor="description">Description:</LabelQ>
@@ -75,7 +57,6 @@ const NewFileUpload = ({setImageData}) => {
         Upload
       </Button>
     </form>
-    
   )
 }
 

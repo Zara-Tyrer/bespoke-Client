@@ -23,6 +23,7 @@ describe("test submit order", () => {
         });
     });
     cy.get("[data-cy=picSubmit]").click()
+    cy.wait(5000)
     cy.get("[data-cy=nameOrder]").type(fixture.order.name)
     cy.get("[data-cy=addressOrder]").type(fixture.order.address)
     cy.get("[data-cy=numberOrder]").type(fixture.order.phone_number)
@@ -31,6 +32,7 @@ describe("test submit order", () => {
     cy.get("[data-cy=lengthOrder]").select("17mm")
     cy.get("[data-cy=shapeOrder]").select("Round")
     cy.get("[data-cy=submitOrder]").click()
+    cy.wait(5000)
     cy.url().should('include', '/confirm')
   })
 })

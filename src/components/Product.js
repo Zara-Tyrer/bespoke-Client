@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {withRouter} from 'react-router-dom'
-import {ButtonProduct, ErrorText, OrderLink, ProductContainer, ProductCard, ProductButtons} from './StyledComponents'
+import {ButtonProduct, OrderLink, ProductContainer, ProductCard, ProductButtons} from './StyledComponents'
 
 const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
@@ -56,7 +56,7 @@ const Product = ({history, product}) => {
 
   return (
     <ProductContainer>
-      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+      {errorMessage && alert(errorMessage)}
       <ProductCard>
       <img style={productImage} src={image.fileLink} alt="product"></img>
       <div style={productDetails}>

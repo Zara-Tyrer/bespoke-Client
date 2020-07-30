@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {getProductFromId, updateProduct} from '../services/productServices'
-import {Block, ErrorText, Input, Label, InputButton} from './StyledComponents'
+import {Block, Input, Label, InputButton} from './StyledComponents'
 
 const EditProduct = ({history, match}) => {
 
@@ -68,7 +68,7 @@ const EditProduct = ({history, match}) => {
 
   return (
     <form id="editProductForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        {errorMessage && alert(errorMessage)}
         <Block>
             <Label>Nail Length</Label>
             <Input required type="text" name="nail_length" placeholder="Enter a nail length" value={formState.nail_length} onChange={handleChange}></Input>

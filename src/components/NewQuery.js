@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
-import {InputButton, ErrorText} from './StyledComponents'
+import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ } from './StyledComponentC'
 const NewQuery = ({history}) => {
   
@@ -57,7 +57,7 @@ const NewQuery = ({history}) => {
   return (
     <CentralForm>
     <form id="newQueryForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        {errorMessage && alert(errorMessage)}
         <FormBlock>
             <LabelQ>Full Name*</LabelQ>
             <InputQ data-cy="nameQuery" required type="text" name="name" placeholder="Enter your name" onChange={handleChange}></InputQ>

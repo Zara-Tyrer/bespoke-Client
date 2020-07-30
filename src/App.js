@@ -88,15 +88,14 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts()
-    fetchOrders()
-    fetchQueries()
 		userAuthenticated().then(() => {			 
 			dispatch({
 				type: "setLoggedInUser",
 				data: getLoggedInUser()
-			})
+      })
+      fetchOrders()
+      fetchQueries()
 		}).catch((error) => {
-			console.log("got an error trying to check authenticated user:", error)
 			setLoggedInUser(null) 
 			dispatch({
 				type: "setLoggedInUser",

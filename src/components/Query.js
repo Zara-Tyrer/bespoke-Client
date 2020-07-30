@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteQuery, updateQuery} from '../services/queryServices'
 import {withRouter} from 'react-router-dom'
-import{ErrorText, OrderButton} from './StyledComponents'
+import{OrderButton} from './StyledComponents'
 import{QueryContainer, InnerContent, RButton, LeftContent, QueryName} from './StyledComponentC'
 
 const Query = ({history, query}) => {
@@ -83,7 +83,7 @@ const Query = ({history, query}) => {
 
   return (
     <QueryContainer>
-      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+      {errorMessage && alert(errorMessage)}
       <LeftContent>
       <div>{responded ? (<img style={largeIcon} src="/check.png" alt="tick"></img>) : (<img style={largeIcon} src="/question.png" alt="question"></img>)}</div>
       </LeftContent>

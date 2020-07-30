@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Order from './Order'
 import Query from './Query'
 import DashboardNav from './DashboardNav'
@@ -10,10 +10,15 @@ import {DashGrid, DashCol} from './StyledComponentC'
 const Dashboard = () => {
   const {store} = useGlobalState()
   const {orders, queries} = store
+  
+  const [ordersToDisplay, setOrdersToDisplay]= useState([]) 
+  const [queriesToDisplay, setQueriesToDisplay]= useState([])
 
-  const ordersToDisplay = orders.slice(0, 4)
-  const queriesToDisplay = queries.slice(0, 4)
-
+  useEffect(() => {
+    setOrdersToDisplay(orders.slice(0, 4))
+    setQueriesToDisplay(queries.slice(0, 4))
+  }, [orders, queries])
+  
   return (
     <DashboardContainer>
     <DashboardNav></DashboardNav>

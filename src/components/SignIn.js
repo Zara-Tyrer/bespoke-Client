@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {withRouter} from 'react-router-dom'
 import {useGlobalState} from '../config/store'
 import {loginUser, setLoggedInUser} from '../services/authServices'
-import {InputButton, ErrorText} from './StyledComponents'
+import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, FormInfo} from './StyledComponentC'
 
 const SignIn = ({history}) => {
@@ -44,7 +44,7 @@ const SignIn = ({history}) => {
     return (
         <CentralForm>
             <form data-cy="loginForm" onSubmit={handleSubmit}>
-                {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+                {errorMessage && alert(errorMessage)}
                 <FormInfo style={{paddingTop:"2em"}}>
                     <h3>Admin Login</h3>
                 </FormInfo>

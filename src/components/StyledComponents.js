@@ -21,11 +21,6 @@ export const Row = styled.div `
     width: 100vw;
 `
 
-// Error styles
-export const ErrorText = styled.p `
-    color: red;
-`
-
 // Form styles
 export const InputButton = styled.input `
     background-color: #D3A29C;

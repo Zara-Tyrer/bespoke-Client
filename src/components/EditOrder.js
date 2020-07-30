@@ -3,7 +3,7 @@ import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {getProductFromId} from '../services/productServices'
 import {addOrder} from '../services/orderServices'
-import {ErrorText, InputButton} from './StyledComponents'
+import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo} from './StyledComponentC'
 
 const EditOrder = ({history, match}) => {
@@ -91,7 +91,7 @@ const EditOrder = ({history, match}) => {
   return (
     <CentralForm>
       <form id="editOrderForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        {errorMessage && alert(errorMessage)}
         <FormInfo style={{paddingTop:"1em"}}>
           <h3>Contact Details</h3>
         </FormInfo>
