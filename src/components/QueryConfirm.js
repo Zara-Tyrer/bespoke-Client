@@ -2,7 +2,7 @@ import React from 'react';
 import {useGlobalState} from '../config/store'
 import {getQueryFromId} from '../services/queryServices'
 import {Link} from 'react-router-dom'
-import {Wrapper, ConfirmationBox} from './StyledComponentC'
+import {Wrapper, ConfirmationBox, BackHome} from './StyledComponentC'
 
 // import {ErrorText} from './StyledComponents'
 
@@ -29,9 +29,10 @@ const QueryConfirm = ({history, match}) => {
           </div>
           <h3>Your query has been successfully submitted.</h3>
           <p>Thanks for contacting us, {name}, we'll be in touch soon.</p>
-          <p>Your query confirmation number is #{query._id}</p>
-          <div>
-            <Link to="/">Back to the homepage</Link>
+          <p>Your query confirmation number is: </p>
+          <p>#{query._id}</p>
+          <div style={{marginTop: "4em"}}>
+            <BackHome to="/">BACK TO HOMEPAGE</BackHome>
           </div>
         </ConfirmationBox>  
       </Wrapper>

@@ -127,8 +127,25 @@ export const ConfirmationBox = styled.div `
   flex-direction: column;
   margin: 1em;
   background-image: url(${background});
-  padding: 5em;
+  padding: 4em;
   border-radius: 30px;
+  align-items: center;
+`
+export const BackHome = styled(Link) `
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-decoration-line: underline;
+  color: #525252;
+  margin-top: 5em;
+
+  &:hover {
+    color: white;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -138,8 +155,6 @@ export const Wrapper = styled.div`
   margin-top: 6em;
   margin-bottom: 6em;
 `
-
-
 
 
 //homepage components
