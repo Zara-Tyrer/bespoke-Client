@@ -21,15 +21,17 @@ describe("test submit product", () => {
       cy.get("[data-cy=fileUpload]").attachFile({
           fileContent: fileContent.toString(),
           fileName: 'nails.png',
-          mimeType: 'image/png'
+          mimeType: 'image/png',
       });
     });
     cy.get("[data-cy=picSubmit]").click()
+    cy.wait(5000)
     cy.get("[data-cy=productLength]").select("18")
     cy.get("[data-cy=productShape]").select("Round")
     cy.get("[data-cy=productStyle]").type(fixture.product.nail_style)
     cy.get("[data-cy=productCost]").type(fixture.product.cost)
     cy.get("[data-cy=productSubmit]").click()
+    cy.wait(5000)
     cy.url().should('include', '/products')
   })
 })

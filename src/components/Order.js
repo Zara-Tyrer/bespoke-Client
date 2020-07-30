@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useGlobalState} from '../config/store'
 import {deleteOrder, updateOrder} from '../services/orderServices'
 import {withRouter} from 'react-router-dom'
-import {ErrorText, OrderButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
+import {OrderButton, OrderContainer, OrderInfoDiv, OrderNameDiv, OrderButtons} from './StyledComponents'
 
 const Order = ({history, order}) => {
   const {store, dispatch} = useGlobalState()
@@ -80,7 +80,7 @@ const Order = ({history, order}) => {
 
   return (
     <OrderContainer>
-      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+      {errorMessage && alert(errorMessage)}
       <img style={imageStyle} src={image.fileLink} alt="nails"></img>
       <OrderNameDiv><b>Name</b> <span style={floatRight}>{name}</span></OrderNameDiv>
       <OrderInfoDiv><b>Address</b> <span style={floatRight}>{address}</span></OrderInfoDiv>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addOrder} from '../services/orderServices'
-import {InputButton, ErrorText} from './StyledComponents'
+import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ} from './StyledComponentC'
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
@@ -119,7 +119,7 @@ const NewOrder = ({history}) => {
         </div>
       </div>
       <form id="newOrderForm" onSubmit={handleSubmit}>
-        {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+        {errorMessage && alert(errorMessage)}
         <FormInfo>
           <h3>Contact Details</h3>
         </FormInfo>
