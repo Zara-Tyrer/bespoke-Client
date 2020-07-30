@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product'
 import {useGlobalState} from '../config/store'
-import {DashboardButton, CustomiseOrder, ProductsContainer, ProductsGrid} from './StyledComponents'
+import {DashboardButton, CustomiseOrder, ProductsContainer, ProductsGrid, BackDashContainer} from './StyledComponents'
 
 
 
@@ -20,12 +20,11 @@ const Products = () => {
       alignItems: "center"
     }
 
+    // shows customise order when not logged in and add product and back to order when logged in
     return (
       <ProductsContainer>
         {showDashboardButton && (
-          <div>
-            <DashboardButton data-cy="newProductButton" to="/products/new">Add New Product</DashboardButton>
-          </div>
+          <DashboardButton data-cy="newProductButton" to="/products/new">Add New Product</DashboardButton>
         )}
         {!loggedInUser && (
           <div style={customiseCard}> 
@@ -39,9 +38,9 @@ const Products = () => {
             {products.map((product) => <Product key={product._id} product={product} />)}
           </ProductsGrid>
           {showDashboardButton && (
-            <div>
+            <BackDashContainer>
               <DashboardButton to="/dashboard">Back to Dashboard</DashboardButton>
-            </div>
+            </BackDashContainer>
           )}
         </div>
       </ProductsContainer>

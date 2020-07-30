@@ -30,7 +30,7 @@ const Footer = () => {
   const socials = {
     width: "1.2em",
     padding: "0.3em"
-  } // change to link to socials
+  } 
 
   return (
     <RowFooter> 
@@ -48,7 +48,7 @@ const Footer = () => {
               <div style={address}>Sidmouth</div>
               <div style={address}>EX10 8EE</div>
             </div>
-            <p style={title}>+44 7837 693909</p>
+            <p>+44 7837 693909</p>
             {!loggedInUser ? <AdminLoginButton to="/admin/login" data-cy="login">ADMIN LOGIN</AdminLoginButton> : <AdminLoginButton to="/dashboard">DASHBOARD</AdminLoginButton>}
           </NavBlock>
           <NavBlock>

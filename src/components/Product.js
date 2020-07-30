@@ -11,6 +11,7 @@ const Product = ({history, product}) => {
   if (!product) return null
 
   const {nail_length, nail_shape, nail_style, cost, image} = product 
+  // show edit and delete buttons when admin logged in
   const allowEditDelete = loggedInUser 
   function handleDelete(event) {
     event.preventDefault()
@@ -48,7 +49,6 @@ const Product = ({history, product}) => {
   const productDetails = {
     display: "flex",
     justifyContent: "space-between",
-    // margin: ".5em"
   }
   const floatRight = {
     float: "right"
