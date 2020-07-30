@@ -30,8 +30,10 @@ const Dashboard = () => {
       </DashCol>
     </div>
     <div>
-      <h2 style={{ marginBottom: "1.5em"}}>RECENT QUERIES</h2>
-      {queriesToDisplay.map((query) => <Query key={query._id} query={query} />)}
+      <h2 style={{ marginBottom: "1em"}}>RECENT QUERIES</h2>
+      <DashCol>
+        {queriesToDisplay.map((query) => <Query key={query._id} query={query} />)}
+      </DashCol>
     </div>
     </DashGrid>
     </DashboardContainer>

@@ -21,7 +21,7 @@ export const QueryContainer = styled.div `
 export const InnerContent = styled.div `
   padding: 1em;
   width: 90%;
-  border-left: 2px #D3A29C solid;
+  border-left: 1px #D3A29C solid;
   font-family: Abel;
   font-size: 12px;
 `
@@ -33,6 +33,7 @@ export const QueryName = styled.div `
 
 export const LeftContent = styled.div `
   width: 10%;
+  padding-right: 2%;
 `
 export const Button = styled.button `
   background-color: #D3A29C;
@@ -60,9 +61,9 @@ export const RButton = styled.button `
 //dash
 export const DashGrid = styled.div `
   display: grid;
-  grid-template-columns: 50% 40%;
-  margin: auto;
-  column-gap: 45px;
+  grid-template-columns: 48% 48%;
+  margin: 1%;
+  
 `
 export const DashCol = styled.div `
   display: flex;
