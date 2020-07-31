@@ -1,73 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the basic template.
+# Bespoke Nails
 
-## What's in the basic template?
-- It includes node-sass, and a style.scss (and removes all .css files)
-- It doesn't use serviceWorker
-- It replaces the react favicon with a flower of life icon
+#### Developers
+Jade Tyrer & Cassandra Zara
 
-## Available Scripts
+The Bespoke Nails client was built with React, utilizing the built-in React-Dom, React-Router-Dom and React Scripts. It was developed to fulfil project criteria for a MERN stack application for Coder Academy, 2020. 
 
-In the project directory, you can run:
+## Deployment
 
-### `yarn start`
+Deployed on Netlify:
+https://bespoke-nails.netlify.app/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Using Deployed Server:
+https://bespoke-nails.herokuapp.com/
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Part A: Planning and Purpose
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Current Iteration, as of July 2020:
 
-### `yarn build`
+The purpose of the application is to extend the online platform and functionality for "Bespoke Nails" to digitally manage orders and queries more easily during the work from home era. The application allows orders to be made online for press-on nails either for a pre-made design or by creating a custom order. The application allows the admin user to view and manage all orders and all queries in their dashboard, and manage the products in the shop. The customer is able to see examples of work in the 'Lookbook', view information in the 'About' page, order products from the shop or create a custom order and contact the admin via a query form. The customer receives an order or query confirmation for future reference. The data is persisted in a cloud Mongo database (Atlas), and AWS S3 storage bucket for image upload (see Bespoke-Server in Zara-Tyrer GitHub organization https://github.com/Zara-Tyrer) 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To see the full planning and purpose outline, including plans for functionality in later releases, links to the Figma prototype and overall Tech Stack, please see:
+https://github.com/Zara-Tyrer/MERNproject-partA
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Client Libraries (Dependencies)
 
-### `yarn eject`
+**React Testing Library**
+@testing-library/jest-dom
+@testing-library/react
+@testing-library/user-event
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Axios**
+HTTP client to manage request and response between the server API and client application. The two endpoints communicate through requests and responses with data in JSON format. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**React-instagram-embed**
+Structure to embed instagram posts from the product owner page into the 'Lookbook' in the application. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Styled-components**
+Used for consistent styling and theme across the application and to separate code for clarity in components. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Testing (DevDependencies)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Cypress was utilized for end-to-end integration testing. Tests were written and run for the main resources: Product*, Order*, Query and Admin User authentication. Please see the Cypress folder/videos to examine the tests. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Summary of Cypress tests](/CypressTest.png)
 
-### Code Splitting
+*It should be noted that there were difficulties in fully assessing the file upload functionality in the Cypress tests due to integration with AWS S3 storage. The test result demonstrates that a fileLink is created and saved into the resource but there were difficulties rendering the image from the test. This functionality was assessed manually and functions effectively both in the development and production environments. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## WorkFlow
 
-### Analyzing the Bundle Size
+A forking feature branch workflow was utilized by the developers throughout the project with daily communication to discuss allocation of tasks. As there was a very high level of verbal communication over video conference about which features were being worked on, consultation and demonstration of new code before merging into the central repository and substantial pair programming, tasks have not always been tagged by developer name. The developers consider the consistent and daily communication in allocating and collaborating on features to have been an effective process throughout the project. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The user stories were transferred to a Trello Kanban board, and their progress was tracked by tags that further broke down the task by time and difficulty. In general, tasks were first built into the server to develop CRUD functionality, Mocha tests written, Manual testing using VS Code client (client.http) and recorded in a spreadsheet (see docs). The task was then tagged with 'Done in Server'. The task was then moved into from Current Sprint (initial listing of tasks, tagged with Admin or Customer and whether authentication was required to use the route) to the 'To do' column. Once in the To-do column, a developer would then build the functionality into the client and once this was completed and tested manually by completing the action and checking the result in the deployed cloud Mongo database, the task was tagged 'Done in Client'. The task would then be moved into the 'In progress - needs styling' column. The developer would then apply styling and once satisfied, the task would be moved into the 'Done & Styled' Column. Cypress testing was used to assess the effectiveness of integration between the client, server, cloud database and the S3 bucket that was incorporated for file upload (see tasks tagged 'Beyond MVP'). The developers would regularly undertake review to consult and collaborate on choices about further functionality and styling on tasks in the 'Done & Styled' column. 
 
-### Making a Progressive Web App
+![Example of workflow using trello/kanban board](/trello.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Trello board: https://trello.com/b/iQyZYJnh/mern-project-part-a
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
