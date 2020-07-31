@@ -44,6 +44,7 @@ const DashboardNav = () => {
         <DashboardLink to="/query">QUERIES</DashboardLink>
         <DashboardLink data-cy="productLink" to="/products">SHOP</DashboardLink>
         <DashboardLink to="/admin/register">NEW ADMIN</DashboardLink>
+        <DashboardLink to="emails">EMAIL LIST</DashboardLink>
       </DashboardNavDiv>
     </AdminSide>
   )

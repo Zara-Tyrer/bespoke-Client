@@ -26,6 +26,12 @@ export default function (state, action) {
         queries: action.data
       }
     }
+    case "setEmails": {
+      return {
+        ...state,
+        emails: action.data
+      }
+    }
     case "setError": {
       return {
           ...state,
