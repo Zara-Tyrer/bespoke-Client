@@ -56,7 +56,7 @@ const EditProduct = ({history, match}) => {
       })
   }
 
-  // set the intital form state 
+  // set the intital form state to empty (initialize)
   const initialFormState = {
     nail_length: "",
     nail_shape: "",
@@ -68,7 +68,7 @@ const EditProduct = ({history, match}) => {
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
 
-  //hook to set formState after render with 
+  //hook to set formState after render with the product attributes to be edited
   useEffect(() => {
     product && setFormState({
       nail_length: product.nail_length,
@@ -78,6 +78,8 @@ const EditProduct = ({history, match}) => {
     })
   },[product])
 
+
+  //render form - add upload image functionality?
   return (
     <form id="editProductForm" onSubmit={handleSubmit}>
         {errorMessage && alert(errorMessage)}

@@ -1,11 +1,8 @@
 import React from 'react';
-// import {useGlobalState} from '../config/store'
-// import {getOrderFromId} from '../services/orderServices'
-import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, 
-  HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, 
-  LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, 
-  Pic, MidRightTop, InstagramHome, Peek, GrabGC} from './StyledComponentC'
+import {HomeWrapper, HomeTopRow, OrderNowHome, TopLeft, TopRight, HomeHeading, HomeSubHead, HomeMidRow, MidRight, MidLeft, Lookbook, LookWrite, Circle, Giftcard, Squad, ThirdRow, InstaLink, InstaPics, Pic, MidRightTop, InstagramHome, Peek, GrabGC} from './StyledComponentC'
 import {Star1, Star2, Star3} from './StyledComponents'
+
+// home page on '/' :extensive styling see styled components. Broken up in to 3 sections: topRow, midRow, thirdRow. 
 
   const starTwo = {
     zIndex: "4",
