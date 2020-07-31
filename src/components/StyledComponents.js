@@ -56,6 +56,10 @@ export const Button = styled.button `
     border: none;
     font-size: 1.2em;
     margin: 1em;
+    &:hover {
+        background-color: white;
+        color: #D3A29C; 
+    }
 `
 
 // Navbar styles
@@ -110,6 +114,11 @@ export const DashboardButton = styled(Link) `
     text-decoration: none;
     text-align: center;
     margin-top: 1em;
+    &:hover {
+        background-color: white;
+        color: #D3A29C;
+        border: 5px solid #D3A29C;
+    }
 `
 export const BackDashContainer = styled.div `
     display: flex;
@@ -147,9 +156,11 @@ export const NavBlock = styled.div `
 export const AdminLoginButton = styled(Link) `
     font-family: ${titleFontFamily};
     color: #D3A29C;
-    
     font-size: 1.2em;
-    margin-bottom: 0.7em
+    margin-bottom: 0.7em;
+    &:hover {
+        color: #CF776C;
+    }
 `
 
 // Lookbook and shop styles 

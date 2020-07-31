@@ -44,6 +44,10 @@ export const Button = styled.button `
   font-size: 0.9em;
   margin: 0 0 0 33%;
   box-shadow: 0 8px 6px -6px black;
+  &:hover {
+    background-color: white;
+    color: #D3A29C;
+  }
 `
 
 export const RButton = styled.button `
@@ -129,18 +133,6 @@ export const FormInfo = styled.div `
 `
 
 export const SubmitButton = styled.input `
-    ${'' /* background-color: #D3A29C;
-    color: white;
-    padding: .2em;
-    border: none;
-    font-size: 1.2em;
-    width: 200px;
-    font-family: Abel;
-    letter-spacing: 3px;
-    box-shadow: 0 8px 6px -6px black;
-    border: 5px solid #FFFFFF; */}
-
-    ${'' /* background: #F2F2F2; */}
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -156,6 +148,11 @@ export const SubmitButton = styled.input `
     color: #D3A29C;
     padding: 2%;
     width: 200px;
+    &:hover {
+      color: white;
+      background-color: #D3A29C;
+      cursor: pointer;
+    }
 `
 
 
