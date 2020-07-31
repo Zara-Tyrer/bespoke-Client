@@ -99,7 +99,7 @@ const NewOrder = ({history}) => {
     width: "2em",
     padding: "1em",
     marginTop: "-2.6em",
-    marginLeft: "3em"
+    marginLeft: "12em"
   }
   const confirmedDiv = {
     display: "flex",
@@ -118,7 +118,7 @@ const NewOrder = ({history}) => {
             </FormInfo>
             <NewFileUpload setImageData={setImageData}></NewFileUpload>
             <div style={confirmedDiv}>
-              {imageData && (<img style={confirmTick} src="/tick.png" alt="confirmed tick"></img>)}
+              {imageData && (<img style={confirmTick} src="/check.png" alt="confirmed tick"></img>)}
             </div>
           </div>
           <form id="newOrderForm" onSubmit={handleSubmit}>

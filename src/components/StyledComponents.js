@@ -86,11 +86,15 @@ export const AdminSide = styled.div `
 export const DashboardLink = styled(Link) `
     font-size: 1.2em;
     text-decoration: none;
-    ${'' /* color: #525252; */}
     margin: 1em;
     padding: .2em .5em;
     font-family: ${titleFontFamily};
     color: white;
+    &:hover {
+    background-color: white;
+    color: #D3A29C;
+    cursor: pointer;
+    }
 `
 export const DashboardButton = styled(Link) `
     background-color: #D3A29C;
@@ -285,7 +289,12 @@ export const OrderButton = styled.button `
     margin-top: 10px;
     background-color: #FFF3F1;
     border: 3px solid white;
-    color: #525252
+    color: #525252;
+    &:hover {
+        cursor: pointer;
+        color: #966A65;
+    }
+
 `
 
 export const OrderButtons = styled.div `

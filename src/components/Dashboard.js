@@ -22,7 +22,7 @@ const Dashboard = () => {
   useEffect(() => {
     setOrdersToDisplay(orders.slice(0, 4))
     setQueriesToDisplay(queries.slice(0, 4))
-  }, [orders], [queries])
+  }, [orders, queries])
   
   //dashboard is rendered as a grid with orders on the left and queries on the right - see Styled Components files for CSS
   return (
