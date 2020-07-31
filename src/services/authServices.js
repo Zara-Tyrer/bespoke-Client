@@ -13,12 +13,12 @@ export async function logOutUser() {
   return api.get("/admin/logout")
 }
 
-// export async function registerUser(userInfo) {
-//   // call to server to register user
-//   const response = await api.post("/admin/register", userInfo)
-//   console.log("got user back from server", response)
-//   return response.data
-// }
+export async function registerUser(userInfo) {
+  // call to server to register user
+  const response = await api.post("/admin/register", userInfo)
+  console.log("got user back from server", response)
+  return response.data
+}
 
   
 export async function userAuthenticated() {
