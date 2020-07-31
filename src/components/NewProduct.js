@@ -7,6 +7,8 @@ import {CentralForm, FormBlock, LabelQ, InputQ, SelectQ} from './StyledComponent
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
+//New product page only accessible by Admin. Utilises the NewFileUpload component for image upload to S3. 
+
 const NewProduct = ({history}) => {
 
   function handleChange(event) {
@@ -18,12 +20,15 @@ const NewProduct = ({history}) => {
     })
   }
   
-  
+  //uses the imageData which has been set in NewFileUpload, as the setImageData function has been passed to the component as a prop. 
   async function uploadImage(newProduct) {
     try{
       if (imageData) {
+        //if there is imageData available send a post request to uploads on the server
         const response = await api.post("/uploads", imageData)
+        //get S3 image link back in the response
         const imageURL = response.data
+        //append the image field to the newProduct (image is required in the schema for product)
         const updatedProduct = {
           ...newProduct,
           image: {
@@ -41,7 +46,7 @@ const NewProduct = ({history}) => {
       
     }
   }
-
+  //on submit of new product form, new product object is created from formState values
   function handleSubmit(event) {
     event.preventDefault()
     const newProduct = {
@@ -50,36 +55,45 @@ const NewProduct = ({history}) => {
       nail_style: formState.nail_style,
       cost: formState.cost
     }
+    //async function called to upload image to S3 and send back link to save in new Product object
     uploadImage(newProduct).then((product) => {
+      //new product created using post route (addProduct)
       addProduct(product).then((newProduct) => {
+      //new product saved into global state
       dispatch({
         type: 'setProducts',
         data: [newProduct, ...products]
       })
+      //return admin to products page
       history.push(`/products`)
-    }).catch((error) => {
-      const status = error.response ? error.response.status : 500
-      console.log('Caught error creating product', error)
-      if(status === 403)
-                setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
-            else
-                setErrorMessage("Oops there was an error, please make sure you uploaded an image for the product")
-    })
-  })   
+      }).catch((error) => {
+        const status = error.response ? error.response.status : 500
+        console.log('Caught error creating product', error)
+        if(status === 403)
+            setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+        else
+            setErrorMessage("Oops there was an error, please make sure you uploaded an image for the product")
+      })
+    })   
   }
+  
+  //initialize formstate to empty
   const initialFormState = {
-    // add auto-filled form if product selected from shop
     nail_length: 0,
     nail_shape: "",
     nail_style: "",
     cost: 0
   } 
+
+  //local state
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
+  //setImageData used in NewFileUpload
   const [imageData, setImageData] = useState(null)
   const {store, dispatch} = useGlobalState()
   const {products} = store
 
+  //variables for nail length used in form dropdown
   const nL17 = 17
   const nL18 = 18
   const nL19 = 19
@@ -88,6 +102,7 @@ const NewProduct = ({history}) => {
   const nL22 = 22
   const nL23 = 23
 
+  //local styles
   const confirmTick = {
     width: "2em",
     padding: "1em",
@@ -99,6 +114,7 @@ const NewProduct = ({history}) => {
     justifyContent: "center"
   }
 
+  //render one form with 2 submit buttons: file upload component rendered at top, upon upload image data saved in local state. Upon Submit of new product, new product created with filelink that has come through in response. 
   return (
     <CentralForm>
       <NewFileUpload setImageData={setImageData} ></NewFileUpload>

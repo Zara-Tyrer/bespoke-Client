@@ -7,9 +7,11 @@ import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, FormInfo, SelectQ, Su
 import NewFileUpload from './NewFileUpload'
 import api from '../config/api'
 
+//component is for a custom order with all field attributes empty
 
 const NewOrder = ({history}) => {
 
+  //handle change in form and setFormState to be used in creation of order using key-value pairs from name of field and value entered
   function handleChange(event) {
     const name = event.target.name
     const value = event.target.value
@@ -19,11 +21,15 @@ const NewOrder = ({history}) => {
     })
   }
 
+  //function checks if there is imageData (from NewFileUpload where setImageData is used with the file data)
   async function uploadImage(newOrder) {
     try{
       if (imageData) {
+        //if image data available use api (axios request to heroku server) to create an upload using the imageData
         const response = await api.post("/uploads", imageData)
+        //save the response data (fileURL from S3 upload) in ImageURL to save in order object
         const imageURL = response.data
+        //add the image field to the newOrder object using destructuring
         const updatedOrder = {
           ...newOrder,
           image: {
@@ -33,15 +39,17 @@ const NewOrder = ({history}) => {
         }
         return updatedOrder
       }
+      // if no image data, return the newOrder and the image field will have default S3 image link set in schema in server
       return newOrder
     }
+    //alert the user if there has been an error uploading image (must click upload)
     catch(error) {
       console.log(error)
       alert("Oops an error occurred uploading image, please try again");
-      
     }
   }
 
+  //upon submit, use the formState to create the attributes of the newOrder object
   function handleSubmit(event) {
     event.preventDefault()
     const newOrder = {
@@ -55,22 +63,26 @@ const NewOrder = ({history}) => {
       cost: 30
     }
     console.log(newOrder)
-
+    //call async function to upload the image data from NewFileUpload and post to create S3 fileLink and then append to the newOrder object
     uploadImage(newOrder).then((order) => {
+      //call add order to send a post request for the newOrder with fileLink 
       addOrder(order).then((newOrder) => {
+      //save newOrder in the global state/store with other orders
       dispatch({
         type: 'setOrders',
         data: [newOrder, ...orders]
       })
+      //send to confirmation page
       history.push(`/order/confirm/${newOrder._id}`)
-    }).catch((error) => {
-      const status = error.response ? error.response.status : 500
-      console.log('Caught error creating order', error)
-      if(status === 403)
-                setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
-            else
-                setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
-    })
+      //catch any errors and alert the user (see alert in form)
+      }).catch((error) => {
+        const status = error.response ? error.response.status : 500
+        console.log('Caught error creating order', error)
+        if(status === 403)
+            setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+        else
+            setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+      })
     })
   }
 
@@ -80,10 +92,13 @@ const NewOrder = ({history}) => {
     nail_shape: "",
     nail_style: "",
   } 
+
+  //local state
   const [formState,setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
   const {store, dispatch} = useGlobalState()
   const {orders} = store
+  //setImageData in NewFileUpload, pass as prop to component
   const [imageData, setImageData] = useState(null)
 
   // variables for the nail_length dropdown
@@ -95,6 +110,7 @@ const NewOrder = ({history}) => {
   const nL22 = 22
   const nL23 = 23
 
+  //local styles
   const confirmTick = {
     width: "2em",
     padding: "1em",
@@ -106,7 +122,10 @@ const NewOrder = ({history}) => {
     justifyContent: "center"
   }
 
-
+  //essentially 2 forms rendered but styled to look as one. 
+  //File upload at the top which will hold the image data in local state. 
+  //On submit of whole form (submit order) the post request on uploads will occur returning the fileLink which is saved in the NewOrder object
+  //styled components used for a consistent form styling
   return (
     <div>
       <CentralForm>

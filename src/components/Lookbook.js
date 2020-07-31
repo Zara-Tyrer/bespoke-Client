@@ -2,7 +2,10 @@ import React from 'react';
 import InstagramEmbed from 'react-instagram-embed';
 import {ShopLink} from './StyledComponents'
 
+//Lookbook with examples from instagram using instagram-embed
+
 const Lookbook = () => {
+  //local styles
   const instagramContainer = {
     display: "flex",
     flexDirection: "column",

@@ -2,10 +2,14 @@ import React from 'react'
 import {FooterLink, RowFooter, FooterContainer, NavBlock, AdminLoginButton} from './StyledComponents'
 import {useGlobalState} from '../config/store'
 
+//footer to render on bottom of each page with links and logo styling
+
 const Footer = () => {
   const {store} = useGlobalState()
+  //get logged in user from global state for control flow of ADMIN LOGON/DASHBOARD link
   const {loggedInUser} = store
-
+  
+  //local styling for footer (not used again)
   const title = {
     fontSize: "1.2em",
     textDecoration: "none",
@@ -32,6 +36,7 @@ const Footer = () => {
     padding: "0.3em"
   } 
 
+  //render footer using styled components - address/contact/page links/ socials
   return (
     <RowFooter> 
       <FooterContainer>

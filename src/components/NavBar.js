@@ -1,8 +1,10 @@
 import React from 'react';
 import {Nav, Row, Logo} from './StyledComponents'
 
+//Top header/navigation bar to appear on each page with styled Links and central logo. 
 
 const NavBar = () => {
+  //local styles
   const imageStyles = {
     height: "20vh"
   } 
@@ -14,6 +16,7 @@ const NavBar = () => {
     backgroundColor: "#F9FFFF"
   } 
 
+  //render using styled components
   return (
     <Row> 
       <div style={navContainer}>
