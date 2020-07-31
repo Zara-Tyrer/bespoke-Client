@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {deleteProduct} from '../services/productServices'
 import {withRouter} from 'react-router-dom'
-import {ButtonProduct, OrderLink, ProductContainer, ProductCard, ProductButtons} from './StyledComponents'
+import {ButtonProduct, OrderLink, ProductContainer, ProductCard, ProductButtons, ProductInfo} from './StyledComponents'
 
 const Product = ({history, product}) => {
   const {store, dispatch} = useGlobalState()
@@ -65,9 +65,9 @@ const Product = ({history, product}) => {
       </div>
       {allowEditDelete && (
         <div>
-          <div>Nail Length <span style={floatRight}>{nail_length}</span></div>
-          <div>Nail Shape <span style={floatRight}>{nail_shape}</span></div>
-          <div>Nail Style <span style={floatRight}>{nail_style}</span></div>
+          <ProductInfo>Nail Length <span style={floatRight}>{nail_length}</span></ProductInfo>
+          <ProductInfo>Nail Shape <span style={floatRight}>{nail_shape}</span></ProductInfo>
+          <ProductInfo>Nail Style <span style={floatRight}>{nail_style}</span></ProductInfo>
           <ProductButtons>
               <ButtonProduct onClick={handleDelete}>Delete</ButtonProduct>
               <ButtonProduct onClick={handleEdit}>Edit</ButtonProduct>

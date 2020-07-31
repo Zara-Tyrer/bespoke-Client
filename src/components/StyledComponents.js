@@ -211,7 +211,9 @@ export const OrdersContainer = styled.div `
 export const ProductContainer = styled.div `
     display: flex;
     flex-direction: column;
-
+`
+export const ProductInfo = styled.div `
+    font-size: 13px;
 `
 export const ProductsContainer = styled.div `
     display: flex;
