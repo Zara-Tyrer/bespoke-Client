@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import {useGlobalState} from '../config/store'
 import {withRouter} from 'react-router-dom'
 import {addQuery} from '../services/queryServices'
-import {InputButton} from './StyledComponents'
 import {CentralForm, FormBlock, LabelQ, InputQ, TextAreaQ, SubmitButton } from './StyledComponentC'
+
+//Contact form component for user to send through a query to admin. 
+
 const NewQuery = ({history}) => {
   
   function handleChange(event) {
@@ -15,6 +17,7 @@ const NewQuery = ({history}) => {
     })
   }
 
+  //Date field to be able to sort in admin dashboard
   function handleSubmit(event) {
     event.preventDefault()
     const newQuery = {
@@ -24,24 +27,25 @@ const NewQuery = ({history}) => {
       message: formState.message,
       date_created: Date.now()
     }
+    //call to server to create new query and then set in global state
     addQuery(newQuery).then((newQuery) => {
       dispatch({
         type: 'setQueries',
         data: [newQuery, ...queries]
       })
-      //change to confirmation message
-      console.log("created new query", newQuery._id)
+      //send user to confirmation message page
       history.push(`/contact/confirm/${newQuery._id}`)
     }).catch((error) => {
       const status = error.response ? error.response.status : 500
       console.log('Caught error creating new query', error)
+      //if error occurs, setErrorMessage in local state and alert in form
       if(status === 403)
-                setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
-            else
-                setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+          setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+      else
+          setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
     })
   }
-
+  //initialize formstate to empty
   const initialFormState = {
     name: "",
     email: "",
@@ -49,11 +53,13 @@ const NewQuery = ({history}) => {
     message: ""
   }
 
+  //local state
   const [formState, setFormState] = useState(initialFormState)
   const [errorMessage, setErrorMessage] = useState(null)
   const {store, dispatch} = useGlobalState()
   const {queries} = store
 
+  //render contact form using styled components for consistency
   return (
     <CentralForm>
       <form style={{paddingTop:"1.5em", paddingBottom:"1.5em"}} id="newQueryForm" onSubmit={handleSubmit}>
