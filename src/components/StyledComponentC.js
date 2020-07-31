@@ -56,7 +56,6 @@ export const RButton = styled.button `
   letter-spacing: 1px;
   box-shadow: 0 8px 6px -6px black;
   border: 5px solid #FFFFFF;
-
   &:hover {
     box-shadow: none;
     cursor: pointer;
