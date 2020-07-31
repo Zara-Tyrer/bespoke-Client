@@ -1,6 +1,7 @@
 import React from 'react'
 import {FooterLink, RowFooter, FooterContainer, NavBlock, AdminLoginButton} from './StyledComponents'
 import {useGlobalState} from '../config/store'
+import NewEmail from './NewEmail'
 
 //footer to render on bottom of each page with links and logo styling
 
@@ -38,7 +39,8 @@ const Footer = () => {
 
   //render footer using styled components - address/contact/page links/ socials
   return (
-    <RowFooter> 
+    <RowFooter>
+    {!loggedInUser && (<NewEmail />)}
       <FooterContainer>
           <NavBlock>
             <p style={title}>EXPLORE</p>

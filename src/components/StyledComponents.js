@@ -431,3 +431,82 @@ export const Star3 = styled.div `
   content: '';
 }
 `
+
+// email styles 
+export const EmailContainer = styled.div `
+    display: flex;
+    justify-content: space-between;
+`
+export const Emails = styled.div `
+    display: flex;
+    justify-content: space-between;
+    width: 20vw
+`
+export const EmailDeleteButton = styled.button `
+    background-color: #FFF3F1;
+    border: 0px solid white;
+    color: #D3A29C;
+    font-size: 16px;
+    text-decoration: underline;
+    &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #966A65;
+`
+export const EmailsContainer = styled.div `
+    background-color: #FFF3F1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+`
+export const EmailForm = styled.div `
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+export const EmailFormBlock = styled.div `
+    display: flex;
+    width: 60vw;
+`
+export const EmailSubmit = styled.button `
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+`
+export const EmailInput = styled.input `
+    width: 25vw;
+    padding-left: 1em;
+    letter-spacing: 2px;
+    border: 3px solid black;
+    padding: 5px;
+    padding-left: 20px;
+`
+export const EmailLabel = styled.label `
+    font-size: 1.2em;
+    color: black;
+    margin-right: 1em;
+    letter-spacing: 3px;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: 50px;
+`
+export const ComeOn = styled.div `
+    display: flex;
+    flex-direction: column;
+    border: 4px solid black;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-40deg);
+    margin: 40px;
+`
+export const Text = styled.div `
+    display: flex;
+    color: black;
+`
+

@@ -15,6 +15,7 @@ import RegisterAdmin from './components/RegisterAdmin'
 import Dashboard from './components/Dashboard'
 import Lookbook from './components/Lookbook'
 import Query from './components/Query'
+import Emails from './components/Emails'
 import Queries from './components/Queries'
 import NewQuery from './components/NewQuery'
 import QueryConfirm from './components/QueryConfirm'
@@ -23,6 +24,7 @@ import stateReducer from './config/stateReducer'
 import { getAllProducts, getProductFromId } from './services/productServices'
 import { getAllOrders } from './services/orderServices'
 import { getAllQueries, getQueryFromId} from './services/queryServices'
+import { getAllEmails } from './services/emailServices'
 import { userAuthenticated, setLoggedInUser, getLoggedInUser } from "./services/authServices"
 import {Page} from './components/StyledComponents'
 import About from './components/About'
@@ -36,7 +38,8 @@ const App = () => {
     products: [],
     orders: [],
     queries: [],
-    loggedInUser: null
+    loggedInUser: null,
+    emails: []
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
@@ -86,6 +89,20 @@ const App = () => {
       console.log("An error occurred fetching queries from the server: ", error)
     })
   }
+  function fetchEmails() {
+    getAllEmails().then((emailData) => {
+      dispatch({
+        type: "setEmails",
+        data: emailData
+      })
+    }).catch((error) => {
+      dispatch({
+        type: "setError",
+        data: true
+      })
+      console.log("An error occurred fetching queries from the server: ", error)
+    })
+  }
 
   useEffect(() => {
     fetchProducts()
@@ -96,6 +113,7 @@ const App = () => {
       })
       fetchOrders()
       fetchQueries()
+      fetchEmails()
 		}).catch((error) => {
 			setLoggedInUser(null) 
 			dispatch({
@@ -124,6 +142,7 @@ const App = () => {
               <Route exact path="/admin/login" component={SignIn} />
               <Route exact path="/admin/register" component={RegisterAdmin} />
               <Route exact path="/lookbook" component={Lookbook} />
+              <Route exact path="/emails" component={Emails} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/products/:id" render={(props) => <Product {...props} product={getProductFromId(products,props.match.params.id)} /> } />
               <Route exact path="/query/:id" render={(props) => <Query {...props} query={getQueryFromId(queries,props.match.params.id)} /> } />
