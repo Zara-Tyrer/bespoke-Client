@@ -96,7 +96,7 @@ const Query = ({history, query}) => {
           <div>{email} / {phone_number}</div>
           <div>{message}</div>
           <div style={queryFooter}>
-            <div><RButton onClick={handleResponded}>Mark as Responded</RButton></div>
+            <RButton onClick={handleResponded}>Mark as Responded</RButton>
             <p>{formattedDate}</p>
           </div>
         </div>
