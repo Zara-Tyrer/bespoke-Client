@@ -33,6 +33,12 @@ export const InputButton = styled.input `
     letter-spacing: 3px;
     box-shadow: 0 8px 6px -6px black;
     border: 5px solid #FFFFFF;
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #D3A29C;
+        border: 5px solid #D3A29C;
+    }
 `
 export const Input = styled.input `
     width: 60vw;
@@ -475,6 +481,12 @@ export const EmailSubmit = styled.button `
     letter-spacing: 2px;
     padding-left: 20px;
     padding-right: 20px;
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+    }
 `
 export const EmailInput = styled.input `
     width: 25vw;
